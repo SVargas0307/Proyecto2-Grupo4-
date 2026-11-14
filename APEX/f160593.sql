@@ -1,0 +1,9425 @@
+prompt --application/set_environment
+set define off verify off feedback off
+whenever sqlerror exit sql.sqlcode rollback
+--------------------------------------------------------------------------------
+--
+-- Oracle APEX export file
+--
+-- You should run this script using a SQL client connected to the database as
+-- the owner (parsing schema) of the application or as a database user with the
+-- APEX_ADMINISTRATOR_ROLE role.
+--
+-- This export file has been automatically generated. Modifying this file is not
+-- supported by Oracle and can lead to unexpected application and/or instance
+-- behavior now or in the future.
+--
+-- NOTE: Calls to apex_application_install override the defaults below.
+--
+--------------------------------------------------------------------------------
+begin
+wwv_flow_imp.import_begin (
+ p_version_yyyy_mm_dd=>'2026.04.07'
+,p_release=>'26.2.1'
+,p_default_workspace_id=>45649959298279222481
+,p_default_application_id=>160593
+,p_default_id_offset=>45737806510329442461
+,p_default_owner=>'WKSP_SVARGASFBD'
+);
+end;
+/
+ 
+prompt APPLICATION 160593 - Wheels Alpes
+--
+-- Application Export:
+--   Application:     160593
+--   Name:            Wheels Alpes
+--   Date and Time:   03:55 Saturday November 14, 2026
+--   Exported By:     S.VARGASL23@UNIANDES.EDU.CO
+--   Flashback:       0
+--   Export Type:     Application Export
+--     Pages:                     20
+--       Items:                   70
+--       Validations:              3
+--       Processes:               32
+--       Regions:                 45
+--       Buttons:                 27
+--       Dynamic Actions:          2
+--     Shared Components:
+--       Logic:
+--         Items:                  1
+--         Processes:              1
+--         Build Options:          1
+--       Navigation:
+--         Lists:                  2
+--         Breadcrumbs:            1
+--           Entries:             16
+--       Security:
+--         Authentication:         3
+--         Authorization:          4
+--       User Interface:
+--         Themes:                 1
+--         Templates:
+--         LOVs:                   5
+--       PWA:
+--       Globalization:
+--       Reports:
+--       E-Mail:
+--     Supporting Objects:  Included
+--   Version:         26.2.1
+--   Instance ID:     63113759365424
+--
+
+prompt --application/delete_application
+begin
+wwv_flow_imp.remove_flow(wwv_flow.g_flow_id);
+end;
+/
+prompt --application/create_application
+begin
+wwv_imp_workspace.create_flow(
+ p_id=>wwv_flow.g_flow_id
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'WKSP_SVARGASFBD')
+,p_name=>nvl(wwv_flow_application_install.get_application_name,'Wheels Alpes')
+,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'PARRANDEROS-NEW188892')
+,p_page_view_logging=>'YES'
+,p_page_protection_enabled_y_n=>'N'
+,p_checksum_salt=>'BFC21F85010FD5108328042341F5C45B133E408CA097B60A89466F28DE3B0F91'
+,p_bookmark_checksum_function=>'SH512'
+,p_compatibility_mode=>'26.1'
+,p_flow_language=>'en'
+,p_flow_language_derived_from=>'FLOW_PRIMARY_LANGUAGE'
+,p_allow_feedback_yn=>'Y'
+,p_date_format=>'DS'
+,p_timestamp_format=>'DS'
+,p_timestamp_tz_format=>'DS'
+,p_flow_image_prefix=>nvl(wwv_flow_application_install.get_image_prefix,'')
+,p_authentication_id=>wwv_flow_imp.id(139845843117197371423)
+,p_application_tab_set=>0
+,p_logo_type=>'T'
+,p_logo_text=>'Wheels Alpes'
+,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
+,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
+,p_flow_version=>'Release 1.0'
+,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
+,p_browser_cache=>'N'
+,p_browser_frame=>'D'
+,p_authorize_batch_job=>'N'
+,p_rejoin_existing_sessions=>'N'
+,p_csv_encoding=>'Y'
+,p_auto_time_zone=>'Y'
+,p_substitution_string_01=>'APP_NAME'
+,p_substitution_value_01=>'Parranderos New'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261114033941Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_file_prefix=>nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
+,p_files_version=>2461207185929
+,p_version_scn=>'15857363339516'
+,p_print_server_type=>'INSTANCE'
+,p_file_storage=>'DB'
+,p_is_pwa=>'Y'
+,p_pwa_is_installable=>'N'
+,p_pwa_is_push_enabled=>'N'
+,p_theme_id=>42
+,p_home_url=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+,p_login_url=>'f?p=&APP_ID.:LOGIN:&APP_SESSION.::&DEBUG.:::'
+,p_theme_style_by_user_pref=>false
+,p_built_with_love=>false
+,p_global_page_id=>0
+,p_navigation_list_id=>wwv_flow_imp.id(129444849184203472241)
+,p_navigation_list_position=>'SIDE'
+,p_navigation_list_template_id=>2469215554099805162
+,p_nav_list_template_options=>'#DEFAULT#:js-defaultCollapsed:js-navCollapsed--hidden:t-TreeNav--styleA'
+,p_nav_bar_type=>'LIST'
+,p_nav_bar_list_id=>wwv_flow_imp.id(129444849980998472247)
+,p_nav_bar_list_template_id=>2849019392706229583
+,p_nav_bar_template_options=>'#DEFAULT#'
+,p_translation_method=>'TEXT_MESSAGES'
+);
+end;
+/
+prompt --application/plugin_settings
+begin
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444843910449472232)
+,p_plugin_type=>'DYNAMIC ACTION'
+,p_plugin=>'NATIVE_OPEN_AI_ASSISTANT'
+,p_version_scn=>'SH256:NcagEyRP_F17oe14bnrSYSYienkBgpdRSvH17g_NxoE'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444844174583472233)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_COLOR_PICKER'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'mode', 'FULL')).to_clob
+,p_version_scn=>'SH256:FJR60MFzlfEjx0PvnpYBK4631rNeUHXaF3eGFKxcTgE'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444844491172472233)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_DATE_PICKER_APEX'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'appearance_behavior', 'MONTH-PICKER:YEAR-PICKER:TODAY-BUTTON',
+  'days_outside_month', 'VISIBLE',
+  'show_on', 'FOCUS',
+  'time_increment', '15')).to_clob
+,p_version_scn=>'SH256:dQTHqehcDG0h-d-qmHe5lf-DuViElEHDw9zMkscLr6M'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444844848044472234)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_GEOCODED_ADDRESS'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'background', 'default',
+  'display_as', 'LIST',
+  'map_preview', 'POPUP:ITEM',
+  'match_mode', 'RELAX_HOUSE_NUMBER',
+  'show_coordinates', 'N')).to_clob
+,p_version_scn=>'SH256:CU9J9l4sUtY-UffjdBCosfDW6ER-I0swXpw8GekLiYQ'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444845139741472234)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_SELECT_MANY'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_values_as', 'separated')).to_clob
+,p_version_scn=>'SH256:jJTPfH8wphTXe7ahDytF6PbWlPl1mXrDRYylCDda0k0'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444845378185472235)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_SINGLE_CHECKBOX'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'checked_value', 'Y',
+  'unchecked_value', 'N')).to_clob
+,p_version_scn=>'SH256:oAqKgc-cSRXHDMjfwwNIgo78WqYXKjQz8MWGBG6Euj0'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444845712839472235)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_STAR_RATING'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'default_icon', 'fa-star',
+  'tooltip', '#VALUE#')).to_clob
+,p_version_scn=>'SH256:uT4QhQbZQY61UFxAGl7ieo2urrCo8jUsFNprrg7lGHo'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444846040142472235)
+,p_plugin_type=>'ITEM TYPE'
+,p_plugin=>'NATIVE_YES_NO'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_style', 'SWITCH_CB',
+  'off_value', 'N',
+  'on_value', 'Y')).to_clob
+,p_version_scn=>'SH256:wAjuCAsVhoIbbuKGWTMQ__Rd_YS_sY9KgWhpqOO11mc'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444846309880472236)
+,p_plugin_type=>'PROCESS TYPE'
+,p_plugin=>'NATIVE_GEOCODING'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'match_mode', 'RELAX_HOUSE_NUMBER')).to_clob
+,p_version_scn=>'SH256:GIeRbUJQ8yKfen6-dFvkghmSUZXFoUAXCCTNRhCJgh0'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444846616412472236)
+,p_plugin_type=>'REGION TYPE'
+,p_plugin=>'NATIVE_DISPLAY_SELECTOR'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'include_slider', 'Y')).to_clob
+,p_version_scn=>'SH256:4M27aN0U-JyQ0prILtI8ITLXOphqUdO-xWNcwkSL1SI'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444846930080472237)
+,p_plugin_type=>'REGION TYPE'
+,p_plugin=>'NATIVE_IR'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'actions_menu_structure', 'IG',
+  'auto_ir_reset_button', 'N')).to_clob
+,p_version_scn=>'SH256:tNGqNT-VaoKqWOwKbAdEqb6C0QO-GMcYRZJLXjScHMo'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444847264242472237)
+,p_plugin_type=>'REGION TYPE'
+,p_plugin=>'NATIVE_MAP_REGION'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'use_vector_tile_layers', 'Y')).to_clob
+,p_version_scn=>'SH256:vJP7K77hiNj1R2RE6dHVyRAhlmxDg6KGn4yRE20J9Qw'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444847476908472237)
+,p_plugin_type=>'WEB SOURCE TYPE'
+,p_plugin=>'NATIVE_ADFBC'
+,p_version_scn=>'SH256:fiSZ-OfcUl-d0e0dtJUYffG7q61xKsHlomsv7ZU1BMw'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_plugin_setting(
+ p_id=>wwv_flow_imp.id(129444847810384472238)
+,p_plugin_type=>'WEB SOURCE TYPE'
+,p_plugin=>'NATIVE_BOSS'
+,p_version_scn=>'SH256:dRkCWi6vQMhdQUSqb0QlRls9iYcsZ93IPYrbTqFqJFE'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/navigation/lists/navigation_bar
+begin
+wwv_flow_imp_shared.create_list(
+ p_id=>wwv_flow_imp.id(129444849980998472247)
+,p_name=>'Navigation Bar'
+,p_static_id=>'navigation-bar'
+,p_version_scn=>'SH256:vnb1-G39r80BPE-5P2Enpuf0sMSVvBeNQDVbFiNwRto'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(129444863213567472268)
+,p_list_item_display_sequence=>10
+,p_list_item_link_text=>'&APP_USER.'
+,p_static_id=>'app-user'
+,p_list_item_link_target=>'#'
+,p_list_item_icon=>'fa-user'
+,p_list_text_02=>'has-username'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(129444863840868472269)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'---'
+,p_static_id=>'list_item'
+,p_list_item_link_target=>'separator'
+,p_list_item_disp_cond_type=>'USER_IS_NOT_PUBLIC_USER'
+,p_parent_list_item_id=>wwv_flow_imp.id(129444863213567472268)
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(129444864326129472269)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'Sign Out'
+,p_static_id=>'sign-out'
+,p_list_item_link_target=>'&LOGOUT_URL.'
+,p_list_item_icon=>'fa-sign-out'
+,p_list_item_disp_cond_type=>'USER_IS_NOT_PUBLIC_USER'
+,p_parent_list_item_id=>wwv_flow_imp.id(129444863213567472268)
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/navigation/lists/navigation_menu
+begin
+wwv_flow_imp_shared.create_list(
+ p_id=>wwv_flow_imp.id(129444849184203472241)
+,p_name=>'Navigation Menu'
+,p_static_id=>'navigation-menu'
+,p_version_scn=>'SH256:JirbtwFwz93zUMzCFKXWUrhe53zv-ELRHk5JxqZT9Pw'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113200201Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(1982087066288623092)
+,p_list_item_display_sequence=>125
+,p_list_item_link_text=>'Administrador'
+,p_static_id=>'administrador'
+,p_list_item_link_target=>'#'
+,p_list_item_icon=>'fa-lock'
+,p_security_scheme=>wwv_flow_imp.id(1983288079044583029)
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261011052149Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011052149Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(1983735946389661006)
+,p_list_item_display_sequence=>15
+,p_list_item_link_text=>'Pasajero'
+,p_static_id=>'cliente'
+,p_list_item_link_target=>'#'
+,p_list_item_icon=>'fa-user'
+,p_security_scheme=>wwv_flow_imp.id(9092634554587221037)
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261011052045Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113175329Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(139878456933230567207)
+,p_list_item_display_sequence=>120
+,p_list_item_link_text=>'Mi resumen'
+,p_static_id=>'dashboard-cliente'
+,p_list_item_link_target=>'f?p=&APP_ID.:10:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-bar-chart'
+,p_parent_list_item_id=>wwv_flow_imp.id(1983735946389661006)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'10'
+,p_created_on=>wwv_flow_imp.dz('20260720234159Z')
+,p_updated_on=>wwv_flow_imp.dz('20261030050201Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(1978825021787450266)
+,p_list_item_display_sequence=>140
+,p_list_item_link_text=>'Dashboard de Negocio'
+,p_static_id=>'dashboard-de-negocio'
+,p_list_item_link_target=>'f?p=&APP_ID.:13:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-bar-chart'
+,p_parent_list_item_id=>wwv_flow_imp.id(1982087066288623092)
+,p_security_scheme=>wwv_flow_imp.id(1983288079044583029)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'13'
+,p_created_on=>wwv_flow_imp.dz('20261011044537Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011052549Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(13549061189690457258)
+,p_list_item_display_sequence=>210
+,p_list_item_link_text=>'Editar mi perfil'
+,p_static_id=>'editar-mi-perfil'
+,p_list_item_link_target=>'f?p=&APP_ID.:19:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-forms'
+,p_security_scheme=>wwv_flow_imp.id(9092634554587221037)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'19'
+,p_created_on=>wwv_flow_imp.dz('20261113164654Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113175245Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(129841849547844277976)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'Explorar Viajes'
+,p_static_id=>'explorar-bares'
+,p_list_item_link_target=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-search'
+,p_parent_list_item_id=>wwv_flow_imp.id(1983735946389661006)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'2'
+,p_created_on=>wwv_flow_imp.dz('20260616192706Z')
+,p_updated_on=>wwv_flow_imp.dz('20261030050126Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(9422220215841660124)
+,p_list_item_display_sequence=>180
+,p_list_item_link_text=>'Gestionar Solicitudes'
+,p_static_id=>'gestionar-solicitudes'
+,p_list_item_link_target=>'f?p=&APP_ID.:14:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-table-pointer'
+,p_security_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'14'
+,p_created_on=>wwv_flow_imp.dz('20261030042436Z')
+,p_updated_on=>wwv_flow_imp.dz('20261030050331Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(13443534448138365229)
+,p_list_item_display_sequence=>190
+,p_list_item_link_text=>'Gestionar Viajes'
+,p_static_id=>'gestionar-viajes'
+,p_list_item_link_target=>'f?p=&APP_ID.:15:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-table-pointer'
+,p_security_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'15'
+,p_created_on=>wwv_flow_imp.dz('20261113062847Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113175203Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(13547390420465390505)
+,p_list_item_display_sequence=>200
+,p_list_item_link_text=>'Historial de Viajes'
+,p_static_id=>'historial-de-viajes'
+,p_list_item_link_target=>'f?p=&APP_ID.:16:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-table'
+,p_security_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'16'
+,p_created_on=>wwv_flow_imp.dz('20261113163547Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113175219Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(129444860623152472263)
+,p_list_item_display_sequence=>10
+,p_list_item_link_text=>'Home'
+,p_static_id=>'home'
+,p_list_item_link_target=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-home'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260930170953Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(13562333886485517636)
+,p_list_item_display_sequence=>5
+,p_list_item_link_text=>unistr('Iniciar sesi\00F3n')
+,p_static_id=>unistr('iniciar-sesi\00F3n')
+,p_list_item_link_target=>'f?p=&APP_ID.:9999:&SESSION.::&DEBUG.::::'
+,p_list_item_disp_cond_type=>'USER_IS_PUBLIC_USER'
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261113180051Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113180051Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(13586757940757627948)
+,p_list_item_display_sequence=>205
+,p_list_item_link_text=>'Mi resumen'
+,p_static_id=>'mi-resumen'
+,p_list_item_link_target=>'f?p=&APP_ID.:10:&SESSION.::&DEBUG.::::'
+,p_security_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_list_item_current_type=>'TARGET_PAGE'
+,p_created_on=>wwv_flow_imp.dz('20261113200201Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113200201Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(13552418754936580853)
+,p_list_item_display_sequence=>220
+,p_list_item_link_text=>'Mis solicitudes'
+,p_static_id=>'mis-solicitudes'
+,p_list_item_link_target=>'f?p=&APP_ID.:20:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-table-pointer'
+,p_security_scheme=>wwv_flow_imp.id(9092634554587221037)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'20'
+,p_created_on=>wwv_flow_imp.dz('20261113170730Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113175306Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(9094261900852937163)
+,p_list_item_display_sequence=>170
+,p_list_item_link_text=>'Publicar Viaje'
+,p_static_id=>'publicar-viaje'
+,p_list_item_link_target=>'f?p=&APP_ID.:5:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-forms'
+,p_security_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'5'
+,p_created_on=>wwv_flow_imp.dz('20261029041047Z')
+,p_updated_on=>wwv_flow_imp.dz('20261030050310Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(9093834554637902491)
+,p_list_item_display_sequence=>160
+,p_list_item_link_text=>unistr('Registrar Veh\00EDculo')
+,p_static_id=>unistr('registrar-veh\00EDculo')
+,p_list_item_link_target=>'f?p=&APP_ID.:1:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-forms'
+,p_security_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'1'
+,p_created_on=>wwv_flow_imp.dz('20261029040500Z')
+,p_updated_on=>wwv_flow_imp.dz('20261030050235Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(139846854593607417940)
+,p_list_item_display_sequence=>100
+,p_list_item_link_text=>'Registro'
+,p_static_id=>'registro'
+,p_list_item_link_target=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-file-o'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'4'
+,p_created_on=>wwv_flow_imp.dz('20260720193238Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720193238Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/navigation/listentry
+begin
+null;
+end;
+/
+prompt --application/shared_components/files/icons_app_icon_144_rounded_png
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '89504E470D0A1A0A0000000D4948445200000090000000900806000000E746E2B800001000494441547801EC5D7F8C1DC75DFFEEBBF39DCF6727E46CDFD98194B39238B65308A844D0547113441590282AE420551CDC44084425FEA82A1042A84A22C41F';
+wwv_flow_imp.g_varchar2_table(2) := 'FC0155534A25AACA25C4212897020229A444CD25552A55A529B163A736897CD852ECF39DED34BECBE5CEF7DE329FD9DD7BBBEFCDECCECF7DFBDEBDA79BD9D9EF7CE7FBF3B333B3FB7E5C8DFAAFF2221094A7AA2C4D950690DF78FB952E4C6028A4763551';
+wwv_flow_imp.g_varchar2_table(3) := '1340E506DD6FBCEDA4971B890A622C0E803A80F800BBA057300C852671B7055CCD48C83804837A891407401D40F100DD18745F78B31617BB5DCCA11BB3EEE10F481D4064F6EABEF07699C531DEE38359928C4785FE01646C5B7FA05A0462BCC707B5310E';
+wwv_flow_imp.g_varchar2_table(4) := 'B96AA6C87568435F541747A0D629E4BA895940811B417D298611F0BE0732B44B715848DD7D0128BA5959B6A0BF07A2F855CA4CE64D8986600DD638343907D79B6843E30C87E538A6DF65339329DBEF4D8986600D569528BA5DC20C8D331CC6FD534E1EE7';
+wwv_flow_imp.g_varchar2_table(5) := 'F653D9D8AF6C51294A94AD5967740BA075B1E5352A1AD7F202D0A6A9DC4BAA7C00B5399C25BC77F837B7CF1F7E60EFFCE1DFD93BF7D0D45DF387A67E3D29E71FFCED87DD95A97659875CCAB793059FE77E77EA2E1E83C30FB0783CB017B1C9464B7456EE';
+wwv_flow_imp.g_varchar2_table(6) := '25D571009DFFF4A727E71E9C7AF4E2A1A997E60E4D85CBF5818546BD7EAA516F9C62B758AF3642FAF70645A5168447DC156A97452EE5DBC982CFD4A057790C783CEAA7109B0B87EE3F3377E8FE2388D9F987A6EE1141A84C5A470004C7791018606A036B';
+wwv_flow_imp.g_varchar2_table(7) := '67D8C39CC7D875230E46B9337299B16FEA62CEAF9FA4DBEBC46623A0609228781831630FF1D845773F0075E6229B9DA9032FB7000AF23DC055C38073068E138240FD178F403A6EE936EF2CAA02006A3264B333628B18178DC8F607D953CD33B700925C3D';
+wwv_flow_imp.g_varchar2_table(8) := '700ACB13AE1AE25710F55F5E22104C22C67A4092244DD13EB7001228BDC8F636704AD0D539926ECC74F93BE759AC390612DB5BC6046F076F00C2E618E061B117EF6DE012EBC4A1F412686AD4E5D714EF8D3DA0C7E6D8A61BB950D3A1EFA8170061938CCD';
+wwv_flow_imp.g_varchar2_table(9) := '31C3871C3CF048CB5E0CD89885C5D1C2F160B23670ED25B54DB6BE26E70002DAA34D3259BFF4DDB156594901F6D759C036D98D47911B530765363807D0C0C0DA1153235BC7C98CE67C7D74F130A857C164C0662275FE2CA72CDC4E0174916D9899A2FC65';
+wwv_flow_imp.g_varchar2_table(10) := '2B6B97F959603ED4E748E6BF96785D7E2DE12DCC01BB039E630F215BC856A7CE00845B75168C72C063E5B2DFC181443C8B8DB047C62F6476420C1E56DB0FA9297306200AC287D5544AB84209BD47C8E503451EB830683C2AEFD5EB7102A008D1C1A49EEA';
+wwv_flow_imp.g_varchar2_table(11) := '16EEA0E57C239D967EF1049351CEEC83EC04402E116DEF529B0467046F79EEC0C5A3923315B3AC01142139B09B7D9CA5582C489CF840CC9C43D51F211626B647CCEB8F1A4CE2795D9E7C153BAD01C4F63E9FC933A20A7DE2C4AB84C78FF5627BB2BACAB0';
+wwv_flow_imp.g_varchar2_table(12) := '6E2024EBBD90358098A33D7DE7C5FCCB66B6A4B336907143DAA856D6841436570E43D1F9002A101A2D5F563E547E706E084247E6ABC8E186A830EAD8945AC60C45E703C850A88E0B76BC3CAA76226C46BB52EF4A8E812FB5067DDC60D8FA907C00ADB389';
+wwv_flow_imp.g_varchar2_table(13) := '1B6C276FACBC189B2A512D9622B6BC4F4D22100464B605E1E909ACBF5868A69C88B87ECA7BF901878ED43CEBAAD5571C4D99BD997D908C4944E7810C6D01143437612225CE68819224EE5301A79AA4022195EB56F15C667430A9F66D0FF178E3256CFEF0';
+wwv_flow_imp.g_varchar2_table(14) := '037BC5227D50D502D49BE0F011CFACCC151ADA9EA5A89F1903A8D1A8EF5057D3E72C2F02FA9791DAE529F6C0184062717D6AE723A00F87306F3290E131A6F71080628F9C665045A62B1EA786BB1326C3634CCF07504E6C6A218DB9B3D285A4D82317A2D6';
+wwv_flow_imp.g_varchar2_table(15) := '65A8C874C5B3AED461232781292DE95CAA8D680ECE07504E6CD6C2A0BF076AC631DBAACC594E022536EA8EC8079044C94621CF2D7F4028BDEEAFCD64506100E94EA66ED37C6E69892E2C2FF3220591EEE5EAD6C44A48AB30800CB3E36018C0737965956E';
+wwv_flow_imp.g_varchar2_table(16) := 'D839CE0B802404516731DE079097081826351906A0003C23A3A3B4F7EEBB69CF2F7C84D09682C88B13DD23B4C23350F941BCC2661D000580F9D9FB7E951BB069640BED3F78D03D880A66CA826E6E5B15AA3E80E22C2C5E5BA3B36CDF03F0003031991FBC';
+wwv_flow_imp.g_varchar2_table(17) := '802899F2B886A84A8346D01D3155ACEE03882504E079FBEA553ECBDCFC913B098061E4CC1F6800160076796585AEB0D92AC3E0E024200742B445D841B5B70194BEA4D3816DA1033CE806784677C8DF574C40B4DA68F0BB338CE9FED2120C4D877A1B40B2';
+wwv_flow_imp.g_varchar2_table(18) := '8B2B45C71D1762B6E7F60F531E78C08302104D325E8028190BBA8B6297CA1C0BBC09262A1540AEFC7025074B5772C7357EDB6D39194057808A97B10FDDC46FEF31163238D141D5D4E040585A8437C1542E8082B453166D5772E6D883429881A50BC7FCD2';
+wwv_flow_imp.g_varchar2_table(19) := '842D6621DCDE83DFF52C0499DD544A9D81AA14183CEF595C5B232C472A4B57ABED0011C6622983ACD6FE8D725E0100B99A4FD453762DB509DEBA7D072D2D5C322AC35B46F89DDB6576570699EA16F40E670500D45C1ADC85351F94671797D655BDF1CA0C';
+wwv_flow_imp.g_varchar2_table(20) := '999653DFFF3E2DB367479885D232D78597D7E898A67C00E5E7A16346172B9683123D58BAB64DECA25B3E719F9302599069BBA1866DC5BE558B231F40A57B2447AC2B53DE8D1F00023C939FFD237251200B695D627B2A1CA322F725EA6FAF554658C74126';
+wwv_flow_imp.g_varchar2_table(21) := '404579BBC90577618642057A144932EF48E17B64A4F4C27B5D60DCFE5B533868147930206BF3F838612FD41428F7A5C9A3DF925BA1284B26C0D05C0F3390CC4245073DB26189C17E65D74FFDA48196FC088FEDBE91201B3A0C8477ED907C0019B9951F68';
+wwv_flow_imp.g_varchar2_table(22) := '23918E065D595DE19276DFF32BFC9857CD3DF72CBDF5775FA6938F7F81AEBC3C43F585853C76BAE9973FC1FB131DFC6403541E0054DDA825B303961C9995D716E6E97B9FFD7D3A7EF4499A7DF15BF4CEEBFF433FF8D25FD37F7FE1CF682D0744DBEE3E48';
+wwv_flow_imp.g_varchar2_table(23) := '9B778E53A24326DF09BDE01ACDEDCEEDD4B72E0290EEAAA3CB1FDBE5D8F658AADAE10ADB3C638939F0E043B903FEF72B4FD0E2A505DAF7C94FD15D9FFF13FAA5CF7D9EF6FDC6A738ED070C447933D1AE3B7EAE9C652CC875217FBFD832365F52716F0420';
+wwv_flow_imp.g_varchar2_table(24) := 'DDCCEAF2C77638B63D96AA76580D1B9C71747C173FB656B0EDFD9327F98C33F9D18FD2D8ADB772965A6D80C66EB99540BB3A778156E72F72BAA89AF8993B3879297337C6493D5521568943118092B31E3EAED6EBDCBBD103B7F3636B856B62F947273979';
+wwv_flow_imp.g_varchar2_table(25) := '2B5B8A7823558DEE18E7671F5C94036868E74ECEB378ED1A3F5A5730CA5A887B0169B3361080A2196870C70EA2740452F11D8A81732D7E9335D545C4DEAEC0792D485F7FA034CBF0BEFDCD93A296C486CC30B9AA0C5B274F360E80D8FB5FD8E4F2604B12';
+wwv_flow_imp.g_varchar2_table(26) := '33B2FF00DF089F3F71821A2994A17DE6F8EB7CA86C06E39DACC25369ECB55833FF4F6243FEA0EAF56600D4233E09A38CA48E0E0E0AFB122266A7FDF7FD1AFDF8ECFFD1F1235FA7732FBE4067BEF53CBDF6F5AFD1D2B973F4F30F7D86C093F08B8E43B51A';
+wwv_flow_imp.g_varchar2_table(27) := 'DF488BFA7A91960190CAACDACD4118DD25DE40A77DC22DFE9D9FFB63AA0D0DD3B963C7E8FC1B6F105DBD4A1FFBCBBF22F4A57945ED6DB77F9893CB7E77BE53B9CB00887BDE8355F26C662B5BA254DCBBFEE0C7E917BFFA35BAE7EF8FD0BDAC1C9CFE37C2';
+wwv_flow_imp.g_varchar2_table(28) := 'F2A63276F3C000675BA9477B2E7E524255FAEA11FBD4210095EB6E321B0CB35BF2D86FA50396AB016CBA95B823A6D17D07A2468FD5B28C390390DE14AAC7ED2A17B5EDEC0ECC9530899C067B0889AE04B468F7727106201942AB10BC4D6C630B3B96E2E7';
+wwv_flow_imp.g_varchar2_table(29) := '3C68FB2A2B8DE879932FF99DB9F428754F9AF5CC1980DC3BE61E921FC40F13B321707BB63A3FCF0526A0E5270E2BF7512930AE40A1330015E829B052D4ED0E92C303919BAB396F43882C30A1BD7F718E0F4B74F293CA551AD92A484314D9CA39E8D6A0E4';
+wwv_flow_imp.g_varchar2_table(30) := 'F3CA572F5C702B58208DEB60417FEBBDAB82DEAA9098818E4C31039006801DD9692CE6EDF7DEA3C5F8CDCD15CD19086FAEE2B3403ACAF1862BDE0EC783CB37DFFDB1CED0AEE45500500B5AE0A63B00439AB7F2369B0516D7EAFC5BA4F8B12824159FF769';
+wwv_flow_imp.g_varchar2_table(31) := '5728F091311DFFF217E9F43347594BEDAF1E7F5E08BA50A0AFD741A400208F68F1283A02CF1A070F7E286A7CF2A7390A16D9FB5CBC91A9DC18F2EE2B335C2A74E19BAB621089C1CA077661A500208F5E798A652B78E0C168FC40F0D289E33865C5BDF244';
+wwv_flow_imp.g_varchar2_table(32) := '3674E19BAB6210B9012B7320F5E7DE979470713356592A807C84AED53B7CCD7891ED7970F563E649FA9150D0DEF9F68B549F5F6064F7D69CFDE16B4C2EADFFBE1074A64104DB3883F34AD79738FB3676C42A6B0E647011B13CDE96550ECC9689E674BCE7';
+wwv_flow_imp.g_varchar2_table(33) := '85AFEDE047A0D2E0E19DACBA7E7C9CBF53BEBA20FF50186333FA5B8D9FFFDCB8674F667C0222D8747965A59CCF4C672C109DA8644B34AE9D6605A03420D2ED7635E5508A7E6D636BFC56C6DCCCB79D1BB4F0722473ECA668AF95560010E11740B0A9CEFE';
+wwv_flow_imp.g_varchar2_table(34) := '9A879FA819C1C3D0142B00A583548536962ECC00B25FDB181A1DE166CE1D7BBDF06B3A9C51A37AEB99A739B74C37E8584201A2E6FB6446A9E67AF22A232C189A522280F25CB6EFBBB2B2CA850C6D19E5475185990000C3B39AE48E49C4A74BBBF4CD69BE';
+wwv_flow_imp.g_varchar2_table(35) := '344276DE582CA1E85F69FDA8473A79E936982B5E7A0640B8B211EBE12DD12C83B6A8ECDAB78F93DFFAAF179CCD42279EFE472E3391CD4F0455B48486B4C436F9996EA3292323A163271200759F47ABF1BBE09B46E43310A2BC69640BE187A1300B2D9E3C';
+wwv_flow_imp.g_varchar2_table(36) := '01525BD1F13E997D2013B2DB84B51102365BE5BC63AFA3BC4D761EC18F6009800CE75195612A3C711C3458E3116A07FCC621387FF44F4F0967A1A6DE660BFCA282990CF489C2DF580457274BB12F26D6490064228A8D5101B90A0F13853F0D56B02B17CC';
+wwv_flow_imp.g_varchar2_table(37) := '14B7DD7927A56721B12E31355184D9073230FB24B48D76740BA02E8A1E9E16E3D9CCEB4FFC0DFFCEBBEEF5B9C6DEF7FAE153FFC03DF63BFBE483981BD0C16AC30208B3D06676C7B6CAEE888ABEF32ECACFE9AF7C8993B3775E3E92AD0B6D6E5669951700';
+wwv_flow_imp.g_varchar2_table(38) := '397539A466301C09BEB6FC3E9DFECE77E80A3EDEC1728E6568E1E5979A7A0A5AF8E917FC6A07D8DE3973868EBDF09F0499F20F7E82B3378B1700B19CB88B565A58BA6DA801897EF395573878B60E0ED2819FB89EF06540FC9CCBF29B270BA58207BC1873';
+wwv_flow_imp.g_varchar2_table(39) := 'F3B66DB46B6484969796083221BB50408F317801505563849FF37DEDF9E779C2C78687E8E6EBB6113EBB7CD36874EB7FEC892FF2FD90CC7EEC7B5EFDF33FE5DD18B375D320414E1A44EF9E3BCBFB374AB5610084C4E2E77C91D80F31C0000068A3000800';
+wwv_flow_imp.g_varchar2_table(40) := '0196B2EFFEE1EFD1E9BF789466BFFAB7FC2E0D9F62441B65E60F1E013B9F7530062700E0C4C8664EC34C74F6E4499A3B750A5D152881771B3604809050FCA633A28965E70636FBA09D2E0908F0441B1FCB489EEFE01C6D142C5B001A78D363D19ED8BC99';
+wwv_flow_imp.g_varchar2_table(41) := '201B209A3DF1464540E468D3080725A55400F977A7DD4B6C969150241F094E668E764E2200E38EB11BF8BE08BC18033EB46FDE761DED67FB25F080D656D8C50ED9C99E0A3ACFC59F0F6AE3AD3081B9A1655DA900D2354EC5131128B19945017870A70520';
+wwv_flow_imp.g_varchar2_table(42) := '20F948B08A4C2C4B092FC6A2BD7553F49DF7A2F1187B0BDB5B615C728786BD57D1B8AAF48BEAFC3590000005BE49444154E299675BA900CA33C4B4AF1594D8E760A38C02F060930BF098CA3719978008CB1D9634D8F4BD6F3EC7FFA58289BCE231AD5128';
+wwv_flow_imp.g_varchar2_table(43) := '1E91E6D0054D7A6CD7032871E686A161C26D7952903C2C3DE9CD72C2AB7A1C1B1EE69B6355FE341F4084E50E4BDA18DB732576E1085BD3BCF66D1B0810BE8544A62F05000542D98341880F160BFB3A41C43283DBF2A42079A0D9D80219A20DB78E4C0009';
+wwv_flow_imp.g_varchar2_table(44) := '204EECC251C52E3B48E85868C7AB00A06E714510882E365D7CD90A7C7440B2990C140024B6B011D065714F0F52BB18882AD9B0C9A53180540CEB199E32A7031EB4D21572AD269531806AB581EAEC8164334485F22033519C343D6EB10C75AA4D2E8D01A4';
+wwv_flow_imp.g_varchar2_table(45) := '6E9E434E595C5D03C5A1C989A82E303131557894D96F0CA0615AB924D4C488B23CB32EBB3F99177652734697AE30C7965497E3000FD3AA34978956994A29808A4277DD93FF2A555A343631AAFA4759D86C2C77101D2E82573686AC8FBDEEC97F91E6729D';
+wwv_flow_imp.g_varchar2_table(46) := '49D29002482574CC85E8E72824C2370A592556CD58E87137C7B5B69CC9F946AB649D73298054848421F5014464F524974A7C89201784B5976D4CB00250A34656CA23C3D93C16357AB8AE868F222BEA8D81F64940C428C98E04408A12D606672572D5C8FC';
+wwv_flow_imp.g_varchar2_table(47) := '92E0951ABF1197A22F46B25507F9F651D58E76BEDDCF3CD39E430D732500529300E52C3DED086EB7534C6183C51D2EA96ABEB8D1586529A2608756FB1F782B0110BA8A4A64503DA0C78B38FBFD7104C2F858E2A1A9B2D94AD4378220FA625B4230385A00';
+wwv_flow_imp.g_varchar2_table(48) := '283268F753D3330C4AE6B310333A92C41A0EFF7CC8B4368F05CA5A86A600B9CA7016B9D314D7C66E01A094AC508E649544369D6CB652D28D9AEE2419A9AFFC2076F7E564E57002A068271FB66FC65818F51219B21115FCABA85936911A7FFA59EBFD0FF4';
+wwv_flow_imp.g_varchar2_table(49) := '3B0110DF4C8735278886515E8A0D08F4AE027DF36D6CD3D7862FD03ED6E6521B414DB03A800A1444880E9DA05ACD744DAE02FBD3D2C2F449196D0DDB6CCD61AA66269E9E7EBCCD474E60BD9A0AD401C415E44B6FD4373DCE4CB0DA50E76B28A797F9508E';
+wwv_flow_imp.g_varchar2_table(50) := 'A2A696925AE1ECF8D1E97BE5CA1492DC32581D402D0345A758CAEAF5C1E8EB9B22863E4D3102761096C180DDB63BCF8D36808A5C03888230706EA862E4D5D86411561B6DC05514B5569176068AB43502BAF746F6C8A55593EDB93680545CC37EA8511FDC';
+wwv_flow_imp.g_varchar2_table(51) := 'C3766BC23B335BA3ADC78B226C2D344F804AD4F2C6DBF485B3000F9EF9F8B0421B402AAE203F98891AF54DF752488F5117BF7C04BDAC70B03CCC4C1C7D6E0FC0E34BA7170025410788B0E38F40145673364A47364C9F446D9684A821AA05FC22363B5ADA';
+wwv_flow_imp.g_varchar2_table(52) := '82743B4F6A388B98E76F98F3C6ABF7790150AB7A8008B311F6462C04EC2E8DD5AD4C3ECE434DA1BA66E9F26B9A13B1A79D48B7A3DE6C1D72E060D641CCB37D7ECE4A01104CC76C84BD11AE8A20A44758EC1990D0E3B130251EA55742746444381BB01B97';
+wwv_flow_imp.g_varchar2_table(53) := '0838CF95F84037202B0099E607409A60CF231A6CA38D0D1E9C671BEEEA3E84A42ABD18588866B04421762C8EC104DBE720A6C45F21AFCBA9421980D4A09136556D44D32D8CC5AC840D1E9C67417864E2E874303250DF511B18B80D8502FA180A43F9271B';
+wwv_flow_imp.g_varchar2_table(54) := 'EC0A735BE811B7F202B13C92D073FC81BF49E1FEC7F1407C26001676F1618942EC9A11ED4C8BD929528CF48AE8729AFE08B12C7C4360E793FF7C1A65E2A9E9EFA2EC3C3AFD1FBBD99B7F6ECBF437DCCA7BD6993CF89B14EE7F1C0F71C43A4B9500A8B346';
+wwv_flow_imp.g_varchar2_table(55) := 'F594765757564583D207902031BACBB14044C549EE3CEC0348906AF79386BB8409CC3520B9F3B07200AA5AA8F5B223B33E647B613D49DEB91D29A81C80428963B2D448D8DD929595CBAC670F29DC5A5419699503902C32F2D4C84638A47754B9433F3C88';
+wwv_flow_imp.g_varchar2_table(56) := 'F20220E50BD683437D91E546C00B80DC5FB07D48AAC3221BABEC99BA14554E2F005255AECEE71E92ADBA7D07BA559FBFF36CACB267AEB506B2B732A8475F7298F80D748F8693BD21D7253390AB04843D7B3BED2A42C572B21C1B0C40BD7B3B9D4D6B7967';
+wwv_flow_imp.g_varchar2_table(57) := 'ED0092CFF2E559D5D7D43511F87F000000FFFF7ADDD93700000006494441540300FA3B439ABC09F1400000000049454E44AE426082';
+wwv_flow_imp_shared.create_app_static_file(
+ p_id=>wwv_flow_imp.id(129444851413345472251)
+,p_file_name=>'icons/app-icon-144-rounded.png'
+,p_mime_type=>'image/png'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/files/icons_app_icon_192_png
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '89504E470D0A1A0A0000000D49484452000000C0000000C0080600000052DC6C0700001000494441547801EC5D59ACDD46199E7B4852EEBD499BE526292D09092D0D495B0A940804A22C62110F3C50285B25241E40423C80100821542184104220104880';
+wwv_flow_imp.g_varchar2_table(2) := '106F0854B696071E4AA112A5084415CA92B60941B4295D932EB96973D3DB24B709FE7CCEF8FCB6C7F68C67B53D517C3C9EE55FBEF9BFF13F3ECB1D1DBDFE7DE79C1E1F76ACEFFAEBDCFAE71ACFA84F6B7E47CCF5BF19D70ACF95150AAACA9DC2A9E998B9';
+wwv_flow_imp.g_varchar2_table(3) := 'E1002761897B02481865BD8B7312EA79D46C6E730F3D0BFA3B9A102082A835CD5E9769AFCAB560F33198A2450840AB7D98D5719DC1AF1FC11B683F0026214E912004B0AF3F2C0D43B36632FB43739BFA4B237F523F0802C4A99FCC763C951018040104C4';
+wwv_flow_imp.g_varchar2_table(4) := '2F01112B8689C0200830CCA98D5ECB2010092083D2A44FB8A954BCC74DA628779299AF48801C64F517618519B54666AA896F8E8BB6ADAB924F11AA723912A00A99E0EBABA63D3CC3650251C76A1DF991003AC8C7B19D47A04C80EE2C2C41821FE173382D';
+wwv_flow_imp.g_varchar2_table(5) := '06C02E1340E77EE2D0F7505545F81CCE4C09EC5245A3316502340E891DBC236060E5F3EE8315039A8129AA8D042822D2856BF585AE0B5E79B13112C00BEC5169280844024C6642FDE63919184F4204BA826724C064FA62563101C2D0C9099E0658362680';
+wwv_flow_imp.g_varchar2_table(6) := '014186708B622202F2081860D998000604C95BEDAB6751AF82D371812882E7E85A618E5A5A342640CBC1DD1EA610D5F6E7A1DB505AB35E618E5ADA306002B4442CE461F6E32564EF5BD91609500B5BA04B7F55A0076A6E2DC49E1B23016A27A02AD26A07';
+wwv_flow_imp.g_varchar2_table(7) := 'D96FD40E746D01F67D74A42112C011D05ED59494074AEC929D930A8BE646024C301EDAC9624C9987D2E20D2B12C0FC747542A2C59832E3BF23864602484F57F02123ED89B0A3A38013EA16553A823B124004BEB02EB408111AA956495D7214706A06DAEF';
+wwv_flow_imp.g_varchar2_table(8) := '1D09601FE370350C20E89BC027048868348115DBFB87002100BD1F86E66824676E46429EAA9CA17E2F64602204F06B6CBD761957EA25C4D6E1214097CDAA08EA0801BA3879147EC3F65B146DD8D260C45541E69400552C0C0625A3860CCB5BA3D03914E6';
+wwv_flow_imp.g_varchar2_table(9) := '9400552CB4E3AFA4D418A79240F9EE66277A9C12C0378442FD767015AA8A953A08D859A93A48806147AC9D30D009CCF663DBFB622E06C224402D32B58DED67A32323CD4DBD7F87DBFB622E06C224401532E6FCF63FFBD1822010304B00DB015A458C20A0';
+wwv_flow_imp.g_varchar2_table(10) := '0CC888D6A60C0F6009022880A2D0359D23DB844995C41779048637211204B0088A2A61E467D25E4F8B70D833BABB926DC32D4180EE8267C5F22E92D60A1045A186819944BE61A945A3592440099258D10E8149C4B61B5C1E653BF2271A03268023042640';
+wwv_flow_imp.g_varchar2_table(11) := 'A427C37398CA8C2F4E1150551630013C44A343CE9D397B961D3CFE747AA0AC3A7156FB7B80DEAA3F35C20326408DD51D6F5A3AB3C20E24C17F3A21018EFF3E7382A16EEA9643264E954E4BA6D40B8824A89AEAF550D220802994D4BD1683E8CF1E150F10';
+wwv_flow_imp.g_varchar2_table(12) := 'E8F79D38911B02123C74F2242181D8C3DCA0161766A42AE02CE82AA86AE189B9211A043003671B57C420FAB347D687A5951546837F767E9EE1C0F83209504B0E03EE8971233AA48A060C91D2D3AE93AA751A046867E05047A52B7F92EA70FF11F8975CBD';
+wwv_flow_imp.g_varchar2_table(13) := '97EDBEE61A391298895EAEBEB76755987A4400F539555D2DD4358C47A4C15F487B10FCF30B9BD8EAD9B99404E39E8C55DE095C19CB0D19C8394780A161ACBA5AB489093CE1A1690F645C71CD9B19821F651C20C1ABDFF52E14D383930063D30ABCB83016';
+wwv_flow_imp.g_varchar2_table(14) := '7A0676E408D06D8CC3B31E018C273C34A68AC1CFDB40825D7BF7F2CBF44E80B19091559A2E0C6DC513E0972380A0BD4355E1CDE6834B27D340E62056053F6F5FBF6D3B139180B71B3F87B7661877B149608F08D0E4AADBF6FB920D2F9EFA70AD086C9AF6';
+wwv_flow_imp.g_varchar2_table(15) := 'F0FAE21924D871F91559354F87B28A58308A4024805138C7C28E2E3FC78AC18FC01EB736BF6EDDB58B51121C3B759A4166E5C8D8D01A81517889436B5F821888273E479697335B10C82AC1CF071649009990CDDBE3D90C02A370D3C0102C53B701EFE8F2';
+wwv_flow_imp.g_varchar2_table(16) := 'A9D9B0790B4320F3EBA6737131DAB87D1B830C3E8ECAE675F1AC8740C02950311CF41C6D375ACD06E4FDC8D9B9AE8B77EFE145A973916E7832B4F33557676321BBD72450833BC345A710300174DC723F16E909CDFB91FAC86C7A9B2C0509B081E6FDB01F';
+wwv_flow_imp.g_varchar2_table(17) := '584CF604FCBA57E7E20A9073AEB631D753E522124005AD8ABE78564FDFEC42DAA292FA5488CDAAE7171672A910F603D0997528143C2CA4050B6C5C8ABDD2D564880076D8A9EB9CABF178DE4F75A9A63E74ACA88CBB4031152AEAA4E3863C1BAA34D12000';
+wwv_flow_imp.g_varchar2_table(18) := '8559552D9DAE6E976DA53E455440029A0A21DD82EE62BFA15FD3A894C1428300C30D7A0AEC51F2C8D374EA43F5A05C4C8542DB107731223408802919F681CD2856628E82E9D487CBE567DC058AA9106CE0EDBECFAAABAF6F7BA1BFBB04282D37EEE1C766';
+wwv_flow_imp.g_varchar2_table(19) := '1420E230F5D407B2EA0E9080A642D486BA71B14D8C800502380AC499A2432546143B18BDC64713F05C9E0B7DE0DE7BD89D37DFE4E438B46F1F579B7ED82EB4542833AE03050B04701B88BE300E69E58D9BE1F651608100ED8DE9CAC890F26E60863B11EE';
+wwv_flow_imp.g_varchar2_table(20) := '4828C7430D81480035BCD2DE74F5DFFBE9CFB2B7DDFC1B2F0774A706252FC74E9D4A5EE37F5504220114115B3C753ACDBBF9B00BAE79132F3A3FCFEFB93CD389BB40F8A990A3FD61864A73A1A704B007F431B2D25EFAF67736236CA3C744E6AA850576E5';
+wwv_flow_imp.g_varchar2_table(21) := 'F51F995C3146DF93C82A1B0BF6B02AAB0E6F7F382A1BA95BE312D02A5BED008DCFDFD0E7FE2FBEEE83550638ABDFF4A6B764BA609BFA5DC00E56995181172C10A087804E5CA2B93F567FACC0BEE717365C74D52B3333164FABEE056C2F58B6E567AEB72A';
+wwv_flow_imp.g_varchar2_table(22) := '5820402B3BC21E349943BABA6E7DF35B83B179E7FB3F94D9426DCC2A6B0B1376D7F6D169B42D5FC73616FF3E800A7CD868F2FEB38A5F76E1E3569E7C921DBDE997ECC0976F60B75DFB6E76E7273E96961FFEE1F719DA783F95F3EACD5BB2EEB0519D04D9';
+wwv_flow_imp.g_varchar2_table(23) := 'F0C11514EF0033830048B4662D264F7FB8F3487F7859E5BC7CF000BBFDE31F6577FFF4C7ECD17FFD331D7AE2E891B4FCEF5B6F6177DDF085941C6983C24B310D3AB9B2A230BA5B5D4D5BAB480051684898D4729858F20C332A4EA04444F363E4E9CF86CB';
+wwv_flow_imp.g_varchar2_table(24) := 'AF148CAAAFC2AAFFE72F7EBEB613C80072A06F6D4741633E0D3A23E861B1CAF68458345D91002D2D11455451943488E7988CB8A278DDEB25B2AAD2E7EF3272B1F223B079DFF53B5FCAAEBCEE03ECF59FF91C7BDD673ECB5EF9810F32D4F1F6076EFB1DC3';
+wwv_flow_imp.g_varchar2_table(25) := '187E2D732EA64132638CF5F13121868C7743001963030671B190FE20E5907189F739FC8B1B79915D78E52BD89EF7BC97ADDBB63DAD1B25749EBB781B7BF97BAE4DDB50893BC1FEEF7E1B45E90336F1A741711F200D1B1BC9771D6ECFA595694AD126FDE1';
+wwv_flow_imp.g_varchar2_table(26) := 'F9FEAAB939B6E3EDEF1002394A888036F44107906025D930A32C7B6CBAE21559D76EED03FCAD7EA30CB158A844E0F4F3672BDB9A1A9EBEE38F5997175DB62B5971AA277B949060F3A52FCBFA9F79E2F1AC2C53389F7C3462E9CC94B43263FDF639E74DFD';
+wwv_flow_imp.g_varchar2_table(27) := 'C89B6665C56606B4811A2905D7AE9AFF3F4782F8BCB56BB998CAF3FCF9E7676DCF1CB8372BCB14BCEE03640C0CB08F3E01DA44944720E8FA2B6B3A2500726D15F3E9AA7CF299671A879E5A5ACAFABC903CDFCF2A6B0AD436D88C8F6ED4741734517404CD';
+wwv_flow_imp.g_varchar2_table(28) := '3DACD22740873193319D6E80F92653250EE8AA7CFCFEFBD859FE1057C03EB43D76E850265EF56E8381D4C653CAA99BC02808EDF1A14F801E8353746D6ECBD66255E33556651E94CBC9EAFEC0EF7F371E2360DFFF92B695E567D3768CC1D8F442E185DAD8';
+wwv_flow_imp.g_varchar2_table(29) := 'AD8DB0829306BB46023480A9FB0408E22FFBE4A7704A8F2377EF67077E7D137BF69187D26BACFACB8F3CCC0EFEFA57ECB1A42DAD4C5EE81B5BC9A5F4FF5942D2D3679F971EA7D5B1C3378E4800AD99971B8C959C7E6EFFF8E1FBD93F7FFE33F6976F7D83';
+wwv_flow_imp.g_varchar2_table(30) := 'FDF55BDF64FFF8F98D6CF1F0E14C18FAE63E6B94B53417E89E43E7E955B326D243703723AD411723011AA68706D19ACD9B1B7AD3E67C546C7DEF750C5F615CB7F542DA295746DB1BBEFA7586BEB986DE5CE43109C12D4F04080F88AAC9C0D394AAB6FAFA';
+wwv_flow_imp.g_varchar2_table(31) := '725E80AF4F5EFD95AFA5DFE2428E8FF1087A94B1EABFF6073F626D577EC80AFF2863E2DB664F04080F089989A04F7464FA8BFA201DC20ABFE74B5F49BF488FA0471975A2FEAA75B0912F2FCEF600AA4606D4DF1301EC23D04D8A99C165EA3BA78219B9E1';
+wwv_flow_imp.g_varchar2_table(32) := '4831E7576F09600A229A0261F50E2708C496AC5A98EE53A8EDE2DEE1D78A2D9C507C7212F791ABED2D01E4DCEF632F0351D115580CAC720320801E4A6B465388543F9DE93B8EA8EDBE6D09477F3E1EA6B3AB6261A716994E19AB320BC2BE5D23A9D009AB';
+wwv_flow_imp.g_varchar2_table(33) := '95F9786847803C89AC9AEB5B385D45CF904F76FAB68B31F124501B33DBF373CE5CFF6BA5BED52075CFDA11405D4FCF468883CFAD93CD11B2E60593E9F56C6E2BF5AD06A9CFC00421F581F64718D0D01C238D4AB220CAF56C104C9B693927C3CEC5E9279E';
+wwv_flow_imp.g_varchar2_table(34) := 'B023B8A752CB04703C61567135B08AD08F42A45F5091C187EAA565ABCE8E85D32FE050DBC7AD3D7B95998B0697CB04703C610DF6796DC65F5E5922BF06F1D43DFB5945EACD42F9B7FCF8D1CC14D8DEEBBF1B602056CB04C8E01B7601C17F8CFC1A4457D0';
+wwv_flow_imp.g_varchar2_table(35) := '38BAFF5F3953F17BA6BD2641CE5BF58B300960E0D6A60EC5744455F09F387264DAC940093F8B886345F1D71F5455471254231626010CDCDAAA5DAE6F2906FF453B776603DAFC544936B850C0AF45401E8EA7FEF8877CABC615E4F1E13B2EBF8217999004';
+wwv_flow_imp.g_varchar2_table(36) := '8285465095C9502E1815A6AC5D6A4098049032DD7C2751F06F7BD5ABD906F2E574FA9C5DC702BA59D59143C78254FCFAA284B85B77ED62B524102C34822A2E52FD6C5498BA7A99119504E8007965FC93EE5315FC1070C196E9AF2FA74F8250498E50E679';
+wwv_flow_imp.g_varchar2_table(37) := 'F1DEBB33ABD6CCCDA7E54612A4BD86FB524900D549B54D189BF2EB821FA1B176D3024EE981DFED4C0BE4C5A66D444D63916E80CF9B9BCDFA47126450940A950428F56CA850254C83B852B32DF94DC10F43D6CC4F8389E6D8680BE9A0B6AD9FFCF628B7CF';
+wwv_flow_imp.g_varchar2_table(38) := '160942213FF753F56C8C00AA8A43E88FC783F45127F266E4FC45DB56CFCE31BA0F50FDE5E6A23C1BD734FFA7B6525D3648607A61A2F6BA288F5C28095107FE8A0A9E8C70DB1034A2E0E7ED741F407FED99B7FB3ED3FC9FDA5AB4AB488263A74E316051EC';
+wwv_flow_imp.g_varchar2_table(39) := 'D7B9EB96B7A2C11200A90F9F6404FF656F7C23BF149E376EDF96D59B7E3F2013AC51F8EFEF6FCD46535BB34A52403B7C4615BE3546B1405D278F96B7A23009D092CDB213B798BCC38B89E7FD9B821FBF6648D320E4DA21A541C5F407B672DF4467B4EF7C';
+wwv_flow_imp.g_varchar2_table(40) := 'CDD56C761E4F8ACE3160014C447DDBD6599EC2B66695C60540000175055525CB698522DA34F5D9B5772F9594964BE226F6D0D422A43488A63F5B76BC24F5A1E90524D8BE674FD26DEC1CC524A9D4FE3F96AA28A604BCE2F816DD03208001AF15D0C64A87';
+wwv_flow_imp.g_varchar2_table(41) := '158F63557C5A82FA2A71481DD08E23A43488A63FF30BD347B6B0B3EE40DFF15D80A57701EF7B812AE0EB9CD06C0B8000DC033767FA5B9F1725EF96AA68C5AAC97367A4416DFE989D8A3E99BE34FD813FB051661CFAA0EF06F2269FDC8FE97A8852186BE9';
+wwv_flow_imp.g_varchar2_table(42) := '1813C0C0226CC93EE362E967E4D729AC96DC908B77236D185F89DE141BB7B87BFDF78D3FC9659A83DC0000088F49444154946DDC2697FE640392021D23F75765420E1675728E09A03E2E81CEED7F53B0D3F4072900F742563EDE14A377019F9B61ACFEB8';
+wwv_flow_imp.g_varchar2_table(43) := '13C107A432F30B9B50543AE00F1F40B1E175DD3ACBCEE2D4AB3101A6D7C1966C7354563ED2862D3B766438F9DC0C3FF287DB323BC61BDAECD26A413DCCAC9AA325BC3304D0F2920CA6AB1C8299344917B1D262C5C500FC05481F7701E8846ED88043B499';
+wwv_flow_imp.g_varchar2_table(44) := '477DD34131A0D8D48D935D2CEA6484D2668F007D5A260AB385A0A12BAEEADFF42D8863AC4505BDF3D08F3CCB8A4AA7277D911DD1CF7EF2045005AB4FCB8460EEB17FE07701E4E1C8C705DDAC5441175DFDF1F106AA4866AAD2E9495FE8485AAE6DA41D3B';
+wwv_flow_imp.g_varchar2_table(45) := '5D9627406878C8CCB2C5A929DE05E8D3188B6A53D15497E88D3C3353E519E0D453FB2FF204B06F8B9A0633B3ACA6B3D01B7701FA44C8C5FB02D0813B0E4C81EEB6B93FC6C783B1EE122080D9C35D009FA9E1A6E07D016C4EF9B5E933BE3C7FF74F7F9C89';
+wwv_flow_imp.g_varchar2_table(46) := 'A5EF4964952A85612CF2B5884402D4C2D3DC0812E01D58F4C4CA6C7343FC9FEF7D076AD2033AF1342ABD68FB32233FD01657E42DB0D33312C030AE2001D214C3621964D28DEF9AB9797C48D5B49A4A790A5CA9941162432480E6AC3CF48FBFB3470F1FCE';
+wwv_flow_imp.g_varchar2_table(47) := '49319D0A21ADA2A90F943D70EF3DECF1438750ECFF61F1F61309D0327CCE2C3FCBFEF3A73F95821FE27017A84E85D4D752FACC3FFBC9F3441148B0FFD6DF26A59EFF57874C1A90480069A8A61D11FC87FF76175B247F2F60E3796BD89EF517301EA020C1';
+wwv_flow_imp.g_varchar2_table(48) := '812FDF301D94956496B3E98C43064F7D20FBD2F3D7B10B67A75FD25F3E79928104B02953E1A530E345ABAED2480045044F3EF914FBFB2DB7E4821F01B96D7E9EAD1E8D1802948B44E02277E7D7F2E73149301632F838AE63EBEC0B0B24586207EFB883C1';
+wwv_flow_imp.g_varchar2_table(49) := '36DED7FD796CB37BBD7A1A3D1240CF701FA31160F7DC717B4EF525EBD6310424AF0409B62764E0D7C8DD11C8FC5AF6FCECC1030C63797FC85CBB7A15BF4C75A26E5C31C37027B8EFAE7DECA8CABEA09B313B76D9D0AB1B02040F74F3ED1B8145831FE908';
+wwv_flow_imp.g_varchar2_table(50) := '829F06259F930D493A84BB02BFC6A61824C0737C5E5775461FF4FDCB173F9F7559BB6A1583CCAC6252401D4DBB4002EC0B60EBA44BFDA9D9EDFAF1365B1DC58C1B02840C743A89F568E3490F022BED9ABCAC19CDA4A98E28F893E6F43FF604085C5C603F';
+wwv_flow_imp.g_varchar2_table(51) := '80D5FCF68F7F94DD76EDBBD303D768C38132AF471F5CA31E474AB424EF475974E08E83B40BFD783B6C9526011F14DAD951CCB8214068E04ADA838DE5A1C2931E04F5EEF5EBD37CBF4E0C0273FBDAF95CAE5ED75FD436D67581A82957075D200148C71B40';
+wwv_flow_imp.g_varchar2_table(52) := '026C8EF9753C8B11880410E3C210FC78D273BCF0A4E7929AD5B8280A8189FD01727504275DA58B7DF935FAA02F5228555D188383CB424A0412C0175ED7EEEC68396E659C9E6D910002D0B1D9AD7AD223E8DE58855C1D4F7076278F49AFDAB8815D951C34';
+wwv_flow_imp.g_varchar2_table(53) := '5051E6F5E883BE204EA3E042074E38C8E34D2081FE13A2FA1491EBF273D6B32D12A0306BC71F7A90D1CD2E9AB1D96D139018EBE380ADB8EB70DD2081F213223E38D0B35ED84F9D922780298D53DDC194902260D5C73BBB87F6EDCBEC423A82E0AFDBEC66';
+wwv_flow_imp.g_varchar2_table(54) := '9D2DE2D34634EE3AA2274448894072F89BD9DEC1825EE23375589E00A6344E757B2FDD79F34D0C07D21DACFAF49D5D043F369652C10F4F2CE2D356345222F8005F60220EDC0D4072F80BDF71A05EEA68C34429C1FE3AC913C09F8DCE352387462E8E0072';
+wwv_flow_imp.g_varchar2_table(55) := 'A19C06A8697DF00124804FDAB2DB32B1A8382022054700DBD88802010188478E68C36614397471CE4C5FE3490F74A6BAC93BBCA6F5401E48009F9012616FC075A38D1FB0036DFCDAD639955B4BA4DAC674B8C997E00860DB7D0402829C1E58EDF1C8116D';
+wwv_flow_imp.g_varchar2_table(56) := '26C1AD9385A0844EE846B9AEAFA936E8C1DE004F99A0BB8801DA4CE96A2F47B0040AAADACBCF8F0C8E0079F3E25544204180AE8A86C990238061D989E536FE53346CC88F328346C0F0F4E7086058B6251CBB4153C63CA3D9159898DF7F3902F835A56FDA';
+wwv_flow_imp.g_varchar2_table(57) := '3D47A067FE7565361D1220644866725F30AF0ADDAAFA903D8BB6D523103E019C44DDB95CC252B57856D5D7431C5B4346207C02C4A80B397E3A6F5BF804E83CC4D1819011088E00E75CA3A5A050A1AB6B2FA2BE9608044700E7198F824285AEF9E98857C1';
+wwv_flow_imp.g_varchar2_table(58) := '22101C0182452A1A66188130969351BCAD1B9ED7284E12015391A747A491DE70495F63B788803504F4886439058AF4B236EFB9772E045AF4E24220B09F5596091067C15ED834601BC8DA63CF7F33922D13C08C91514A44C01602DE08D0B07E35FBAB2DA0';
+wwv_flow_imp.g_varchar2_table(59) := '5945ECD17F04BC1140FB0EAD2DA0FF931BBA8721AC61DE0810FAE4B4B32FB25205B710D0F24480105C57992AD9BE21AC69B2B6C67E40C0220120BEEA888152854CAC3787804C947922803927A3A48840150232794660049031B9CADD581F115047203002';
+wwv_flow_imp.g_varchar2_table(60) := 'C8DCB4D49D2C8D30A0A64A44557DC986581104028111401D93560167E0463315312DC1FAFC156A7A74B402DB9CFF36D4779E00D2016703BD746E0582D3FA805E4C99280DB61DDF6DA8EF3C01A4A1B6819EB472CF1D87EC7B03F44110C0D402D5E06B6C26';
+wwv_flow_imp.g_varchar2_table(61) := '08F8C2DC975EE27AEE27703C1120BF24E5AFA8A9B16C0B015F98FBD24B71A436782240F53A50DD425D88E5888019043C11A0DA78CACEEA5EB1255404BA66577004E81A803EED8D774B7DF42301F431F42621BD5B461668E11F09A0055F00835316046047';
+wwv_flow_imp.g_varchar2_table(62) := '174C102C169E081067AD0BF1D23B1B0561E78900022AF60EEDE85017103048802EB81B6D8C08E4118804C8E311AF7A838020DF11F816092000A53F557241D01F7FA9277269762400C5AC7765B920E89DDB0A0E4502288065AD6B8C536BD036091E18012C';
+wwv_flow_imp.g_varchar2_table(63) := 'A5044D28F3F6AA400FD42C6E769FCF1D24804EB45445A0A3299E98EED98A92B313B34AF543A8E820012C868F45D13498FA14706620F387887B0298418CC6935E99DAE36F1EF47CF038DA0C647412DC3AE39E006610338792357BAA053B996E6925D5769A';
+wwv_flow_imp.g_varchar2_table(64) := '03395C49EE09E0048B1026B53A029D5827ADA4DA4E99A9D2EE634A7D959CAAFA89E1FF070000FFFFA83C6B9A00000006494441540300A52D9D37801006B20000000049454E44AE426082';
+wwv_flow_imp_shared.create_app_static_file(
+ p_id=>wwv_flow_imp.id(129444851713990472251)
+,p_file_name=>'icons/app-icon-192.png'
+,p_mime_type=>'image/png'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/files/icons_app_icon_256_rounded_png
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '89504E470D0A1A0A0000000D49484452000001000000010008060000005C72A86600001000494441547801EC5D6B8C1ED5793EB33606B31802D85E30B5B31611C686401282D29442C8AD69D4343F085169481327522345AAAAB68A1AA5112234CA8F56AD';
+wwv_flow_imp.g_varchar2_table(2) := 'D4486953A9522011105A0C6DF32797D26240F991904BC3C50E088A050DB06B6C03F662D6DEDD2FE799EF3BF39D6F762EE7CC9CEBCCBBDAF3CDCC9973DEF3BECF7BDEE75C66F6DB29463F840021D05B0488007AEBFA300C4FC250A3B75A1001F4D6F56118';
+wwv_flow_imp.g_varchar2_table(3) := '3E08438DDE6A619F009C507CCB465A56EF6DEF21C3A34600CADB27002714DFB29196D501242542204604EC13800154E218A0E3D0D2803B3A2CA27F3E8C8200EA06E830DC56A765E0711306881C249F8A44EE438E9EEE6F4004D0DCF1FD739BAE9B15CA07';
+wwv_flow_imp.g_varchar2_table(4) := '0362308A288016571139C284E68D08A0489010D8FC488E6F8E1DD52404EA11288AB046045024A8BEF9904BD8A1B4902D26DD080120D0880050B15BC90CA5118D74AB57F4C11A2200835E36432306156A2D8A28AD35841604B4F58AAC1211808C86D77393';
+wwv_flow_imp.g_varchar2_table(5) := '6E356548F728CD14323EE598F40A11804F4F4EB46DD2AD1382E982102845C029018438C6E5918941C7BCCE744D083445C02901C430C6C5A063236713B369C2D64DC0F220382480B680B6AD9F37BD67D79D65365B7EEC07600E09A02DA06DEBDBEA282437';
+wwv_flow_imp.g_varchar2_table(6) := '0A0468FC2874934302286C9F3209013708181C3FBAC42544006EBA1FB5D221040C728953548A1A6B40005DE2BF2248282F0404A897B9F1420302E812FFD5834C1DB11E231B25FAD5CB6C20A826B30101A809EE4A29EA885DF124D95184407302A0A1B108';
+wwv_flow_imp.g_varchar2_table(7) := '4FCAD342A05F9DC8A7B5656E694E002A436388169721D1E77C6F7E52E9446E1D63130A2FD6D618D49C0054FCE2C56215C5AACB1CFCF48737A4E9E3D79D7F50A44FFCC14507BB9AFEA8A16D9F6C58CF058EC26FE2C87D5AEDF5E1DD48BBEC50F9A2CF1A83';
+wwv_flow_imp.g_varchar2_table(8) := 'F408A0864D8ADA0F35EF851B6E989DFFD84777CF7DECFA9BE76EFCC8ADF3375E7FFFDC8D1F7966EEC6EB072B8BEB5E4DD360EAF9159196979F58A13489C1D21893E5D0B0117E1347EE53F8163E9E1FFAFAD639F89DF781173E7EFDB5A1F653DB7AE91140';
+wwv_flow_imp.g_varchar2_table(9) := '0D9BD856B6A97C39D8E753E75F3F985AB3F4CC2019DCCA12F625C692DDDC34DE099259D6951F6E904B5312078D99312999E572E0EBDD0C7EE77D606AC046E48F01800F069C1458877EAA4CD123802A4981DD7B9E8FF018DD11F072B00F9D1F98B236D431';
+wwv_flow_imp.g_varchar2_table(10) := '19911C341B2AEACA3469D2EAB6134EFE69DA8D8141CC16D087BA3C43E8140160A487C3E6F8547E0D1FE131BAF3BECBD97EB5BB2947038144A36CA78A26B3E843D90C812F173B651E37A62501245C84FFDF34F0F97A0E233D1CC65832CBE88710308A00EF';
+wwv_flow_imp.g_varchar2_table(11) := '537CB988C185A75BBB322B6849007C7CAD0339A92BD0FC3E027F9EAFE9D3C0E7EBB9E692A8A616020A6ED7921755E1840F2EC96ECC0AD0F78C1141C2ACFCD4096D490075E2F97D0B9D05813F371AF1B9F8F0A6F85C296E79777F3D75D6D000E56EBE1644';
+wwv_flow_imp.g_varchar2_table(12) := '80BE883ED94A3F2EAC55FD8695ED134043C5CAAA618D1FFC881F588078EA5B652EEC607EB27B6ACDC9FBD13799CB1F03FD2C1A0200C3CEF3E9FE708D6F17E5AE058C817E6217F04E484F66D137E7F80634FAEAA449C9E4A5A92B031D350A02C03A0BA33E';
+wwv_flow_imp.g_varchar2_table(13) := 'B7D7C974DF92BB4CB99DE4048D4032BB7A36C07B2E73FFA3D262F00480B7F5B0CE523126F432E17683D0918B4DBF64381BD07A6C987831B29200FCA834C6814FA76EC54B19E39CB8CF7CE3E91BBDDE11201E1B2A93801F742A09C08F4AC36E3A8FF53E3D';
+wwv_flow_imp.g_varchar2_table(14) := 'DA1B82D191CF5E122048803FB10AD5859504D04869035E9EE38071F271B2DE6F6463272B19705C277131615492FED1990949AA3254CB9927001EB9138D6BF6ABE1A39464F7840CBA708040DE710E9AEC53139809282F07DC01A34400491B7D34FA1576FB';
+wwv_flow_imp.g_varchar2_table(15) := 'F128A54D73F6EBB642C3BE7A2D5AD070558B567A5C354012502200171D03CF4EE3D8ED7781869F2069426DDD45C3920F92C16EF4754BD2B5C52A1180B6D40615D6AC59BAB54135AAE2198126A4E15965CFCD27B3B6FB3AD3F8098200B0EEE723096DFA69';
+wwv_flow_imp.g_varchar2_table(16) := '388E8AC684C0244DA2AFA3CF876081770248A7437C6D140218A403216007011EF279C1580A04F05564EE0960920C5948D3A1BC8FE89A10B0874032BB66C06E669E7FDC13804486D8F5E7971EA7FE3936F2EC0C6ABE5F08A0EF23064C5AAD2BCB3D01481A';
+wwv_flow_imp.g_varchar2_table(17) := 'B6634013C1CB5D20E943A784806B04DAC5407B6DC70460229E0AF529160CE6E3E1D762F4E7B50BDBA34C930810CA26D15C2D8BE37B2D6261F51DDB39C3B81C1300D7C44E93C582A706834FDA698FA49A4460D84D4C4A24597904FCCC028671392680BC56';
+wwv_flow_imp.g_varchar2_table(18) := 'D6AF137ADDD73AC6D4400C080CD860D6849E4D64582580A44423FC8D7FC92DCA26041A2050D6D31A88F2522599F5F55E8055021894803948562A1E7FC4EECC12A329DB2202653DCD6293A64527032F3362AB045084D170F44F2AA63C83A26A94A78900A1';
+wwv_flow_imp.g_varchar2_table(19) := 'A80998F7E2C9AC8FCD40E704C0D73B6F348D75889DDDB74E4953907D2BDE54EF0ED49B5A61EF6A6A46D37ACE09805998EA34EEEC4D5153A8675327AB316A537105DCFA5C2449588BC7E2ACD18F7B02A07FDBD5C85172258A51198DEE9C7362EF36010CD7';
+wwv_flow_imp.g_varchar2_table(20) := 'FFDD71185942089846C0F53E80D31900DFFD77BEC631ED207579344EAB63452505024D5E0A12759B1CCD134075BFCF4D71AA0B3731289C3A7C42178E32A4492408F04DF28A2764E68D304F0095FD3EC9195759D8BCB5249110881481C492DEE609A044D1';
+wwv_flow_imp.g_varchar2_table(21) := 'F48B3F4AEEB5CBB6054D3BADA83621D00C81E2F7016C0D95CE0860CDD4726EFADF0C9ED5B56C41B3BAA5AEE4F41EB12A00AAEE05D801DAAAE48C00BAB301E876C661A33FBAB5A06D171DD5370944150055F746AAD83EB87C21C81901D806CD9D7C933DB1';
+wwv_flow_imp.g_varchar2_table(22) := '5E6B1BFDD1AD05F5362A95B0018452C3EE0BB97C21C8190124F40290FB9E54D26252924FD97123D0C4AFCE08C0F5E38DB85D49DAF71901D558C963D46466E78C0058503380265CC97AFFD3A483F51EB4460024B9C7E58D8428557248004AFA382A445DB9';
+wwv_flow_imp.g_varchar2_table(23) := '09D049934A2EEB74C8AD073FFDE10D2EA0734200073F7EDDF92E8CD169A3437D45C7EC6E970D9EA134E03FB1F60C8DD28D8B3A2180C6DA59ACD8A5BE621126121D2802A6D4EA2D0168034853066DC8A842F8081001A8FA88A60CAA48C55FAE4764DF9800';
+wwv_flow_imp.g_varchar2_table(24) := 'B4E261EA14271B1AF1F73CB2200804B43AB7258D1DC54C630290493204BCF26E90F5CBDFA36B422066044CEADE98006425420CB6104949C6CCE87943079C5C5931AA06098B0F012304109FD91DD3B801DB1D3BB9C4F6BDFC0ADBCFD3DCF1D73B060899A3';
+wwv_flow_imp.g_varchar2_table(25) := '8A400404D0A077AB5ADFD37247164FB0A78F1E4DAD3FC167012F1E3FCE880452387AF7514C0041C55CC3F96DEF5CA9663082FFD9858555858904564112648669A58A0920B2988B4C5DD33E4CE5A960900FFEF5D3D30C2915C03F880438083DFB2D2680C8';
+wwv_flow_imp.g_varchar2_table(26) := '40086AC2E209BB3A0C8A82FFC22BAE643BAFB98648C093CF4268B61304E003489511D7875E456D627D2F4FFB31EA23F8A7379ECB4E597FBA5D128809A822F03A9E574D0075C38A237042EC43814053EB01ECF6636A2F0A8AE03F9D07BFC8B34A02B10025';
+wwv_flow_imp.g_varchar2_table(27) := 'C008F86843B56A020824F2A80F35733D825FECF6430282FFB20FFC2EC3C89FC7B488040E2F2E32C840DDDEA74062C1B41FAA09C0746B05F23A8A6B81A56EB3F0928F1CFC681DD37E1CCB922001711F8F089FE34F0C204BE4F5F69867CC8E00E19D00BA86';
+wwv_flow_imp.g_varchar2_table(28) := '6B2884F6ECB1C9477D975E736D3AF2D7F55B90C0DB3EF8C1AC1848E0A9578F32D724100A8E19101D3DF14E005DC33504427B9A07ECB1A5A50C5AD5E0171540023BAEBC525C324102598683132D1C7BC016B6202702B085AC27B9F9E09FBDE452A5913FAF';
+wwv_flow_imp.g_varchar2_table(29) := 'EE1BB66E63A82BF24102580E88EBA08E5A6C1194E6DE95210230EA02BF3D111B76F2C87FF6A6CD6C66C78EC616A2EE96EDDBB3FA87174FB0233C651974123D024400465DE86F2E8A35BABCE9871DFF8BAEBEBAB575E75D7CF1AA1785D0566BC124200804';
+wwv_flow_imp.g_varchar2_table(30) := '3A4E007E4764971ECE6FFAD5EDF8ABEA86FD00BC2D28CA6329906F4BDCA3A31D046C4AED38016044EE3E09605A2E4FFDB176C7B37E531D07240099421EDAC2DB85E29A8EF122D0710280634002387633613A2EBFE6DB76DD5F86D239DBB632C816F70F2F';
+wwv_flow_imp.g_varchar2_table(31) := '2E3A7F3428DAA6A339047A4000E6C00A51527E3ABEFDED57585113B30059369602783FC04A632108EDF6B891214C04904111CF89E89B47F88E3CA6E342734CD311A8E2DAF411B2F3EF07E0C983E976CAE5395CCE396CAADC5EC66CDF2302B08DB005F9A2';
+wwv_flow_imp.g_varchar2_table(32) := '6FCA7FE483E9391EDB59686E42E4F4C68D134B01B7EF0608EA9B50A9D717A22F3401017589009A2017401D8CFE98860B552ED8B94B9C5A3D621620B7051DA08BD546497829026D2811754B0800DC50DA663C3760613CDA6A692A6FFC6DD9BEBDD1DB7E5A';
+wwv_flow_imp.g_varchar2_table(33) := '0D4A85F184016D8A2C792622F2E81807022504A01E39415345D0CA35EF20F94770C78F2DB0271F7AC8693A323F9F19805980DBA540D674A74EF251E7C2B81202506FDA87D2EADA75B3647EC43D72709EB94EC71726FFDA109B817824D94DC4DD58E563BC';
+wwv_flow_imp.g_varchar2_table(34) := '6A4D006EA0A1560402A18EB49805E48949E84CC77011200208D737859A61A41537DEF4FE0FB02BFFEC735E137410FAC8BA893C3A3643C0D5CC9A08A0997FBCD4C26E3B465AD1F8EC67FF849D75CDBBBCA6DFF8E80DECB44D9B5395A01B744C2FE8A31502';
+wwv_flow_imp.g_varchar2_table(35) := 'AE96034400ADDCE4B6F2E1C5C5AC4179E4CD328D9FD477C3B51B37B2F32E7F4BD6322D033228A238210288C24D2CFD724EF9ADBF996BDFE34073B589E805EF7E6FA60B6601B414C8E008FE84082078170D153C72623CFA9F7BFE16B67EE72E563F3E0FEB';
+wwv_flow_imp.g_varchar2_table(36) := 'DAFE842ED049B423EB2AF2E8182602440061FA659556F8361E91B9EDBDEF4F4FD5C6E7B4A8F50FA1131AA2190050689E5CD62402708976C3B68E2C9E98A879EE75D74F5CB7B9587AE9A536D5B3BAD049DE0C2412C8A0993C0989B5B966611340606071BC';
+wwv_flow_imp.g_varchar2_table(37) := 'BCFC1E5B3A99B5BBEDAD6FCBCE9B9C1CDFBF8F1DF8FAD7D88F3EFBC7ECBEEB7E9FEDFDCCA7D2F37DB7DCC470AF894C5147DE0C9C3B7E5C64D391239075E550D66D5C27FC864D00818105C07C2479343DF7923737560141FEC32F7E9E3DF55FDF6747E75E';
+wwv_flow_imp.g_varchar2_table(38) := 'CCE4E0FCF95FFC2FC33D9043D359C1A64B2FCB64623330BBA09360F66BF2AE089B00F2DAF6F01AD37F399830D56E0203821F415E5717E4F0D39BBEC09A90C0F4AE4B32F1D05926AEEC46AF4EF44730D7F01001B8465CB33D79FABF61E63CCDDAC3E273F7';
+wwv_flow_imp.g_varchar2_table(39) := 'DCCDE4E09FD9B1935D7EC3C7D86FFEC5E7D2F4D63FBC919D73D1F8EBC3312338F4C0FDC3CA1A9F7827407E1AB020FD73120D311D2A9A4DFC539B26AFD2ACF4A32C3FBD69F98308C032C06DC5CBA3E8D6F7BE4F5B1C46F247EFF856566FF69DBFC52EFCBD';
+wwv_flow_imp.g_varchar2_table(40) := '0FB1E92D17B0293E31455ACF1F2B5EFCA10FB3375DF5DB5939D441DD2C43F164CB7BC63A1E965E5C52ACDEE96265F381B27C17604CB96844AB0D9F74A8A5A89BC2984A8B96CE6EB0FE9747F2B3B66E635BDE799510B7EAB8F91DEF6428236EFCFFDD7789';
+wwv_flow_imp.g_varchar2_table(41) := '53E5E399B9658072452AE80581F008C0271D7A714179A3F2E88F52EB77EEC2412B1D7AEC91ACFCF9975E9A9D979D6C7DF37823EFB5F9B9B262A5F9791DF3369456A41BCC0704E111800F14026D53FEFBFAA6EB7F79ED7FFAC64DB596AE3BF7DCAC8C5C37';
+wwv_flow_imp.g_varchar2_table(42) := 'CB5438A17D000590022942041088238AD4903700672EBBBCA8486D9E4C1C2B83FAF5955C46A9E713620000100049444154AE5BDB905460C325F5330DA9389D7A448008C023F8754D9F585EC98AACDF3C939DEB9CC8C4F1F233FF575B75E1C0335919D46D';
+wwv_flow_imp.g_varchar2_table(43) := 'B2223B6DCD9A4CC6B193E39798B2CC1627F514D642780FAB120104EC74790350BC66ABABAE4C1CCFFDE461B65CF186DEF2F1D7D8D33FFE71D604EA3609B8B3768D6700B20D99E016274D08A94573CEAAFA6A280A0268D209ED00EAB6FBC9C123BF64A363';
+wwv_flow_imp.g_varchar2_table(44) := 'DBCC473ECAC4547E993F96DBFF1F7B0A49E0C46B0BECA9FFFC77B632FAAB43D4415D9DB644D9759BC67B0DB041DECB1065E8180602511080DBB0AB728C3B2ACAEF9EE3259B2ACDAAEECDBEEF77B2DBAFBEF022FBD1D7BFC69EF9C1F7D8A1477E91A6E7EE';
+wwv_flow_imp.g_varchar2_table(45) := 'FB3EFBC93FFF133BF4FCF359B9CBFEF4CFB373DD93532FDE395165515ACA4CDCA00BEF08444100DE51F2AC40D3E9BF501B23F99B6FFC44361340FE0B8F3DCA9EB8EF07697AEE914790354A0386B2F9C779A39BCA07CC20940B53416F0810017883BEBA61';
+wwv_flow_imp.g_varchar2_table(46) := '79DA7CCA547B37810430AA570526EE5DF595BF65285BAD9DDE5DD916BD9A0E4ABB9BD4951AE3F346FB9EE553FB9EB4BDCE0001002A8CEAEFF8FABFB0ABBEF237E928BFE5F2B7307CB720467C7CBB30EEA10CCAB64DA6746EAB476DFD70D697B5AADA2840';
+wwv_flow_imp.g_varchar2_table(47) := '046003552D99C53D109B6742CCA99B87DFBA2BAEDB1E11E418E577DDFC65866F16C639BE5DB8AD5CB9BEACB36C8B5CC6C679CF07746D48BB4700D1F5807A85D71A9A0168F78E1615D68DBE2ABC850885AAABC973758E82981E17E91E0174A4079C5859CE';
+wwv_flow_imp.g_varchar2_table(48) := 'BAE53A855778B3C29527EEC0599BB868AB9E3C2BE108E0A66F15BA4700BE1135D4FEBAA9F1DB74864472311E02863729931957827E0342800820206794A9B254F10EBF8B7176522FB5164FBC7470588D17B7436643F1F4D90E01228076F839A97DE2E07C';
+wwv_flow_imp.g_varchar2_table(49) := '693B7C802DBD67E7865A8B4B2BE3BF635817E11E861DECFC4AE55CBC4A012280559084911153D01475AC93120184816885166A9C5621A0D92DD7B58499B2BF4A09402EE45A516A8F31F9E59FA32F8EBFC137446C44C792757B7DBE7CD6229763CC5C4F2B';
+wwv_flow_imp.g_varchar2_table(50) := 'D283A9FC985341A535EF65649CA6CAB4910B9595A17C37082C562C01DC68A0DF8AACB34C66AB2599EB693D8BE3D55036C829258006B2A88A41044E5D33760D5EA45936F41F7C0CAA582A0ABA42675140B645E4D1310C04C6BD4C431F625A0DB01A167DF6';
+wwv_flow_imp.g_varchar2_table(51) := 'D8C244CD15666EA49C106CE122AFEB53AF1EB5D04A0B910140D9427BA3551B11401D7E4410ED7CF4340F9863B9EFD47F7DFFFE76421DD67E6DDFBE89D6301BD8FFF22B13795E2F7C77D0BA0072084E2302A8D30FF6F9C6B84EC750EF17053F74951FABE1';
+wwv_flow_imp.g_varchar2_table(52) := 'DA445AFCE57E76523CAF37217024E3F5823D8BE04860A4AB974340C1514A006D750409780137E246CB821F261D7AFC511C8C258CD20FFDD55FB2073EF36976F4A1078DC985A0E3255F274E240074C24AA5044001ECD651F9E03F7BD326362B7DBBEE82F4';
+wwv_flow_imp.g_varchar2_table(53) := 'CF3C4D68F6F2BE31A1C8FF3BC084ECB9477E9189810D674B7F184424C058064E0027A50450A45BDB5941914CDF792110DDEAE0DFCC2EBAFA1A76C6B91B33780E3EFA085B32F824E0C4C1D1ABBA590B664EF00400FF5B50483B67DB56B6FDED5730220181';
+wwv_flow_imp.g_varchar2_table(54) := '4858472D020821584CC3E79BD48A83FFEAD4CC75D3EBD3A3F838BE7F72734DE487745CCCBD0074CAFAD319129140485E1AEBA24500E36A819C45CE4855C10F841138F2C8F9CABEC7901D749297165BB66FCF74852D4402191CC19CC44D00BE87EF166EAC';
+wwv_flow_imp.g_varchar2_table(55) := '0B7E21FA2CE9DB800E3DFF2B91EDF1580D3A962A42B975A74F8BD3F4584602C0222DD0830F2B2656BBA4B2C9B809A0D2B4706F3EB7B0C08E49CFF931CA5F74F570DA9FD75ADE0778E5F1C718D6D8F9326EAFCBA75DD0EDA0F40DC3B2EE42C722120016C0';
+wwv_flow_imp.g_varchar2_table(56) := '4494A1A32602E52EA915140C01B4B0A1D6C8900AE0FBFE0F2F9EC854AA0A7E1492F701B0837E2CE065C0CB0FEE65F2DFF64C6F1CFFA35126FD14910030993BFEBA548A4E5D20100C01B498C5B8C0C9581B4F1F1DBF16BB7E7A9AEFF6178FFCA241048BBC';
+wwv_flow_imp.g_varchar2_table(57) := '96FED5FDFF2D6E05779C7B74FCF84FD6B94851D8853D016020EE1F5E5C6451FD19B1503CE2633004103186CAAAE7A7B9175E71A552DD73B6BE312BF7127F1C88A97696E1EAA4668A069DE47F272EEB5CA6224860E735D764B731C379B1E27F176605233D';
+wwv_flow_imp.g_varchar2_table(58) := '09516D0F04D097B17EB5BB31CD15B97841A66C8A2CCA88E3EA65C0E3E296F96359A0D7B82D9DFE4BDAA8DA0612D871E59808B144429244D1A945043C1040590FB3686500A28F48EB7EA833B363070E4A0941224FA97F75FF7D4AF51A15AA09F432993AD3';
+wwv_flow_imp.g_varchar2_table(59) := 'FFBC8CE98D1B99580A6016B0206D90E6CBD2B559043C1080590362917698AF6F85AE72308BBCBAE3784A3D60986ADBF8239E3A1DCAEE4317E824EE8F751539D54710DCCCECF89D8163274F5657A0BBC6102002300665B5203CEA1225740304F530A5C613';
+wwv_flow_imp.g_varchar2_table(60) := '0336DA663FB8F77F58283FB22E18C9A1ABAE6EF22343CC0274EB875E3E54FD88001C7826BFA66D12205073F3EC7833F0A9BBEE0CE09D0096EAB0EFCEDBA15E9AB6EDDA951E753F56ED739C5CD2151177794F2B63220007DDC6D4A3ADFC5AF9A507EE77A0';
+wwv_flow_imp.g_varchar2_table(61) := '7D7513791DDEB0755B758592BB580660F65072BBFBD90DF75EDA024304D01641CDFA6D3A3982441E610FDCF7837404D654C168F127BE3D1EFDE5DDFC268D9C26BD3A6C8A349BE8D1A73ABD22004FB3AC89FE2477F2891B8A17980588A2F8B3DBFC082CEE';
+wwv_flow_imp.g_varchar2_table(62) := 'B9381EBA770F93D7EB4D477F17BAFA6C23E4B67B45005666598E5905B300F9290246E06583DF13A0DA59D1E6CF6FFF66565CD629CBA493E011E8150158F1861556A9D6F4BC8B2FCE0A60049EDBEBFEF5E07C9B5BDFFAB64C276B278EC9D69A1D01095627';
+wwv_flow_imp.g_varchar2_table(63) := '000F1D3D209C825205B30079BD8D27027816EF4AC9253EE39077FE655DACEA407DD038BCEA0440EC6B1CFC3602B117307C2F80A5EB70F9597C1BB92A750FFCDBB7B362D081D6FE191CAB4ECA33C26033750228B784EE1842408763310BB860E7F8993B46';
+wwv_flow_imp.g_varchar2_table(64) := 'E4571E7CC09026E562F0B56478FA204AC83A88BC188E3A58DBB1A74C03B7C4400460C7BB8DA4EABA1E2F14C99B6FBFE48FE4303D6FD4B842256CFCFDF08B9FCF4AA26DE890654474A28BB53BD3CA88C18E0644007670752675C3C6F13707E3B1E0BCC50D';
+wwv_flow_imp.g_varchar2_table(65) := 'C127FEF1AB1376E5BFF26BE2265D4481001140146E2A56F2E5E79E654F3CFCF0C44D5B4B014CFDE53FF841A373079E61734F3C81534A0508C490152601B89D05C5E0A7553A22F0F2C12F0A995E0A6059214FFD453BC71716D881C71FD324817027DFC2AE';
+wwv_flow_imp.g_varchar2_table(66) := 'B88EEDF00C9300B46CD22A1C976F4BB47DF2A187D2C013B7D74D4DB16DD3D30C47E46129F0D39BBE60E635614EC64FE6A6FE176ED890B585F64002D009E7F5890BAC2F442594116887679804A06C3C0AB6030012CC24FB4474F2F86B0C817644FAE79B08';
+wwv_flow_imp.g_varchar2_table(67) := 'FAAD3CF8CF3E751DC351D80212C8BFAC23EEE91CF7FDF54DE9F70F883A08FE334E59CBDE74E6860912804E8F7CFF7B0C3A8AB2740C1301B9A77680004201D92E1121B07EF6DDEF32049AB0F88CB56BD9CE379CC51090C8C3F1BCF5EB719A26EC07CCDD73';
+wwv_flow_imp.g_varchar2_table(68) := '777ADEE40375E5753F64A30DC83A85CF3A4002D001D7485812EC7FF0412201C618F00835C93D950860F4051BA13A0B7A2DBC748821F8712E1202EF423E0A8B6B713C87CF04704F5C3F7AC7B7D89107F68A4BE52336FD50575480CC99F5A789CBF40812D8';
+wwv_flow_imp.g_varchar2_table(69) := '76C6340331A419FC439000F628F825FD068E40D0042033953D1CDDB4D2547FECF43F86EFDB970420E08A821F4544506269806BA49F7EF5EFD9935FBE99E1AFF7F0B210D26BF373B895269C230F0964B1EF969B98BCE9075955ED8118A0532A8CC30912A0';
+wwv_flow_imp.g_varchar2_table(70) := '2704291AC17F044D00F25AC51692BCBFDA12DD5A2E46D1FC4E3FD6E008B82AE120014CCF11B8A2DCB33FFF19C35FEF3DFC0F7FC790E4A93DCE918704B2C0B5A80719F2DE82C8CF1FA1534A0223A78104B039081BF265E93A1C048226804998463D6B32B3';
+wwv_flow_imp.g_varchar2_table(71) := 'F59549A926C9049B7D082061200211C12FD6E022BFEC28480053F7B23275F9A82BEF31D4950709ECE27B12D05594850DB0455CF7E128DB68B24FC8724D9D7B2400DDD00B1D4A666437019B7D081879B30F0185515835F8D9E8072480353A1E118ABD0104';
+wwv_flow_imp.g_varchar2_table(72) := '3512648E8AA5BBF9C813092339C8A66CDA2FEA151DD1667EF6015B5A3D2108DFF54550A479BABD3CADE4F0C3230144EC554B0E42F063B30F01239A4050EA8CC2A29E382220C5234204B4483299E05CE4E388911C794286EE116D8204A0BBA88B2541E327';
+wwv_flow_imp.g_varchar2_table(73) := '04A147913032C2A3470288102D8B2A63B30FC12F3781004240CA79B19C830430FBC06C42E82C4880F6050422FE8F44001E7D80111F818F297F7EB30F81136BF00B484102984DC016910712C0BE009604B01D8F38C5BD2E1C63B3A1A30410EE9C11D3FB1F';
+wwv_flow_imp.g_varchar2_table(74) := 'DD7B0F43C2888FC0479EDC71B0FE46E0C879319FC3169904600B8800B6E31127B040CAE3807294EC22E09400DCADFADDB5A4E21E8C842AE530E5C72E7A9BF5B74A3B3ECA8004601B36237DB42FDA0CAB6708ADFC1D9D1240B8E3B25D079CBA662ADD692F';
+wwv_flow_imp.g_varchar2_table(75) := '6A05BBF1087C8CFA98F2AB9245912C9DBCB3D79D9A1647FBE23CCDB0F801DBF03403B6820860775173439DD615DD6A9D97B496D02D014E09A05BD0A95B838E8F5D71747C395D7ECED9E9BBFC08FCA2515F77B4D2298FF63022B779C2A08EC06449B49D12';
+wwv_flow_imp.g_varchar2_table(76) := 'C1991B18749031C139746AF54C55078849D55A5DC5589908C091D74002E8F872AA6B5A77B4D22D0F9DEA74B0755FC428749031C179EB36758168DD60BC02DC10C0CAC9A3F142E443F3EEF7E0EE5BE8A3DFE8B7E98600F4F5EA790D313EF61C863E9BEF68';
+wwv_flow_imp.g_varchar2_table(77) := 'D0240208BD93111784EEA154BF583F880042F75CDD5C990822740F06AD9F1B0258B7742C68146256AE8E2062B6ADCFBA3B8A193704D0674792EDEE11A0599132E64E0860D337BE434F01945D42055B23E07856D45ADF0201AE62C609010CED1B1C181E15';
+wwv_flow_imp.g_varchar2_table(78) := '3E070A65A80821D0590406EAB1D21203670490B044DDA8A4A555549D10880681D59D3DD1899596763A2380967A5275422072049212FD07ABF2076CA03E58AEAAAD97E18C000603A6FFDDD48C7E0881B01150D76EA05ED461496704B032C51E7068173545';
+wwv_flow_imp.g_varchar2_table(79) := '08A408B80FBBB2913E5547E923194C398B156704C096D63A9BD628A14C857A8140FB70D485498F728A4A2FAFAC31385BAE46C01D01E8E248E509811E2050149EE7DF7597C1C1B28862C6C03A230018C58D35C86C6323E8CC3C02D5DDC67C7B314AB4A1B3';
+wwv_flow_imp.g_varchar2_table(80) := 'EB1871460000CBFCEE26870B822919478090350EA99240F33152DDEC0401D876FA4A927CB35A1DDDBB344EE92246E5C346607203D0764432364100229C125B18D146A02D64496E471098DC001411596E5CDB589D2000D14C7DB3A264F531AF1CED0354E3';
+wwv_flow_imp.g_varchar2_table(81) := '4577C341A02E06EC683AB80D31A223BB4ECF7C0CE665171240BE50D3EB22E5E885A0A668523D9708D4058E155D0689C1DDFFA186453138BC33FCB44A00C326263FE985A0493CE88A101008F8880DE70470FEED7BF6268CD1E340463F84808CC0E0006243';
+wwv_flow_imp.g_varchar2_table(82) := 'CE7171EE9C0052A306A69F06A452E983107082808D46F8EEFF2D36E4D6C9F44200933B9D752A7ABA5FB778F2A41635DB4D047CC5841702C04E67F0CB00AE6037BB9A7FAB885BF33E1868EFFEE72534BDF64200507639615EA63C689B925F04BACFAD7A16';
+wwv_flow_imp.g_varchar2_table(83) := '9A7F414EDDBFDE08001B1E1C26DA0C54F715950C00013515D4E7388801C4829ADC5C295E3997A37DE98D00A0E972EEE3830000055949444154F2F2DA4FE1D8D7A4DE4DFA8A50F7ED6E351336D0815A12403B0A8A622FC0621F6C879E45C548B42304F8DA';
+wwv_flow_imp.g_varchar2_table(84) := '9F3F1677D45861332D09A03D05F57D1650E815CAF488803B5A5E593EC5FB3E584B0268EFA7741630487ABD14688F2249308740F9A066AE0D2E69C0BE84BECFCFBCFE7A270058BFF9CEBB6FE3BC4B1B820023E6E42876628608BAA3AFCFDCB9E716C64F70';
+wwv_flow_imp.g_varchar2_table(85) := 'ED33054100008096024021F234EAD0C403D57ECCFA7A0040B5238091C3ABCD55BB8BE950424B0135B0022F65B05B046EA9BE7A2B097B37FABA7E4D3B35DA11806106C35280F1B5911D53492A21D01C01133531C0357EE66F69BDD08E007450511C16D2B5';
+wwv_flow_imp.g_varchar2_table(86) := '1191800EB254360A0406B7A5035C635D0D8FB6233DDC118086FE2B2B6BBF4933819187E8D01A018DAED7BAAD22017CECDB3B73C7BD413EE972470045C8883C8E9038C5116BA41848C077C70256944608543823D7BD46155C1DF8C87FC79E77333EA2B96A';
+wwv_flow_imp.g_varchar2_table(87) := '51A79D3008A0C0792081D097037E3B968E9B7B503673467662CCE8C682F85276E68E7B821CF9854D611080D0A6E00812C0E649C12DCA22040A1028184D0A4AD9CEC26E3FFAAEED76DACA0F9E006020364F5696D76EE7DC1EF1CB425C7B1843A9D308702F';
+wwv_flow_imp.g_varchar2_table(88) := 'EF455F6DBEDBEF169E280800906049B0196B293EADC2757C298C91293EDC22D298F74DF451F455675A73C669D3563404208CC4B40A0CCB37556E137974EC2B022D7BBF026C2A45B816E9A88FBEA952DE689996E34A740400F0C0B0D85C2122001A1D4CCA';
+wwv_flow_imp.g_varchar2_table(89) := '9D5AB9A0159044E03B1FF5DB58C39596ABC7470092014404B22B3B742EF9B89555D6F861701B36F9A20A7C01640E13CB0460CA93427B7ECC19C073D80411F075186F35E2CD4258E4361540EA56015BADF18E604EF4E0007F94FFA5993BF62433FCD15E98';
+wwv_flow_imp.g_varchar2_table(90) := '9B7CFA066704A05F5505DA814A2163655222B873CF2D60E67479609C0CECA0640C808682BA69554330A46A7C9F290D7A8CF63CE8B77B59E34FE85377A11F6F1901E857AD53C6EFFD3C190CDF251834F8DE01393C067E8DA2D62D233048035E1AE9D3A00F';
+wwv_flow_imp.g_varchar2_table(91) := '73B4370345460066C485290564807709388B7F4ACC0E304310A4C0997E440CBC03AC3261B02A87326246607080533A5F220E6E43A0230D47F83D98DAA7011FFE486F0EFF5E10401E2E1002922005410CFCB87D86AFF1A64E3D71669A92952D5322AD59B3';
+wwv_flow_imp.g_varchar2_table(92) := '638A523C1808BF8D8EF0EB30DDB31D83C00C5FC723D091BA3CC2E7FB7EFEBA97049007217FBDE91BDF399AA6DBEF7D619348DFFAD72737518A0703E1B7D131EFE3BAEB2EDCE7339D5A3388006A21A20284409C080C14D426025000898A10025D45C00001';
+wwv_flow_imp.g_varchar2_table(93) := 'A84C34BA0A1FD94508848A805A5C1A2000958946A820915E84C06A0462CF1986BE5A5C1A2080D8E122FD09816E21A016FA439B89008638D06728080C87AF50B4E9BC1E44009D77716406EA0C5F919916A2BA230220DA6DEE9CD0B10B5D3F4DE42D9BA3A9';
+wwv_flow_imp.g_varchar2_table(94) := '4DF4C547046099763BED34815DA8460AFD727DD5B6BAB6E4979893B38E2E151118118062E9A6FF9DA4174E8BCC48DBEAB6916F8B3C54BB798FCA6912401BAFF6085532B51D02D4CDDAE1A7515B930034245351422032043AAF6EC1CC8A08A0F35E270309';
+wwv_flow_imp.g_varchar2_table(95) := '8111020533AB7A0228608D91383AC48600F932368F59D7B7820046BDA58035AC6B65A881910586A475404CC4BEEC00FA419A504100F1F796F82D70D167882681B2F11409AC1504601C121218240205341949E73503A7296373720A6035A3AF5929440066';
+wwv_flow_imp.g_varchar2_table(96) := 'F1EC86B4483AAF19B04D196B4A8E19AB54A51001A82245E508810E224004D041A792497A08F4B9341140E6FDDC1A2ECBA71342A0BB08100164BE8D730D97A9AF7B427CA78B5880E5DB3B310802686F4680BE095DA59EF15DE8EE68A65F9D13EB232B0802';
+wwv_flow_imp.g_varchar2_table(97) := 'A833A3193891D4AAF7512486C4A966B7B5AE8FAC5F030000FFFFB03FCCDF0000000649444154030058FF09D4563FD54A0000000049454E44AE426082';
+wwv_flow_imp_shared.create_app_static_file(
+ p_id=>wwv_flow_imp.id(129444852047301472252)
+,p_file_name=>'icons/app-icon-256-rounded.png'
+,p_mime_type=>'image/png'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/files/icons_app_icon_32_png
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7AF4000004F64944415478018C56C96E1D45143DF5EC673C8082C7280B623185518224842F810DFC090B36590489156CD8C1027610C41790388208891D42A0589122214462';
+wwv_flow_imp.g_varchar2_table(2) := 'C726F2A018BFA939E7DE5BD5DD2FCF84D21DCF1DEA7675F5B33B5BEFBF534DE6774FC099FF1EF93175F75AF1DC2BEBBABE8313576591AA4AAE251D021C822F777208702BB9F294C0AAD00646BC0C10BEC59A224527DB86C2F368B4A768788AB1430A4D13';
+wwv_flow_imp.g_varchar2_table(3) := '116D2288550668057D9748091598CF2347CC58159AA653F6A949C2AA664E603113CA004A2CDC9A46A80356EBA640E7D6933A54247355D34C89375A523ACDD752D049069B913CA2AE62F38A61AFBFE159B4D49887FCE0F0957802CC182F82560B74A7CAE5';
+wwv_flow_imp.g_varchar2_table(4) := 'ACC9A6528D2B4AE2C902C98621D226E5B4908A0310603AA5A8B6AC8FA006A7D67129575CEFE5FD25C91EB26A7AA627F51CBB0325D50BB29C0857D83AFA070F8E7BDE971BFA0555111DA9E0B617605C86C61D88B4499B4508BE15B4B4F9CAA5B731F3E605';
+wwv_flow_imp.g_varchar2_table(5) := '3CE8F504A10E4F6A82F68A693B2AFA1FE92CD6149ED91F8D30FBDCF3585859C6F2E93574D69F8530269D4C5E6AF186A93B9034030301279A41FA7CAB88D66F1AB8BDBF6F195BB76E412CE74E7FF09F43C4892BD5B972D5A91B3777F6A0BEDFF6C5836DF2';
+wwv_flow_imp.g_varchar2_table(6) := 'D6E58FF0C2E52BE4ACAFE0C2071FE27838F2424A0D4F55284EDC7CB3B99D66E81862822EC9CC4704B385317EFCF422E65F79551EEE7EF939EE7EF505863B3B9823D6632C7F28298D8DCE162CB73A1DAA6C0DE203E4F3619265645D1CA5D3213EF7B26F7E';
+wwv_flow_imp.g_varchar2_table(7) := 'F4FB6F98EACE70BF0E9931D2A9D75E87B762222AED4374322943093E0047194FAF72DDD859A6E5158BE8899F7AE33C162F5EC2F48A63C7C3A17A5A7C924813A23E00B3EDC06257A944CC280C61F28FB6B7A48C3584D81C8AD9B5D371A57236C162AA5171';
+wwv_flow_imp.g_varchar2_table(8) := '18708A011424602A4D9813861DF2A60F0EF690D780EF5EEC7EC2EEAFBFE0703070374BDE053763F3508E419FA1866EA2FCB7A1E96A6BFAFACEE7CE5F040E0E31E0C66AD0BFBF0DB16C75E91E1EA23AF71234A863898AC5948504359C388182985186368F';
+wwv_flow_imp.g_varchar2_table(9) := '0D587430BF00FDF02C9D7D8628014ACD26C5FB66432D9F7B11ABEBEB50AEE1122C97AA99B5C448842A3F81149D1C345C3D6938099F5A5A32A73B378FDB9F7C6C1B22EA34F0E6679F423170CDAFFAA5D4A9440AD14CEC9650E03801828488C3160D7E1866';
+wwv_flow_imp.g_varchar2_table(10) := '4AD0B55EB2C5A3A387D8D9B84693750CDEBBFA35BAFB07F4830887F558557FC4AD67661D1B533E42776EFE8839DE81DD6FBFC1EEC6756C5DFB1E7BDF5DC5F4F636FEDEDCC47074C2EE82C5EC188A16D0F11F0EB35D34A38E987CB8731F5B373670A6778C';
+wwv_flow_imp.g_varchar2_table(11) := '85E969ACCDCDA27FF307CCFCFC13169F98C193DD2974FFFC037FDDB88E3D0E83C6AA78BAA20CA56C5077DC71491F9ED8F0E1EB4CAF8F53A3A1391EADB8E934BA9D788B8CC85EE5499E1DF6E9893CB3BCBFEC2A44AEC8515DB18C5E21858AE346BE141342';
+wwv_flow_imp.g_varchar2_table(12) := 'CD620F7327334CF8339924EEDD58E2360770C365448B1A47E9934A381B054BB68D3D7132C90C1A94EEF94072F5CBAB0807A89FBE0E2B45EC88CB864F8024804F62CAFBD79E81DA2002E6BB7054B67A7000F8D4F4F229A3B988D7AE17EBBB378B31D3EAE0';
+wwv_flow_imp.g_varchar2_table(13) := '469D1A1653C29252521BB10114520F63731A8235F560EDE23A3FF050B97ACC25DC4068B2B5FF1232D226066B8069A4EC2B94FF42679D633E509D2C4B0C0FD8DB503DB418A888D7272030338360B082964B59E2445CAF00A6136CB552C20965F17C37984E';
+wwv_flow_imp.g_varchar2_table(14) := 'B24184EB22FE0B0000FFFF009128AD000000064944415403005CA9CE3092B077F70000000049454E44AE426082';
+wwv_flow_imp_shared.create_app_static_file(
+ p_id=>wwv_flow_imp.id(129444851100779472251)
+,p_file_name=>'icons/app-icon-32.png'
+,p_mime_type=>'image/png'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/files/icons_app_icon_512_png
+begin
+wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
+wwv_flow_imp.g_varchar2_table(1) := '89504E470D0A1A0A0000000D4948445200000200000002000806000000F478D4FA00001000494441547801EC9D79AC1DD77DDF0F9F255A5C65928F8BB5532B29C952244B566A4BB2927A49FF0852380ED03689D3344852A74597A4451A044260042DD036';
+wwv_flow_imp.g_varchar2_table(2) := 'CDD604465AB4695CC771E13AA85BB4862D391625DBB0E2C6B63632DA2A45B66551A4444B244D7111DDF77D8F97BCBC6FE69C33336766CEF2117479E7CED97EBFCF6FDE3DDF39CBDCB9BD3FFEFEEFF18201D700D700D700D700D74059D7C09CE13F089444';
+wwv_flow_imp.g_varchar2_table(3) := 'E07B25398BAF10800004EA08188300A867434A8E0456E4E8143E41A09E009AB79E4DE9290880D2AF00FC870004B22680E66D18DE421493A8200044811704200001084040040A524C0800059C17042000010840A018024B8E22009638F02F042000010840';
+wwv_flow_imp.g_varchar2_table(4) := 'A028020880A2C28DB310684EA0A029D1E6708A2A51D0D878E6719DB887009890E01D0210A82410EC6B1F2551C9379D9304309D58F9598A00F0E3442E0840A02B81604AA2AB21948740C904CEF88E0038C382230840000210804031041000C5841A472100';
+wwv_flow_imp.g_varchar2_table(5) := '010840A07402D3FE2300A669700C01084000021028840002A09040E3260420000108944EE06CFF110067F3E013042000010840A008020105004B7C8BB862701202108000049224306B744001C01ED159B87C86000420000108C44A20A00088CD45462462';
+wwv_flow_imp.g_varchar2_table(6) := '8B08F64000021080C0580496B79BB10060446279B83903010840000210582290B1005872907F21000108400002A513A8F21F015045857310800004200081CC092000320F30EE410002108040070259CC2657FB8F00A8E6C25908644F20E3EFB5EC638783';
+wwv_flow_imp.g_varchar2_table(7) := '0312C8783D390260C0EB88A6201013818CBFD762C28C2D10189D409D0108803A329C87000420000108644C0001907170710D02108000044A2750EF3F02A09E0D29108000042000816C092000B20D2D8E410002108040E9046CFE23006C74488300042000';
+wwv_flow_imp.g_varchar2_table(8) := '0108644A0001906960710B02108000044A2760F73F3A01C0DE647BC048850004200001088420109D00606F7288B052070420000108944EC0E57F7402C06530E9108000042000010874278000E8CE901A200001084000029111709B830070332207042000';
+wwv_flow_imp.g_varchar2_table(9) := '010840203B020880EC428A431080000420503A011FFF11003E94C803010840000210888940802D73088098028A2D108000042000011F02D62D733E15188300F0E3442E0840000210804056041000598513672000010840A07402BEFE23007C49910F0210';
+wwv_flow_imp.g_varchar2_table(10) := '80000420901101044046C1C4150840000210289D80BFFF08007F56E4840004209008811589D88999631240008C499FB621000108F44220C01EB15EECA2D2BE0934A91F01D0841679210001084000029910285200A08D33B97A71030210800004A608343B';
+wwv_flow_imp.g_varchar2_table(11) := '2C5200303BD6EC2221370420000108E447A04801905F18F10802108000044A27D0D47F04405362E4870004200081B80930CFEB151F048017263241000210804032048A9CE76D1E1D044073669480000420000108244F0001907C08710002108000044A27';
+wwv_flow_imp.g_varchar2_table(12) := 'D0C67F04401B6A9481000420000108244E0001907800311F02108000044A27D0CE7F04403B6E948200043C08B018DB031259EC04B888EC7C3AA422003AC0A32804206027C0626C3B1F523D0870113921B5CD8000684B8E72108000042000818409200012';
+wwv_flow_imp.g_varchar2_table(13) := '0E1EA6430002108040E904DAFB8F0068CF8E9210C88000E3AB1904316B175802D05F781100FDB1A56608244080AFD7048254B48948547BF8BBA422007CE8F11DE943893C108000042090100104804FB090A03E94C803819E09F087D83360AA4F8E403783';
+wwv_flow_imp.g_varchar2_table(14) := '1100DDF8511A0210188C00437183A1A6A1220820008A08334E4200021080406E04BAFA8300E84A90F21080000420008104092000120C1A26430002108040E904BAFB8F00E8CE901A20000108400002C91140002417320C860004200081D20984F01F0110';
+wwv_flow_imp.g_varchar2_table(15) := '8222754000021080000412238000482C60980B0108400002A51308E33F02200C476A8100042000812E0478CC43177AADCA22005A61A31004200001080425C0831EBD7186CA88000845927A200001084000020911484E00304A94D0D585A9108000042010';
+wwv_flow_imp.g_varchar2_table(16) := '9840B8EA9213008C12850B3E35410002108040B904921300E5860ACF2100010840A0740221FD470084A4495D108000042000814408200012091466420002108040E904C2FA8F0008CB93DA4A23C0AAD4D2228EBF10C8860002209B50E2C82804125A955A';
+wwv_flow_imp.g_varchar2_table(17) := 'AF551272629420D32804E22010DA0A044068A2D407814809D477F3F5D2205257300B0210084000011000225540000210800004FA2510BE76044078A6D408810004EAEFD703544E15108000040C02808B00021D09F43380DE4FAD1D5DA53804203012813E';
+wwv_flow_imp.g_varchar2_table(18) := '9A4500F441953A8B22C0BD7A51E1C6590864430001904D2871A404028C0B9410657C84C02C817E3E2300FAE14AAD10E88500A30DBD60A55208144900015064D8711A02291040EEA410A5346C4CFB5AEA8B3102A02FB2D40B01C6EB3B5E0300EC0890E2A7';
+wwv_flow_imp.g_varchar2_table(19) := '09702D9D46317580009882C121048212C8EEA6233B8782869BCA20D00F813E6A5DFA5B4600F4C136D23AD1C091062619B3B8829209158642C04A60E96F190160859457E292E6CBCB27BCF1259066F497BEA67C7D241F04F223D0D4A3267F330880A674C9';
+wwv_flow_imp.g_varchar2_table(20) := '0F81240934F95A88C7C134654B3CFCB0A43C024DFE661000E55D1F780C816A02696A846A5F380B812C08F4EB0402A05FBED40E81F004FAEAA89BDC3A84F78A1A2100818109200006064E7310E84C808EBA33422A80400A04FAB61101D03761EA87000420';
+wwv_flow_imp.g_varchar2_table(21) := '00010844480001106150300902108000044A27D0BFFF0880FE19D302042000010840203A020880E84282411080000420503A8121FC47000C4199362000010840000291114000441610CC81000420D094405F3B439BDA41FE500486A90701300C675A8100';
+wwv_flow_imp.g_varchar2_table(22) := '0420D01B017686F68636EB8A1100598717E7200001084020350243D98B00188A34ED400002108000042222800088281898020108400002A51318CE7F04C070AC69A97702CC84F68E98062000816C082000B209258E18C35AE82CAE02C298451871A21D81';
+wwv_flow_imp.g_varchar2_table(23) := '214B210086A44D5B1080809B0003396E46E480400002C90B006E16025C0554010108400002111018D684E40500370BC35E30B40601084000027910485E00E41106BC800004200081D2090CED3F026068E2B40701084000021088800002208220600204FC';
+wwv_flow_imp.g_varchar2_table(24) := '0930E9E5CF8A9C104889C0F0B6220086674E8B10E8408065AF1DE051140210982280009882C1210420108E0052251C4B6ACA9FC0181E2200C6A04E9B1028800093150504191793268000483A7C180F0108C44100B913471C52B5621CBB1100E370A75508';
+wwv_flow_imp.g_varchar2_table(25) := '40202B02194E7864E85256975C006710000120520504200081BE088CD60F33A8D1574897D53BD60904C058E46917021080800701FA610F486469450001D00A1B852000010840000221088C570702603CF6B40C01084000027D13186D0EA56FC7BAD78F00';
+wwv_flow_imp.g_varchar2_table(26) := 'E8CE901A200001084020560291CFA18C89AD9B0040598D193BDAAE24C05F7B25164E420002109821D04D00F05D3B83938FE31340958E1F032C800004FC088C9BAB9B0018D7765A8700042000010840A0250104404B70148300042000013F028CCB55731A';
+wwv_flow_imp.g_varchar2_table(27) := 'FB2C0260EC08D07E0702CC41B58177FCE449F38DC387CD9EEFBCB2F87AFAD58346E7DAD4451908F810E02FD587D2F0791000C333A7C56004B8AF688AF2D0F11366F742C7FFF2D163E6D88210D0EBD089A5738880A634C90F812E04C62F8B00183F065800';
+wwv_flow_imp.g_varchar2_table(28) := '814108A8F37FFAE0C1DAB6240C0E2C0883DA0C244000025911400064154E9C8140350157E73F29F5DCC2D400226042837708F44720869A11003144011B20D0230175E8B63BFFD9A62502F61E796DF6349F210081CC082000320B28EE40609A803A7275E8';
+wwv_flow_imp.g_varchar2_table(29) := 'D3E77C8E5F3872C4A8AC4F5EF24000024D09C4911F0110471CB00202C10968A5BF3AF2B615AB2C22A02D3DCA41207E020880F863848510684C405BFBB4D2BF71C199021311C00E8119307C84400702B1144500C41209EC80402002EAFCB5B52F50754622';
+wwv_flow_imp.g_varchar2_table(30) := '40620211108A28F540200E02088038E28015100842A049E7BF6ACD1AA3974FC36144008F83F1614D9EDC09C4E31F02209E586009043A11D09CBFEF9DFF86CD5BCC0DEFFD21F39677DE65D66C9AF76A772202BC325766E2C14D9558380981910820004602';
+wwv_flow_imp.g_varchar2_table(31) := '4FB31008D91DAAF3D730BD0F5575FE57DF71C762D615E79D67AEBBEDB646228085818BE8F80702AD08C45408011053347C6D09D973F8B649BEE0045604AAB16DE73F691E113021C13B04CA2280004831DEA17A8E147DC7E6B30874EDFC27952102262478';
+wwv_flow_imp.g_varchar2_table(32) := '87409F04E2AA1B0110573CB00602DE044275FE9306CB1401A8E949FC792F8F0002A0BC98E3710604F478DF3673FE2ED7CB1301CCA7B9AE09D2C31188AD2604406C11C11E083808E8877D7C1FEF3BBDE0CF51EDE9E436224082E474051C40000249104000';
+wwv_flow_imp.g_varchar2_table(33) := '2411268C84C0120175FEBE3FECD3A6F35F6AC5988908B870E74EE3F39F04090F0AF221459E7209C4E7390220BE986011042A09A8831DA2F39F342E1170E1F6CB8DAF08D8FD9D578C6C9C94E71D0210889B000220EEF8601D041609A8635507BBF8C1F14F';
+wwv_flow_imp.g_varchar2_table(34) := '973BFFD9AA9B8A80A75E3D88089885C8E7E8088CB1F2233A080B0621001620F03F046226A0CEFFB94387BD4C0CD9F94F1A9C88009F27061E3B79D2200226E4788F95007B3F9622830058E2C0BF108896803A7F9F47FCEAB9FE9327FC85764622E09AB7DD';
+wwv_flow_imp.g_varchar2_table(35) := 'EAF5DB011201B259C225B41DD4371401BAC8B0A4E3AC0D0110675CB06A7002717EE169AFBF4FE7BF726ECE5CF1D65B7BA576EEAAD566E79D777A8900D9ECBB4DB157A3A9BC250106C95B824BAA180220A970616C7F04E2FBC2D333F77D3BD1AB6FBFD3AC';
+wwv_flow_imp.g_varchar2_table(36) := '99DFD41F9E53354B045C75FB1D4682E3D4A9DA37FD78907CA8CD4002040A2110AB9B08805823835D4513D0763F75A03E10AEBFF3AE413AFF892D9A6AB8E8A69B271FADEFF281A9002B22128722109FC61FCAF3DA761000B5684880C03804D461FA6EF7BB';
+wwv_flow_imp.g_varchar2_table(37) := 'ECBAEB07EDFC2744365F7AA951DB93CFB6771605DAE890361881D166F906F3B071430880C6C82800817E0968019D4F0B5BB66D335BAFB9C6276B2F79D4B68F08D0A24044402F21A0520874228000E8848FC210084BE0E9570F1A2DA073D5AAED7EDBDFFE';
+wwv_flow_imp.g_varchar2_table(38) := '0E57B6DED3B72C8C04F86E0FF45DCFD0BBD13400810109C4DC140220E6E8605B5104B460CEA7F3D71C7C5FDBFD9A02D7F6C0EB6EBBCD6B6780D603C8C7A66D901F02C3122867AE000130EC95456B10A824E0BBE84F9DBFB6E2555632D2498900D924DB5C';
+wwv_flow_imp.g_varchar2_table(39) := '264804688D832B1FE910188F40C8D582E379E1D33202C087127920D023017588BE8BFEB4D75F5BF17A34A755D5B24922C0677B20EB015A21A61004BC09F84A18048037523242A01F02BE8BFE86DEEED7D45B89009FED815A14C87A80A674C99F2281B16C';
+wwv_flow_imp.g_varchar2_table(40) := 'F69DC4484C00F8BA351676DA854033029A13F799F7D78AFF211EF4D3CCFAE5B97DB7076A2A40BE2FAF81331080C05004121300BE031B43E1A31D08B427A0A17F7584AE1A34B71EC38A7F979D9374ED0C90CD93CF75EFF25D0CEAD2390F81B409C46F7D62';
+wwv_flow_imp.g_varchar2_table(41) := '02207EA05808015F029A0BF7C9AB797F9F7CB1E4992C0A643D402C11C10E08541340005473E12C047A25A01FF9D15CB8AB113D682785A1FF593F580F304B84CFA51148C15F04400A51C2C6AC081C387ACCF82C82D3C37EF4B4BD549DD77A00F9E0B25F53';
+wwv_flow_imp.g_varchar2_table(42) := '01AC077051221D02E1092000C233A54608D412D09CF773870FD7A64F1234871ECBC37E2636343B54030000100049444154B579DF7ECB5BBD1F1224368DDB6059506364141882401A6D2000D28813566642C077CB5F6AF3FE75E1D154C06537DF627CD603';
+wwv_flow_imp.g_varchar2_table(43) := 'F88C8A2C6B878D41CB90A47982408E113704C018D469B348027ADA9FCF96BF54E7FDEB82BA7EF3BCB960E7B575C9A7CF6B2A40D323A74F70501081BC867252091C022095486167D20434BCEDF3B43FCD99A73CEF5F17246D0DF4F9D1208900B1AAAB87F3';
+wwv_flow_imp.g_varchar2_table(44) := '10804038020880702CA90902B5047C86FE354CAE39F3DA4A124ED0D6C06BDE76AB732A403B235A4D0524CC06D37323908E3F0880746285A58912F01DFABFFAF63B8DE6CC1375D369B67CF37954B04601C4CC5921192000814E0410009DF051180276021A';
+wwv_flow_imp.g_varchar2_table(45) := 'CEF619FABF60FB7693E27E7FBBF7CB53B535F0D22BAE5C9E307346CF4910BB99D37C8440F404523210019052B4B03539023EC3D91AFABFF8A69B93F3ADADC19BAEBECAC8675B79A6026C7448834018020880301CA90502CB08E80E56C3D9CB12664EF80C';
+wwv_flow_imp.g_varchar2_table(46) := '8BCF1449FA6393A900314CDA598C2F8C405AEE2200D28A17D62644C067E19F56C66B583C21B782982A9FE5BBAB321F86AE3A48870004AA092000AAB9789EE5E1159EA08ACBA6FDEC3E7BFEB75F777D716C260E5F718BFB01416228969332BC7B10604BBD';
+wwv_flow_imp.g_varchar2_table(47) := '07A47EB2A4562B02A053C4F84BEB842FE3C23E8FFBD562B81216FED585598F3BF67D4010530175142BCE735F520185535504100055543807810E047C7ED8468BE0B6DD78638756F228AA07044908D8BC6141A08D0E69F11048CF1204407A31C3E28809E8';
+wwv_flow_imp.g_varchar2_table(48) := '4ED567E1DF15EFB823622F86334D0F087AF38E9DCE06C5546C9D19C90001087813400078A3222304DC047C16ADE971BFEB37CFBB2B2B2487EF82409F2D958520C3CD0809A468120220C5A8617394047487AA456B2EE3F4633FAE3CA5A5FB3C26985180D2';
+wwv_flow_imp.g_varchar2_table(49) := 'AE0AFCED9B0002A06FC2D45F0C019FBB7F75FE2B376E288689AFA37A3680CF82401FC6BE6D920F02E108A459130220CDB861756404F4EC7AD7DDBF16BBE5F84B7FA142E1B320508CC53A549BD403819C0834DD978600C829FAF8321A013DBBDED5F8156F';
+wwv_flow_imp.g_varchar2_table(50) := 'BDD595A5E8742D08BCECE65B9C0CF61E39E2CC4306080C492096B69AEE004500C41239EC489680EE48B555CDE5C0A3F7DF671EFCD34FF2B230D8F3C02E1746A35180511F0ED4F436CBE9111920300E0104400FDCF97EE8016AC455FADCFD476C7E92A6BD';
+wwv_flow_imp.g_varchar2_table(51) := '7CF4E8787637BDCD1ACF525A1E8440BA8D20007A881DDF0F3D408DB4CA03478F199FBBFF48CD4FD6ACD14701922587E1103843C02A00B8933D038A23085411D0D6B4AAF39CEB9F80D86BEB65FF2DD10204EA09A49C621500DCC9A61C5A6CEF9B801EF9CB';
+wwv_flow_imp.g_varchar2_table(52) := 'DD7FDF94EBEB177BADBFA8CF519792CB375B2E7ED4C529B7F3F1C5CB2A0072C38F3F100849E0E531E7A1433A92705DED6290CBD8662E7E247C019A26B6C7172F044093F8911702A70868E85977A0A73EF2361201AD05502C466A9E6621504120BE3BFD0A';
+wwv_flow_imp.g_varchar2_table(53) := '23174F21001631F00F049A11D0FC73B312E4EE8B00B1E88B2CF5BA0854A7C777A75F6DA73108803A329C87400D01DD71BA7E98E62D3FFE01F3AE3FFD5FBC0230B8F2DDEFAD89C4D269C5423159FAC4BF1080802F0104802F29F241E014017538A70E6BDF';
+wwv_flow_imp.g_varchar2_table(54) := '36BDF3076AD348684660EB5D3FE82CE0131367256480402302E9674600A41F433C189080EE345D43CEEBB66E33E7CCCF0F6855DE4DADDA79AD11539B978A896263CB435A6404D219298F0C5C38731000E158525301047CEE3477FCED9F584662C5B2339C';
+wwv_flow_imp.g_varchar2_table(55) := '6842E0867FF44F9DD97D62E3AC24E70CB175B889FF51E470A920007288223E0C4640779AB6C674A77AFE9DEF5C9625B6EFDE6506467E8251800001A2C30D0031AF2A100079C5136F7A2470E0E83167ED97BDEB3DCE3C646847C0876DBB0703B5B3875225';
+wwv_flow_imp.g_varchar2_table(56) := '13C8C37704401E71C48B01081C3A71DCDA8AEEFEB7FEE88F59F390D89E80D88AB1AD06578C6C654983C0900462181544000C1971DA4A96801698B9E6987DEE5093051089E12EC68A91621589B998912981106EC530238300081149EAC89E803A169793BA';
+wwv_flow_imp.g_varchar2_table(57) := '4375E521BD1B016DAF748D02F8C4AA9B159486401E04100079C4112F7A26F0B2E3B9FFAE4EA967F38AA95EDB2BB7DE70A3D55F57ACAC8549848093403E191000F9C4124F7A22A02165D773FFABB6FEF5644EF1D56EB8EE2D56068A956266CD4422043227';
+wwv_flow_imp.g_varchar2_table(58) := 'E0B3C6000190F945807BDD09B8869475F75FB5F5AF7BCBD4504540ACC5BC2A6D72CEB55D73928F77083425904A7E9F3506088054A2899DA310D09DA4AB33712D4C1BC5F0CC1B7531976853EC32C7807B10E8440001D0091F857327A08EC4E5A316A6B9F2';
+wwv_flow_imp.g_varchar2_table(59) := '901E96C0FA6BAF7356C833019C88C8D098405E05100079C5136F02133876F2756B8D1A8AD6C2346B26128313F0793220CF04088E9D0A33238000C82CA0B8138EC0F193278D6B04C035141DCE1A6A9A25E05A78A9D82986B3E5F80C814604A656D3352A37';
+wwv_flow_imp.g_varchar2_table(60) := '78669F59FFB38D42009CCD834F10384DE0E8EB274F1FD71DA4B4F7FFC0AEFBCCB31FFE3DB3FB43779B073FF8B3E6DEF7FDB0B9FFFD3FB278AC734FFCFAAF9957EEDF658EEFDF57E76E54E77D1603320D1055C8D234A679BF3A929FDF6BDC2E02A031320A';
+wwv_flow_imp.g_varchar2_table(61) := '9442E0F08913565735FC6FCD1041E2DE4F7E62B1835767FF17BFF3EFCC53F77CC63CFFD0D7CDC1BD2F2C5AA72D733AD6B9E7BEF655F395DFFE0DB3EBE7FE9E79E8D77ED54830BCBE7FFF62BEB3FF89E71B71DDB66D679B36F389698019207CEC40A06DD1';
+wwv_flow_imp.g_varchar2_table(62) := '78FE5E663D4000CC12E133044E114879F5BF3A7E75FA8FFCF1474E77F6A7DCF27ADBF7C8C34682E18B7FFF672A8440F33B0DAF465B64DA74FD0DD652F94F03C4DBB958035354623C7F2FB3D81100B344F80C8105023E43C7310EFF1FD9B3DB7CE1E77FC6';
+wwv_flow_imp.g_varchar2_table(63) := 'A8E35F70A3F3FF1A219010F8BF77FFCAA210E85C61E00A7C7660F8C432B0590356176FE7322084419ACAB11104408E51C5A7CE040E2738FCAFBBFE2FFEEA2F9BD7F6BDD8D9FFD90A344DF0C8BFFF2DA33666D3427E6E7A3FAB1D18AEA99824A701E8D743';
+wwv_flow_imp.g_varchar2_table(64) := '5E563DD4D5F44AEDC184005522000240A48AFC08A436FCAF457CA1EEFAEBA2A9D100B52111F07AE5DA80BA92FEE7DBF47BAE9D189A06F0B720929C79F42F91C00C61C66C1D6DAED4D93AC6FF8C00183F06581019019FAD633E43CF43B9A5CE5F8BF8866A';
+wwv_flow_imp.g_varchar2_table(65) := '6F5104DCF7B9A19A73B6E3F350209F983A1B2203043223908800400E6776DD45ED8EEB8E5143CE1A7A8EC109DD8D0FD9F94F7CDEFDB18FF63E1D3069CBF5EEF550A0E3F61D1DAE36482F9B40AEDE272200F2186EC9F522CACDAF43C78F5B5D720D395B0B';
+wwv_flow_imp.g_varchar2_table(66) := '074C3CB2674FA3C57E6B376F3157DDF14E73D3DFFA3BE6B60FFE03F3F65FFCE7E6FB7FF19F2D1EEBDCF6DBEF30CAE36BE2E37FF2517364CF6EDFECBDE6DB7AC38DD6FA5F3E7AD49A4E22044A24908800283134F83C1681438E05803E43CE7DDBAE39F8AF';
+wwv_flow_imp.g_varchar2_table(67) := 'DCFD2FBC9A593BBFD9ECFC91BF696EF8C99F329B6F7D9B5975C185E60DAB562F969D332B168F75EECD6FFB7E73FD4F7E6031AFCA18C77F5A13F0F0EFFE96912D8EACBD27BB7E225831651AA0F73064DA40BE6ECDE5EB5A429E31C0114DB07C3A090D398F';
+wwv_flow_imp.g_varchar2_table(68) := '6DF0FE5D9F37EA805D76BCF986EF33377CE0EF9A0D575CE5CABA983EB7200894F7FA0FFC94B9FCE65B16CFD9FED1EE80BD11AC07F0792AA0CD0FD220502281B9129D8ECEE715D15954AC413EF3FF63C3D11DB716E2B9ECB8ECFBFF9AD9FEAE77BBB255A6';
+wwv_flow_imp.g_varchar2_table(69) := 'CF2D08812D77DD65AE7CFB3B2AD3A74F3EF5F18F45310A306D53D5B12BB655653807819C09CCE5EC1CBE41A0298114E6FF75F7EFF24B77FE17BCFD7657366BFADC8208985F1011AACB965123113E36D9EA0891E65A07E08AED191B50E467584470C40869';
+wwv_flow_imp.g_varchar2_table(70) := '6F4198EBAD662A8640820434576C333B86F9FF67EFFDACCD44B372E3A6D677FEB315CF2D88804BDFF52EE35A13F0C2C35F9F2D3AF8E7AD77FDA0B54DC5D6678AC7187A1C2BC8A11347D563793B3B37B47BB407815809F8740E63CFFF6BF85FF3EE3686D7';
+wwv_flow_imp.g_varchar2_table(71) := 'DC79A72DB971DADC8208D87EBB7D3441BF1D30F6AF082A36DAA2D9D8410A40201A02C38ACFB968FCC610088C4CC035471C43E7F29DFBEFB3527AE3FCBC5977F995D63C6D12D75C7E85D9B0D5F1CB7B8F3DD6A6EAA0659CBF0EC8F30082F21EB3B221BACA';
+wwv_flow_imp.g_varchar2_table(72) := '31FD1BA26D04C0109469230B0297BDEB3DA3FBE1BAFBBF60C7CE5E6C9C5B180598BFFA1A6BDD2F3DF688357D88C4D55BB65A9B49F27701AC1E959B58D4CC404F619EEBA95EAA85407204FC17898DE7DA775FDC6B6D7CFD851759D3BB24AEBDF0426BF163';
+wwv_flow_imp.g_varchar2_table(73) := '3DFC0891B5C18A44D7F3008EBD7EB2A214A720504520FF730880FC638C871E0434FFAF4562B6AC5B7FF4C76CC983A41D7CE1056B3BE76DDC684DEF92B872C3066B71976DD6C28112576EDE6CAD493156ACAD99488440280291CF53200042059A7AB22610';
+wwv_flow_imp.g_varchar2_table(74) := 'C3FCBF00BBA600264FF853DED0AF15AB5659AB3C1AC10880CF42C0A38C0258E348E2128120FF463E4F81000812652A499D807301E036FB02B8A1FC3F6FF396A19A5AD6CE9CB17F9BCD6D9A5F56668C13AE85808C008C1115DA8C91C05C8C466113046223';
+wwv_flow_imp.g_varchar2_table(75) := 'B0E9FA1BA230E9DC39FB9FECEB47BEDB9B9DAEBA5DB6F566D84CC52C049C01C2C71604CA2862FF362983015E42C0B816008E79E73D1D1ED7DDEDB10307A6B3073D3EF2D2CBD6FA5CB6590B074CEC6D2160E4F3B9011152552104100085041A37ED04B438';
+wwv_flow_imp.g_varchar2_table(76) := 'CC9663CDB5D7D992074B5BE99802F8CE37BFD19B2D079FB7D7EDBAF3EECDB0998A7D1602CE14F1FB689F01F1AB835C491028C54804402991C6CF5A023E73C2E7CCC731BFBDD93115B1EFF1C76BFDEC9AB0FF097BDDB12C94F45908E813F3AEBCA229CFC8';
+wwv_flow_imp.g_varchar2_table(77) := '4534A188CD1004406C11C19EC109B85685C7D2B109CC795BEC8B000FED7BD11CFC7F4F296BD0D7C1A79F34075FDC67AD73D3FBDE6F4D8F29D115F3986CED6C0B23170D1196931D01504EACF1B486C0E113276A52964EC732B72D6BDEB863A7D9F4E60B74';
+wwv_flow_imp.g_varchar2_table(78) := '58FB7AE60B5FA84D6B9BF0CC17ED75365A2331C01DA92B66458D00B40D3AE5B2278000C83EC469393840DFD018482C3B0026865FF2D7DF3D39AC7C3FB47F9F79E6DE7B2AD3DA9C7CE6DECF9A43FBF75B8B5EF59E1FB2A69F9538C01DE96A1E097C16723E';
+wwv_flow_imp.g_varchar2_table(79) := 'F8132829E7880260806F8192229989AF635C15AE1D00B1A1D550BBEB8EFBDB0F7FDDBCF8E52F7536FD5B5F7CC07CFBE187ACF5C896189E92386DA46B27C0745E8E21502A811105408CF77AA55E06F86D23B03E921D00D336EE7CEFDF98FE5879FCD497BE';
+wwv_flow_imp.g_varchar2_table(80) := 'D87A24E0A4F9DE42D9CF9ABF7AF0CB95759B85F449C2554DEEFE27857A7E77ED04E037017A0E40B2D59765F88802A02CD0781B2F01D716C0731D5BEFC6F04CA3003E8B13BFBD3012F0F047FE8B39F0F493DE661E78EA09F3B53FFACF8E3BFFA5B19A18EF';
+wwv_flow_imp.g_varchar2_table(81) := 'FEE5A82B66AE98AB0E5E10C89D000220F708E39F9580CF62B058B600CE3A72E5BBDF6BD401CF9E9FFDAC35017B3EF53FCCC3FFF58FCCB7FFFCCBE6C8F3DF3293A7FAE94E5FC7DFFDD6B7CCBEAF3C68BEFA913F347BFEE7A7CC51C7437F266DBCF59FFCD2';
+wwv_flow_imp.g_varchar2_table(82) := 'E4B0E3FB92A0E858C9E9E23E31F389FDE90A39288240694E22004A8B38FE3622E07397DDA8C28099350AD064F85D5B049FF9C203E66B1FFF9879F0C3BF6FBEF49BFFD67CF9377F63F1F8EBFFED63E6C907EE37AF3916FB4D9BFF961FFF80D19EFBE973ED';
+wwv_flow_imp.g_varchar2_table(83) := '8FC34F09C61CBBF69C28098170041000E1585253820452DF0FAEC5773B3CD603840ECD05377E9F51DBA1EB1DB2D27C7E6B0000100049444154BED4633F24AB32DA2ACF4B04407931C7E32902AE6160D77EF2A9AA463BBCE8E77FC14C8B80B083E9CBDD52';
+wwv_flow_imp.g_varchar2_table(84) := 'E77FEDAFFDFAF284C8CEB862E78A7D64EE600E048213400004474A8529113876F2A4D5DCD58EFDE4D6C203264A0468485E6B02C20FA69F71446DA4D0F9CBE25462275B798D4FA0440B100025461D9FBD09AC4A4400C8210DC9DFF8133F65FA98FB5E3937';
+wwv_flow_imp.g_varchar2_table(85) := '67DEF12FFFB5511B6A2B87974BFCE5E0233E40C046000160A3431A041223B0EE8E3BCD6D1FFE8F8B53021A0DE86ABE3A7EDDF5DFF9DF3F1570C15F57ABFCCABB1E0674ECE4EB7E152593ABEFC99F6440B430B4CC22088032E39E89D7DDBFF05C9D40884E';
+wwv_flow_imp.g_varchar2_table(86) := '740CD817FDFC2F98DBFFE03F1975DEAEDF0EA8B26FBAE38FE6AEBFCFB98D2A08C99D035072211BD96004C0C801A0F92E04BA7FE1B99E08E77AA25C17EB8728ABCEFBA6DFFF0373C7BFFA37E6A685E9814B6EBAD968119FA609246ED4D1EB58E7F45C81B7';
+wwv_flow_imp.g_varchar2_table(87) := 'FEE35F323FF01FFED0E88E5F6587B0D1BB8D867ACF153B57ECBDED226374049A7E3344E7C04006210006024D33101893C0E2AF08BEEFFDE6EABB3F64B4884FD3041A215047AF639DBBEC83FFD06C78E75DE60DF3F3639A4ADB10E84CA0A156ECDCDE6C05';
+wwv_flow_imp.g_varchar2_table(88) := 'A908906404402A40672F043E430002108040CC04C2DB36B600F1F5281901900A505FF0E4AB23306CA45D2BC15DCF94AFF382F3E31370C5CE15FBF13DC00208F44B201901D02F066A8F87408E633DC38A9A786259A225C43AB5A8976C2F02A0E4E8E3FB40';
+wwv_flow_imp.g_varchar2_table(89) := '0472143503A14BAE19629D5CC80A3618015070F071DD188681B90A20503281B27D4700941DFF91BD8F7FB8F41C56C48F7C8DB46FDE153BC45F7BB694CC830002208F3826EA05C3A589062E6AB3E3979551E32BCAB8D29D4500947E05E03F0432239084AC';
+wwv_flow_imp.g_varchar2_table(90) := '4CC2C8CC2E0CDC59460001B00C09274A22A027E1D9FC3DB17FBF2D99B48809441D3B862922B8726232619C0B020110D335802D1080C060045CE26F3043680802669C21210400971E042C048EEF7BD1924A12043223304E3F340A441A350601C055D082C0';
+wwv_flow_imp.g_varchar2_table(91) := '8A1665280281610920DE5AF0E64FBB05B4748B2000D28DDD889697739B706CDFBE1139D3340420D00F016A1501048028F02A9600F3C0F986DE25DE887DBEB1C7333F0208003F4EE48200041223F01AEB37128BD870E6D2D2120104C01207FE854025013A';
+wwv_flow_imp.g_varchar2_table(92) := '914A2C9C84000432208000C82088DE2E943375EF8D64E51BF813F086955946629F5940BDDD21E38400DF7E131225BCB3C2B771948FBCB8B771190AC441C015BB95736F88C350AC80C0480410002381A7D93808AC3DE7DC380CC10A084060100234728600';
+wwv_flow_imp.g_varchar2_table(93) := '02E00C0B8E20B08CC077190158C6249513AED8AD9CE3EB2F955862673F04F80BE8872BB52642E0DCD83A01D6690C76E544177BABE7CCDF59F1782792719A0002609A06C7C51178A36311E0C1175E189609DFF3C1783FFFD0D7AD75B9626F2D3C7822CA70';
+wwv_flow_imp.g_varchar2_table(94) := '70E4B13618F0524000C41A64EC1A8480EB2EF0E0DE174CD4BF2A3708A5F41AF189992BF6E9798DC52E0259A407BC494000647145E0441702CC0577A1475908402055020880542387DD41081C3A7EC21C3B79D25AD7E1DD8F59D3498C8F804FCC8E3BE21E';
+wwv_flow_imp.g_varchar2_table(95) := '8757016FF7E27068442B687A9600026096089F8B21A0CEFFE983078BF1B724477D9EE0B8FB3BAF98F84540C009DF922E007CF52290B900403D7B5D0505666AD2F91F78EC910209A5EDB2EB214013EFD21001136B79EF4280B2CB09642E0050CFCB43CE99';
+wwv_flow_imp.g_varchar2_table(96) := '269DBF68B9F6932B0FAFB8083489192220AED861CD7004321700C381A4A504082CE8C1A69DBFBC726D27531E5E7111681A3344405CF10B6F0D355611C852002C7CCF57F9CAB9C2091C3A71C2B49DF33FB17F7FE1F4D271BF6DAC1001E9C4184BC310C852';
+wwv_flow_imp.g_varchar2_table(97) := '0030F31FE6E2C8A9963677FED3FE1FDFF7E2F4478E33258008C833B078554D204B0150ED2A674B25D0B5F317B763FBF6E9ADE32B0E69AA3BE4673FFC7BE6C10FFEECE26BF787EECEEA61473E5B006D814404D8E89096130104404ED1C49765044274FEAA';
+wwv_flow_imp.g_varchar2_table(98) := 'D4675B99F2D95FE34F4EA9F3BFEFE77EDA3C75CF678C9E72A897E6CB754E6976FBD3480D112B44401AB1F6B3925C750410007564389F3C81509DBF40F86E2B53DE985FDFFCC4C76BCD7B69D7E76BD3524A08152B44404A51C7D6360410006DA851267A02';
+wwv_flow_imp.g_varchar2_table(99) := '4D3BFF2DDBB6597D6AB2ADCC5AD1C889BAF3AF33E1913FFE485D5252E75DB1BA70E74EE3FBF8E7FC44C08AA46219C258EAA8278000A867434AA2049A76FED7DF7997D976E3F759BDD530792E43E45647134F548C142B9B1B9B2EB9D4EC78F77B0A1501E3';
+wwv_flow_imp.g_varchar2_table(100) := '4F43D96243DAB0041000C3F2A6B59E09B4E9FCD7CC6F32ABD6AC7176085E3B01F87EED39C2F6EA5D31D29DBF62AD57B922C0CE30AF54BCB1114000D8E890961481B69DFFC4C9359BE6278795EFAFFAFC281023AC95EC863AE98AD1FA8B2F3E6D0A22E034';
+wwv_flow_imp.g_varchar2_table(101) := '8AB00788E0B03C7BAC0D01D0235CAA1E8E40D7CE5F969EBF658BDE6A5F2F3DFA706D1A09711070C568FDFCE6B30C45049C8523CC878844701887F2AD0501906F6C8BF12C44E72F586B1D23009A5BD61CB3F2F28A93806264B36CEDFCF2511E44808D1869';
+wwv_flow_imp.g_varchar2_table(102) := '39134000E41CDD027C0BD5F90BD5EAB581D601A8325E8313F01167ABD6ACA9B44BE75913508926E19398EE2280007011223D5A02213B7F39B9E2BCF34C907500AA8CD7E0045CCF3138FFE24BAC36851701098F85338F6FBD5672494400E412C9C2FC08DD';
+wwv_flow_imp.g_varchar2_table(103) := 'F94FF0AD9EDF3439AC7C77CD315716E2E420045CB1D9B07EBDD38EB02220E15E3461ED320932EF6E020800372372444660BAF3F7F99ED23E7F6DF5F37163C3E6ADD66C9A63F6196AB65642622F04141B5BC56B6A86FF67CB841501B3B5F31902F1104000';
+wwv_flow_imp.g_varchar2_table(104) := 'C4130B2CF12030DDF92BBBEB1EAB49E7AFFA7CD601281FAFB808F888B2B5175DE46D3422C01B55A41931CB870002C0871279A22070FCE449F3F4C183DEB634EDFC55B1D6019CBB61A30E6B5F5D7F6DAEB662125A13E83AFF5FD53022A08A0AE772228000';
+wwv_flow_imp.g_varchar2_table(105) := 'C8299A19FBA2CE5FCF65F775B14DE73FA9FB4D5BCEDE2B3E393F793FF0D8239343DE2321E09AFF7FD3CA95AD2C6D2A029E7AF5A0D1B55AD5986BB4AAAA4C1FE762B1A30FDF2675F2EE470001E0C7895C231378EED0616F0BBA74FE6A64FDBCFD8140B61F';
+wwv_flow_imp.g_varchar2_table(106) := 'D451795EC31370CDFFAFDD645FDC69B3B8890838B6304A5527027CD6ABD8EC3893D6ADA66EA5CF58C151FA041000E9C7307B0F9E5EB8AB3A74E284979F5D3B7F35B26EDD5ABD595F27F6EFB7A693381C019F58ACA9780050130B9B8A80978F1E6B527DC3';
+wwv_flow_imp.g_varchar2_table(107) := 'BCDCC3DB8191EA4B0001E04B8A7CA310D87BE4357368C0CE5F4E6A1D80EB7900AE3967D5C36B1802AE58E8078014D3AED63411012F1C396274ED766D93F210E8930002A04FBAD4DD898056FCEB8BD4A7921077FED3ED6CDEB66DFAE3B2E367EFFDECB273';
+wwv_flow_imp.g_varchar2_table(108) := '9C1887C0237FFC116BC36FDE7EB935BD4962531170A0D7918026969793174FFD092000FC59917340025A48E5BBE23F74E72F37D73BB68C1DDCFB8239C13480508DFAF289C1A6ABAF0A6A631311F0DCE1C3B58B02831A45651068410001D0021A45FA27E0';
+wwv_flow_imp.g_varchar2_table(109) := '7BE7BFF38E771ADF87FC34B15A5FF24C033421364E5ED7F0BF6278EEAAD5C18DD3F571D14D377BD5EB7B2D7B551679A6F15727440E2832F3100091050473CCE21D93CF22AACBAEBBDEACDFBCFCD7DD4231641A2014C9FEEA710DFF6FBDECB2DE1ADF7CE9';
+wwv_flow_imp.g_varchar2_table(110) := 'A546D7A0AB015DCB1AD172E5CB219D1D06694511019056BC8AB0D667CBDF86CD5BCCD66BAEE99507D300BDE2ED5CB9CFF0FFFC56FBA39DBB1AB1654104CC2FBC5CF5F85CD3AE3A48771320473302088066BCC8DD33012DFC3BE458F5AFE1D7ABEFB8A367';
+wwv_flow_imp.g_varchar2_table(111) := '4B8C513B1A42B635E41A82B69525AD1B01177BFDFA5F88D5FF362B55FFE50B2351BA566CF9744DB320D04688B431082000C6A04E9BB504BE71D8FDC09F1DB7DE565B3E74826B085943D027580C181ABB577D626FCBB8698BFD814EB6B24DD22402AEBADD';
+wwv_flow_imp.g_varchar2_table(112) := '2D48B516A094A98026FCC2E5A5A6A60410004D8991BF3702DA37AD27A9D91AD070EBCA8D1B6C5982A6B91E0BACC68EEF7B516FBC0624E023BAFA1EFE9F76572300176CDF3E7D6AD9B1AE6D8D702D4BE044CF04589950071801504786F38313D01D92ABD1';
+wwv_flow_imp.g_varchar2_table(113) := '4BAEBDD6952568BA5690BBA601F6DEF76741DBA43237811886FF67ADDCB66387D1438766CF4F7FD635CE28C0349170C7F535B137A18E4D440200955617A412CEFB7C295E7AC595461DF2D03C2EBADC7E67A7DF06F0B9231DDAEE9CDB8B65F87F9AB1AE4D';
+wwv_flow_imp.g_varchar2_table(114) := 'D74387340A70F4F593D3C53886C06804221200A8B4D1AE82081AD6562997197DAFFAAF6BFFFCCD5B9C77764C03D4D10B7FDE476C0D39FC3FEDE1A6ABAF32AE5180C38E45AED3F5C5721CFFB7732CA4D2B2232201901638AC0D4BE0E5A347AD156ABFB516';
+wwv_flow_imp.g_varchar2_table(115) := '5B5933F594A8769906F0813BCC289E6BF85FEB4414331F8B43E7D128C0053BEDD354878E1F0FDD6CEFF50D13D9DEDDA0811902088019207C1C9E8086FF35346A6B79E32517DB927B4FDBB663A7B50DA60184A7FFFB44DDFDBB86FFD7CF6F9631A3BD5CCF';
+wwv_flow_imp.g_varchar2_table(116) := '8F38B43002A06B7E3403336C1897DA114000B4E346A980045CC3FF1A52D59D55C0261B57B56EDD5AE7D0AEEBCEB471A3145846C087B19ED0B7ACE08027B423C03562C46E8001034253B5041000B56848188A806B48D4B5B06A083B35A4FC26C7BE72DD99';
+wwv_flow_imp.g_varchar2_table(117) := '9EE09900BD86438C6D0D68A1A82D7DA834D7F651D794D75076E6D10E5EB4258000684B8E7241086828F4D0C290A8ADB275175E644B1E2C6DCBD53B9C6D1DDEFD98330F19DA11D8FBC94F380B6EBCF812679E21326CD86C7F04B1AE795DFB43D8421B10A8';
+wwv_flow_imp.g_varchar2_table(118) := '238000A823C3F94108B8B64469F8BF8F5FFBAB72CE35832D3B5C43BBDFFAFCBD5555732E008167EFFDACB516C566C88744D98C59BD768D73CAC875EDDBEA27ED0C018EDA134000B46747C900045C77415AD11DA019AF2A7C563A5F72ED75D6BA9E7FE8EB';
+wwv_flow_imp.g_varchar2_table(119) := 'E695FB7759F390D89CC08985A995837B5FB01674C5C65A3870A2CF9491EBDA0F6C12D54160190104C032249C1892806BF5FFCAD56B8634C7D9D6FACDF346779AB68C8C02D8E8B44BFBE6273E6E2DB86ACD9A5E7F1ADADA784DE2EA4DF69FAA765DFB35D5';
+wwv_flow_imp.g_varchar2_table(120) := '72FA2C02E57D708D543621621500211B6A6214792130213077DE7993C368DE5D3F10A45100DDB1466370E28688A5B659DADC78B3639BA6AD6C5F69E7AEB08F291D3BF97A5F4D536FC604EC575533C7AD02206443CDCC227729045C5F82E7CEC57715EA29';
+wwv_flow_imp.g_varchar2_table(121) := '73BAE3B4C5C867BB9AAD3C696708B8586A9DC8D85BFFCE587BE6E89C0D1BCF7CE0A8170254DA8D80550074AB9AD210701338E6782EFAB9ABE29A0290479ADF75DD716ABB9AEE5C959F577B02622896B61A2EBAE9665BF268696F708D0038AEFDD10CA7E1';
+wwv_flow_imp.g_varchar2_table(122) := '620820008A09759C8EBAE64157AE5915A5E11A05D09DA7CD38D79DABAD2C694B045C0C158318EFFE65BDEBDA755DFBAA83978D00695D092000BA12A47C2702AE2FC17357ADEE547F5F85174701B65F6EAD5EDBD674076BCD44A29580EBEE3F868744D539';
+wwv_flow_imp.g_varchar2_table(123) := '70CE0AFBD7ABEBDAAFAB97F3100845C07E85866A857A209021814D8E5F7ED3B635D71D6C865882B9E4F3E09FB17E21D2C74989449F7CE469478052DD092000BA33A48642096874C2F59C024601DA5D1C1A3971DDFDEBB1BF74B2EDF8762AC5F6B04EF862';
+wwv_flow_imp.g_varchar2_table(124) := '2A8C0088291AD8921C81F9ABAFB1DACC2880154F6DA2CFC88946606A2B282161AC8E388A8D392304782CDE3DBA8A00E8112E55E74F5C477A62000010004944415440DB01B76CDB66755477B2BAA3B56622F13401B112B3D3272A0ECEBFF812A311988AA4';
+wwv_flow_imp.g_varchar2_table(125) := '724E95DA118F15E10C792300C6BA9868371B023E3F12E473479B0D908E8EF8B0BAD8B100B3A309A316CFF04633384F2A0C430001108623B5144CC0E747827447AB3BDB823179B92E466265CBAC47318BB92D4FCA6919DE68A61C8EAC6D47005486973FC1';
+wwv_flow_imp.g_varchar2_table(126) := '4A2C9CAC2570C52DB718ED49AFCDB090F0C4EFFFCEC2BFFC6F23E0C3E8EAB7DC60AB82B4EC09E060280208804A920CC255620972324F71A5B500AE3DE9FA8D007E29B0FE223AB267B711A3FA1CC668E5FFCA8D1B6C59488300043C0920003C41F599AD2C';
+wwv_flow_imp.g_varchar2_table(127) := 'B991AFB79B1CCF05D035F4977FF251A3616E1DF33A9BC0C3BFFB5B679F98F9A411966D37DE3873968FA511C0DF70041000E158B6AE29CF7BE2D638922DA855E917399E4BCFB6C0EAF0EAA13F62539DBA74D6C5762917FF420002BE041000BEA4C807010F';
+wwv_flow_imp.g_varchar2_table(128) := '02FA8D002D52B365E5E14067D3D18888CFC2BF589FF97FB6377CEA9700B587248000084993BA8A27A027D36DBFEE7A2B07DDE92EDBEA96EFCC8895851297B1D0C999978BE94C763E4200021E0410001E90C802812604B445ED82EDDBAD4574C7AB3BDFD3';
+wwv_flow_imp.g_varchar2_table(129) := '990A9D071203B138CDA1E2408F5B16D38A244E15460077C312400084E5496D105824B06DC70EA3456B8B1F6AFED19637758035C9459C160397A3973B46545CE549870004AA092000AAB97016029D08F82C08D496379FE1EF4E86445C580BFFC4C066E265';
+wwv_flow_imp.g_varchar2_table(130) := '0B9DBFA6556C79482B85007E86268000084D94FA20708A801604EAF900A73E56BE69F8BBC45100F92CDF2BA19C3A29765BAFB1FFD8D2A9ACBC454BA0D0B9AD68E371B6610880B379F00902C108E8CEF542C7B64035A6617075883A2EE5259F5DBE5EF1D6';
+wwv_flow_imp.g_varchar2_table(131) := '5B5D59488F9E40B8D5ADD1BB9AA0810880048386C9E910D8B4658B716D0BD430784953013E43FF1B362F709BDF944EA0B11402091240002418344C4E8BC0356FBBD5B92050C3E1258C02C847F9EA8AA0E6FE5D79482F8900BEF6410001D00755EA84C014';
+wwv_flow_imp.g_varchar2_table(132) := '81C3FBF79B63274F4E9DA93EFC8BBB7F25FBC704FB0CFD9FB36AB539B47F5F3524CE420002C108200082A1A4A2EC09B498CEFCE69EDDE6F1AF7CC50B4DE50382BC4AA691C967E85F9E9C38F25DF3E4A38F98BD8F3F6E5E3FD902BA2AE19515019CE98700';
+wwv_flow_imp.g_varchar2_table(133) := '02A01FAED49A2381860B9A9F78E001F3AD3D7B1A91D0F0B886C91B154A20B37C926F4D4C7DF6B147CDF30F7D0D11D0041A7921D0800002A0012CB242C087C0F1853B5875FE07F6BDE8937D599E1CA702E4D332473D4E3CFFCC33E6C9CFDD63C4D4233B59';
+wwv_flow_imp.g_varchar2_table(134) := 'B22480537D114000F445967A8B24A08EEAD1CF7CC6B4EDFC052DB7A9000DFDCB27F9E67C558CF8BF72F0A0D973FFFD8800273C3240A019010440335EE486402D81C3FB5F325FFDF4A7BD16FCD556722A41C3E5EA384F7D4CF6EDC89EDD46BE783B5033CD';
+wwv_flow_imp.g_varchar2_table(135) := '72E4F061F3F07DBBCCAB4F3DE55D1519F3208017FD114000F4C7969A3B11A8B815EC545FBF85BFF38DE7CCA3F7DFE7DD88EB770254913A4ECD9DEB38C5976CFFE2AFFE7230D31717073EF9A479F9892782D549451028990002A0E4E847ED7BCDAD608436';
+wwv_flow_imp.g_varchar2_table(136) := '3759E92FF3D79E738ED9F9A6F39DCF06505ECD9DAB23D5714A2FD97CDFCFFDB4D36409A11B376E301BDFB8D29957191645003B0484A290176EF6490001D0275DEAAE2790D60D7EAD1F5AECD764A5FFB655ABCC15EBD72DD677E5C2BB3AC0C50F35FF68EE';
+wwv_flow_imp.g_varchar2_table(137) := '5C7BE7D5A1D66489F2B46C761926DF258494EFE2356B8CD8E8D8E7C50E011F4AE481809D0002C0CE87D4BE08A473835F49408BFDD4F93759EC77C94227B775D579A7EB3B776E6EE1CEF78DA73FD71D2C3E2AF8FECFD7254777FED90FFF9E91CD2EC3D4E9';
+wwv_flow_imp.g_varchar2_table(138) := '4FE7111B89000983E9F375C7EC10A82393CF793CE9970002A05FBED49E210175FE4D57FA5FB16E9DD95031CC3DE9F45C981EF9E8474C0A8B025FB97F9779EA9ECFB8DC59BCDB5F7BEE39CBF289878481AF086087C032849C808037010480372A3242C098';
+wwv_flow_imp.g_varchar2_table(139) := 'A62BFDD591A9F3AFEAEC263CD5E929DFE473DD7BEC8B02B5E2FF2BBFFD1B75E69F3EAF3510F2F9F4899903B16A220252DA2190F8C0D74CA4FAFED857FD44614216013021C13B041C049AAEF45747A7396E75688EAA8DCF7A00D511EBA240AD51F059F12F';
+wwv_flow_imp.g_varchar2_table(140) := 'A1335903217FEA5E62E6CB44752C2E0E4C608740264B5F843CE1175198040F013021C13B042C04DAACF4F7E9E8264DFAAE07D0A2C0184580CFA23FF9AA3B7BBDFBBCC444028A1D023EB4F2CB8347FD134000F4CF98161227A0C57E6D57FA37715DC3E25A';
+wwv_flow_imp.g_varchar2_table(141) := '04E72A2311F0D2AE781605EEFED0DD5E8BFEB4085277F62EFF66D3251A7CB84CCAB1436042827708D8092000EC7C482D988016FBA9F3EFB2D2BF293E89000D93BBCA693D8016056AE8DD95B7CF74DFCE5F77F1558B207D6D131789001F36AA931D02A290';
+wwv_flow_imp.g_varchar2_table(142) := 'F22B72DB339945484F0064023EF2CBBB78F3D4F9875AE9DF14A6EFDCB7448086DEC710016AD3B7F357A7ADBBF8A61C66F34B04A81ED5379B56F5991D0255543817844026EB08D3130099800F721152492F04FA58E9DFC450CD7DFB8A00EDB7D713F7B4F7';
+wwv_flow_imp.g_varchar2_table(143) := '5E5BF0D431EBD5A43DDFBC5AE5AF36D496DA54DBAEB2EAACE58B2B9F6FBAA6109A8880947608F83228211F3E0E43203D01300C175A2994409F2BFD9B209508D8F846F7438226756AEFBDB6E0A963D6EBDEF7FDB0A97A4DF2D7BD5795999CD32A7FB5A1B6';
+wwv_flow_imp.g_varchar2_table(144) := 'EACACF9E57672D5F66CF77F92C1120512171B1548F7D5830951D024BBEF02F046C04C2DE0123006CAC492B8A40DF2BFD9BC2D490B7E6BD9B968B25BF6C5767DD873D1215677608B8BF14174500BF21D047287AA8932AEB09D8C56E7DB9EA1404403517CE';
+wwv_flow_imp.g_varchar2_table(145) := '3626E0FE126E5CE58005B4D86F8895FE4D5D9208D858F104C1A6F50C9D5FCF4090ED7DB7AB1106090DDF76D821E04B8A7C251040009410E5417C0CAB4C073179A1112DF653E73FE44AFF85661BFDAF4E2E2511A0CEBFC933101AC1A8C82CA1211170664A';
+wwv_flow_imp.g_varchar2_table(146) := 'A022D3D42976084CC188F0109386238000188E352D4546409DFF582BFD9BA290085027D7B4DCD0F965E3909DFFC43F890031F21501EC109890E3BD338134EF7D16DD46002C62E09FC10844F2C732F64AFF36BCD5C9E977057C3BB9366DB42D239B649B6C';
+wwv_flow_imp.g_varchar2_table(147) := '6C5B47D7725A6F502F02965F78EC10E84ABC8FF209D699F0EC270220C1EB2D699323F8638965A57F9B38AA93D3E2373D554F9D6E9B3A4296D170BF6C914DB22D64DD6DEA920D67EF1098D4527DE12D2E0E4CE03704265EF00E819004100021695257F404';
+wwv_flow_imp.g_varchar2_table(148) := '625BE9DF16989EAAA74E5777DD1A7657472C41A057DB3A7DCAA91DAD4750A77FED9BCE371AEE972D3E6587CA73F60E0177AB8B22C0B14360F9F881BB5E723427905589042E1A044056571CCED80868B15F8C2BFD6D36BBD274C7AB617775C412047ADDB8';
+wwv_flow_imp.g_varchar2_table(149) := '7183A97BB9EAAB2B3739AF7634CCAE4E5F1DADABBE31D365A7C491AF0DB61D02D5E307BE3593AF4802095C34088022AFCCB29CD6623F75FE31AFF42F2B22C3792B712411E03B32C20E81E162B3BC25CE0C4D0001303471DA6B4DA0CD889A3AFF5456FAB7';
+wwv_flow_imp.g_varchar2_table(150) := '0643412B0189008D06F88A007608587192981101044046C1CCC795EAAEBEE9885A8A2BFDF389615C9E68AAA489086087C0F0F1A3C5E109200086674E8B4E024DBBFAE515EE7DFC71F3E8FDF72D4FA839A3C56D9A3F5747519385D38913506CAB7708543B';
+wwv_flow_imp.g_varchar2_table(151) := 'B6B838F0C9278DAEA5D74F568BD2EA929C85401A04100069C4092B3D0968C85FF3FD5AD0E559C4A8F3D7E236DFFCE44B9780162E4AE86927838F171201BA969EFCDC3D46D7964F19F2B4214099310874130088E23162469B1504F4E5AC2D7E5FFDF4A78D';
+wwv_flow_imp.g_varchar2_table(152) := '6DB1DFECD8821688D1F95700CDFC94A603147B5F37B52EE0E1FB76996F7CEDABE6D8CB077C8B910F025113E8260066BF4DA37615E37221F0BDD75E5BBC1B7B75DF7EA34EFFD15DBB8C3A7E9F2D7ED39A557BD9B5402C172EF8D18C80622F11E0BB3850A3';
+wwv_flow_imp.g_varchar2_table(153) := '01DA25F0B5FBFECCFCE53D9F352F3CF490D13A13090209D066ADE7937BFA6FAAAD57941B87403701308ECDB45A108107FFF49366F6F5E7FFE77F2F76F87B1ED865D4E91F7E697F63227A808EF6B2372E4881AC0848046834C057044C9CD788C05F3DFDD4';
+wwv_flow_imp.g_varchar2_table(154) := 'E23A13090209D0D9EB549F27F9737EE73E30DDE82200D28D1D96B720A02F7A75FE5A10D6A238453224A06BA18D08C810C5482EF5D02CC3125E5011005E98C89403012DF6D302307DE1E7E00F3E8423A06B423B04748D84AB959A4623C0B084177A048017';
+wwv_flow_imp.g_varchar2_table(155) := '2632A54E4073BD2CF64B3D8AFDDAAF1D02BA4674AD68A4A8DFD6A87D4280F7F1082000C6634FCB0B04FAFEA2D51D9D86FC35D7BBD05CF1FFDB78DBD24A02A76B6588290178977455C5E92B0220505C98726A075243AFED4ADA4B4D3A7EDDD1F5D586DD82';
+wwv_flow_imp.g_varchar2_table(156) := '38536D2C6C69717AD39F5562A1E92289475D4B7DB4A436FAA837AD3AB1764C02088040F499726A0732F470AB1EF0A22F6D3AFEEA78D4F1D6DDA8EE7AAB4B957B569DB4AE255D531202E2148286EA81770892D4D1850002A00B3DCA7626A079D7C9E22B7D';
+wwv_flow_imp.g_varchar2_table(157) := '29FA56A8BCFA425687AFFDFCD7BEE9FCC59FC0D597AABEB47DEB292D5F156F31540C4A63D1C45F5D53120293510109295D7F7AE95AD4CBB73E789F21C5D1B8041000E3F2A7F50502EA94265FAE376EDCB0D891BBDE17BF88D7AF33EAF0B59F5F752C54C5';
+wwv_flow_imp.g_varchar2_table(158) := 'FF1E04C46A9AB718EA9C4751B22C109018D03A0131D44BD7A25EAE6B76920EEF0588FC1F050104401461C00808400002A511C0DFB1092000C68E00ED430002108000044620800018013A4D42000210289D00FE8F4F0001307E0CB00002101894007B7606';
+wwv_flow_imp.g_varchar2_table(159) := 'C54D63D1124000441B1A0C830004FA21C0533BFAE1DAA456F2C6400001104314B001021080401702689A2EF48A2D8B002836F4380E0108644320B1598D6CB827EE080220F100623E042000010840A00D0104401B6A94810004200081960428160B010440';
+wwv_flow_imp.g_varchar2_table(160) := '2C91C00E084000021080C08004100003C2CEAD29D61DE51651FC199C40817F448333A6C15A0208805A3424B808B0EEC8458874083808F047E40044729F0410007DD2A56E0840000210982210C721032F4B7140002C71E05F0840000210288400032F4B81';
+wwv_flow_imp.g_varchar2_table(161) := '46002C71E05F0840000210E89900D5C745000110573CB00602108000042030080104C0209869240C0106EEC270A416088C41803663238000882D22D86321C0D21D0B1C92A22580708D3634851B860028FC02C07D0840A06F020857110EF582662892C620';
+wwv_flow_imp.g_varchar2_table(162) := '00C2B1A4A69808F02D115334B00502C108AC085613152100B806F224C0B7449E71C5AB440960764802A1EE6F100021A3425D108000042000819E0984BABF4100F41C28AA87000420503A01FC8F93000220CEB860550B02A186C55A344D1108400002C911';
+wwv_flow_imp.g_varchar2_table(163) := '40002417320CAE23106A58ACAE7ECE4300026D0850265602410400775EB18617BB20901701BE6BF28A679CDE94732B11440094832BCECB15AB20500A01BE6BD28B747A16972333830880F4028CC5251228E7CFBAC4E8E2330420D09440DA02806FF4A6F1';
+wwv_flow_imp.g_varchar2_table(164) := '2E3A3F778F45871FE7472140A33113485B00F08D1EF3B5856D1080000420103181B40540C460310D02108040E904F03F6E020880B8E38375108000042000815E0820007AC14AA5108000044A2780FFB1134000C41E21EC83000420000108F4400001D003';
+wwv_flow_imp.g_varchar2_table(165) := '54AA84000420503A8121FD6743583BDA088076DC280501084000029110604358BB402000DA71A3140420000108D41220210502088014A2848D10800004A6BEBB430000074249444154200081C00410008181521D04200081D209E07F1A04100069C4092B';
+wwv_flow_imp.g_varchar2_table(166) := '21000108400002410920001C38595DEA00545A3217446911C7DFC60428900A010480235269AE2E4DD36A4728E248066D1C71C00A0840A03301044067843156C06D6A8C51C126089440001FD3218000482756580A01084000021008460001100C25154100';
+wwv_flow_imp.g_varchar2_table(167) := '0210289D40B5FF8C49567319FB2C02206404B8CA4FD164A2FC1408DE20008105027C232C4088F07F0440C8A070959FA289123A0582370814450067D3228000482B5E8DADA52B6E8C8C02108000048A208000C83CCC0C4A641E60DC834034043024350208';
+wwv_flow_imp.g_varchar2_table(168) := '80D42286BD108000043A11E0B6A013BE8C0A2300320A26AE4000022108E4DE41F6333118823C750C4B0001302C6F5A8B9A40EE5FFC51C38FC8B83E3B48AEB188025DBC2908808C2E813EBFB632C264710582163824052190EB3516040E950C4C00013030';
+wwv_flow_imp.g_varchar2_table(169) := 'F03E9BE3DEA24FBAD40D010840202F020880BCE2893710800004062710B6416E65C2F2ACAF0D0150CF86140840000210189C00D324432147000C453A8776F8BBCC218AF8D00781A2FF36FA004A9D431040000C413997361899CB2592F8E143A049A7CEDF';
+wwv_flow_imp.g_varchar2_table(170) := '860F51F244460001105940300702108884009DBA5720B2CED44404260802019060D030190210800004062090B90844000C700DD1040420903881CCEF04DB47879229134000A41C3D6C870004862190F99DE03010876B05BDE6C71A01E0C7895C10800004';
+wwv_flow_imp.g_varchar2_table(171) := '20304320D68FE835BFC82000FC38910B026912E05628CDB8613504062080001800324D40603402DC0A8D863EFF86F13075020880D42398AAFDDC99A61A39EC8600043221800088319025748EDC99C678E5611304BC0990317D020880186348E7186354B0';
+wwv_flow_imp.g_varchar2_table(172) := '090210804056041000498613859064D8303A2D02258CC4B58E08057320800048328A7C332519368C4E8B003A3BAD78616D63020880C6C828103D01F451F421C2C0B409607D1E04100079C4112FA60970E7364D83E3A109204087264E7B2D0920005A82A3';
+wwv_flow_imp.g_varchar2_table(173) := '18042000814A02D90BD04AAF39394520150D8800980A5AFF877C33F4CF9816200001088C4B20956F7A04C0A0D7492ABA7050283406010824440053F3218000C827967802010840000210F026E01600DCB47AC324E334815406C1A66D1EF198BFB311E1D3';
+wwv_flow_imp.g_varchar2_table(174) := 'B43F0172E644C02D00F81ECF29DE03FA428FD608367F678D709119028B04F89A59C4D0F61FB700685B33E52000010840202B02D1398370EE14120440277C1486000420000108A44900019066DCB01A021080C0C004682E37020880DC228A3F1080000420';
+wwv_flow_imp.g_varchar2_table(175) := '00010F0208000F486481000420503A01FCCF8F000220BF98E211042000010840C0490001E044440608400002A513C0FF1C092000728C2A3E410002E108B0D73C1CCB2C6ACA67EF2102208B0B1227200081DE08E4F37DDF1AD1B282458BA27C9C2F4E00E4';
+wwv_flow_imp.g_varchar2_table(176) := '13BA657F929C80000420300C0144D1309C7B6EA53801C075DBF315954AF528C15422859DA313C0805C09142700720D247E352480126C088CEC1080406E04C61100DC7DE5761DE10F0420902901DCCA97C0380280BBAF7CAF283C83000420008124088C23';
+wwv_flow_imp.g_varchar2_table(177) := '0092408391431360606868E2B407011701D273268000C839BA89F9C6C0506201C35C08F441803B813EA856D68900A8C2C205584585731D097059750448F1C1098CD22077028361470054A1E602ACA2C2B98E04B8AC3A02A43804201094000220284E2A83';
+wwv_flow_imp.g_varchar2_table(178) := '000420900B01FCC89D000220F708E31F0420008104083045367C901000C333A74508400002D11318DA40A6C886266E0C026078E6B4D88AC08A56A528040108402007029523249527FDBD4500F8B322E7A8043A5EE9A3DA4EE3108891804D54C7686FD936';
+wwv_flow_imp.g_varchar2_table(179) := '5546ABF2A43F2704803F2B7242000210C88800A23AA360B6720501D00A1B8520000108E44B00CFCA2080002823CE7809010840000210388B0002E02C1C7C80000420503A01FC2F850002A09448E327042000010840608A0002600A068710888600EBB3A2';
+wwv_flow_imp.g_varchar2_table(180) := '09456986E0EF8440C725F6936A227E4700441C1C4C2B9840FEDF3D050777E23A419E9088F33D7F158E0088F3CAC32A0840207B02F60EC69EDA171CEA2D890002A0A468E32B0420900C01C607920955B2862200920D1D8643000210084B80DACA22800028';
+wwv_flow_imp.g_varchar2_table(181) := '2BDE780B0108400002105824800058C4C03F10684F80B9DAF6EC28191381346CE1EF2D5C9C1000E1589EAE890BF4348A220E98AB2D22CC38190901FEDEC2050201108EE5E99AB8404FA318FD0031367A083020110298591E01044079312FCA63C45851E1';
+wwv_flow_imp.g_varchar2_table(182) := 'C6590840A00101044003586485000420902701BC2A910002A0C4A8E3330420000108144F000150FC2510390026F1230F10E6E540001FCA2480002833EEE978CD247E3AB1C25208402029020880A4C215C058EEA80340A40A08B42310E79F5F3B5F28953E';
+wwv_flow_imp.g_varchar2_table(183) := '010440FA316CE60177D4CD78911B020109F0E7171026552D11E8A02A11004B08F917021080409104703A71021D54250220F1D8633E04200081F20874E8F5CA8355EB3102A0160D0910800004722790AA7F1DC6BD5375B907BB11003D40A54A0840000210';
+wwv_flow_imp.g_varchar2_table(184) := '8040EC041000B14768CA3E34EF140C0E210081CE04A8A06C02FF1F0000FFFFC5EDAE8A0000000649444154030074AF6A3BAE022CF10000000049454E44AE426082';
+wwv_flow_imp_shared.create_app_static_file(
+ p_id=>wwv_flow_imp.id(129444852356403472252)
+,p_file_name=>'icons/app-icon-512.png'
+,p_mime_type=>'image/png'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_imp.varchar2_to_blob(wwv_flow_imp.g_varchar2_table)
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/security/authorizations/administration_rights
+begin
+wwv_flow_imp_shared.create_security_scheme(
+ p_id=>wwv_flow_imp.id(129444853603416472254)
+,p_name=>'Administration Rights'
+,p_static_id=>'administration-rights'
+,p_scheme_type=>'NATIVE_FUNCTION_BODY'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'plsql_function_body', 'return true;')).to_clob
+,p_error_message=>'Insufficient privileges, user is not an Administrator'
+,p_version_scn=>'SH256:K94FzTYWdjDQ6WIg6w48Or20nhyD_tWnqCuRh9rK4CU'
+,p_caching=>'BY_USER_BY_PAGE_VIEW'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/security/authorizations/es_administrador
+begin
+wwv_flow_imp_shared.create_security_scheme(
+ p_id=>wwv_flow_imp.id(1983288079044583029)
+,p_name=>'ES_ADMINISTRADOR'
+,p_static_id=>'es-administrador'
+,p_scheme_type=>'NATIVE_EXISTS'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'sql_query', wwv_flow_string.join(wwv_flow_t_varchar2(
+    'SELECT 1',
+    'FROM APP_USUARIO_ROL',
+    'WHERE UPPER(apex_username) = UPPER(:APP_USER)',
+    '  AND rol = ''ADMINISTRADOR''')))).to_clob
+,p_error_message=>unistr('Esta p\00E1gina requiere el rol de administrador')
+,p_version_scn=>'SH256:F3Y29sjibXodopCdj9f57fpQ9_WzoKt3X9wnW3AQhAc'
+,p_caching=>'BY_USER_BY_SESSION'
+,p_created_on=>wwv_flow_imp.dz('20261011050745Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011050745Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/security/authorizations/es_conductor
+begin
+wwv_flow_imp_shared.create_security_scheme(
+ p_id=>wwv_flow_imp.id(9092509392871834354)
+,p_name=>'ES_CONDUCTOR'
+,p_static_id=>'es-conductor'
+,p_scheme_type=>'NATIVE_EXISTS'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'sql_query', wwv_flow_string.join(wwv_flow_t_varchar2(
+    'SELECT 1 ',
+    'FROM APP_USUARIO_ROL ',
+    'WHERE UPPER(TRIM(apex_username)) = UPPER(TRIM(:APP_USER)) ',
+    '  AND rol = ''CONDUCTOR''')))).to_clob
+,p_error_message=>unistr('Esta p\00E1gina es exclusiva para conductores')
+,p_version_scn=>'SH256:uwCg-qg7NqyXu5c799UOg20mlCCHHF5D9_TFliDISrU'
+,p_caching=>'BY_USER_BY_SESSION'
+,p_created_on=>wwv_flow_imp.dz('20261029035338Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029035432Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/security/authorizations/es_pasajero
+begin
+wwv_flow_imp_shared.create_security_scheme(
+ p_id=>wwv_flow_imp.id(9092634554587221037)
+,p_name=>'ES_PASAJERO'
+,p_static_id=>'es-pasajero'
+,p_scheme_type=>'NATIVE_EXISTS'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'sql_query', wwv_flow_string.join(wwv_flow_t_varchar2(
+    'SELECT 1 ',
+    'FROM APP_USUARIO_ROL ',
+    'WHERE UPPER(TRIM(apex_username)) = UPPER(TRIM(:APP_USER)) ',
+    '  AND rol = ''PASAJERO''')))).to_clob
+,p_error_message=>unistr('Esta p\00E1gina es exclusiva para pasajeros')
+,p_version_scn=>'SH256:54AFVY2sIiGcMwFgeMn9BCVauSOO7GFWl4NfAb0DrIA'
+,p_caching=>'BY_USER_BY_SESSION'
+,p_created_on=>wwv_flow_imp.dz('20261029035412Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029035447Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/navigation/navigation_bar
+begin
+null;
+end;
+/
+prompt --application/shared_components/logic/application_processes/cargar_usuario
+begin
+wwv_flow_imp_shared.create_flow_process(
+ p_id=>wwv_flow_imp.id(139846727053789408312)
+,p_process_sequence=>1
+,p_process_point=>'AFTER_LOGIN'
+,p_process_name=>'Cargar Usuario'
+,p_static_id=>'cargar-bebedor'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'  SELECT documento_identidad INTO :G_DOCUMENTO_USUARIO',
+'  FROM App_usuario_rol',
+'  WHERE UPPER(TRIM(apex_username)) = UPPER(TRIM(:APP_USER));',
+'EXCEPTION',
+'  WHEN NO_DATA_FOUND THEN',
+'    :G_DOCUMENTO_USUARIO := NULL;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_version_scn=>'SH256:maiCUb-vW-PJRh55T-IhGmCevwlHwohbWTS_B4UzB1U'
+,p_created_on=>wwv_flow_imp.dz('20260720193102Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029031251Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/logic/application_items/g_documento_usuario
+begin
+wwv_flow_imp_shared.create_flow_item(
+ p_id=>wwv_flow_imp.id(139846321235734388134)
+,p_name=>'G_DOCUMENTO_USUARIO'
+,p_protection_level=>'I'
+,p_version_scn=>'SH256:jTn26FmFoSYeVzbahnFPAliALg27vtK-z0ruMvuSAuI'
+,p_created_on=>wwv_flow_imp.dz('20260720192740Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029031144Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/logic/application_settings
+begin
+null;
+end;
+/
+prompt --application/shared_components/navigation/tabs/standard
+begin
+null;
+end;
+/
+prompt --application/shared_components/navigation/tabs/parent
+begin
+null;
+end;
+/
+prompt --application/shared_components/user_interface/lovs/boolean
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(129444862103289472266)
+,p_lov_name=>'BOOLEAN'
+,p_static_id=>'boolean'
+,p_lov_query=>'.'||wwv_flow_imp.id(129444862103289472266)||'.'
+,p_location=>'STATIC'
+,p_version_scn=>'SH256:CnCBOq-zabcz-aPWKwU8C5KDeZy6YuyjvpJoTrTywfI'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(129444862832864472267)
+,p_lov_disp_sequence=>2
+,p_lov_disp_value=>'No'
+,p_lov_return_value=>'FALSE'
+,p_static_id=>'false'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(129444862388598472267)
+,p_lov_disp_sequence=>1
+,p_lov_disp_value=>'Yes'
+,p_lov_return_value=>'TRUE'
+,p_static_id=>'true'
+);
+end;
+/
+prompt --application/shared_components/user_interface/lovs/conductores_documento_identidad
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(9093839186711902691)
+,p_lov_name=>'CONDUCTORES.DOCUMENTO_IDENTIDAD'
+,p_static_id=>'conductores-documento-identidad'
+,p_source_type=>'TABLE'
+,p_location=>'LOCAL'
+,p_query_table=>'CONDUCTORES'
+,p_return_column_name=>'DOCUMENTO_IDENTIDAD'
+,p_default_sort_column_name=>'DOCUMENTO_IDENTIDAD'
+,p_default_sort_direction=>'ASC'
+,p_version_scn=>'SH256:qcxO89ObO9cmuzi4gB12MJaDvBuFfTX9H6Gn8nCcEU8'
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/user_interface/lovs/modelos_marca
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(9093837295542902686)
+,p_lov_name=>'MODELOS.MARCA'
+,p_static_id=>'modelos-marca'
+,p_source_type=>'TABLE'
+,p_location=>'LOCAL'
+,p_query_table=>'MODELOS'
+,p_return_column_name=>'MODELO'
+,p_display_column_name=>'MARCA'
+,p_default_sort_column_name=>'MARCA'
+,p_default_sort_direction=>'ASC'
+,p_version_scn=>'SH256:6UJi_71wRyEqBCS2N9MgUfzcDAqbBZ3f6_1BO2a47w8'
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/user_interface/lovs/paradas_punto_recogida
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(9422228422478660263)
+,p_lov_name=>'PARADAS.PUNTO_RECOGIDA'
+,p_static_id=>'paradas-punto-recogida'
+,p_source_type=>'TABLE'
+,p_location=>'LOCAL'
+,p_query_table=>'PARADAS'
+,p_return_column_name=>'PUNTO_RECOGIDA'
+,p_default_sort_column_name=>'PUNTO_RECOGIDA'
+,p_default_sort_direction=>'ASC'
+,p_version_scn=>'SH256:45GYs2KDo98BRfydH4cKz52W0G0aaS8CIFCj6xA_gsg'
+,p_created_on=>wwv_flow_imp.dz('20261030042438Z')
+,p_updated_on=>wwv_flow_imp.dz('20261030042438Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/user_interface/lovs/tipo_bebida_nombre
+begin
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(129844585303873352128)
+,p_lov_name=>'TIPO_BEBIDA.NOMBRE'
+,p_static_id=>'tipo-bebida-nombre'
+,p_source_type=>'TABLE'
+,p_location=>'LOCAL'
+,p_query_table=>'TIPO_BEBIDA'
+,p_return_column_name=>'ID'
+,p_display_column_name=>'NOMBRE'
+,p_default_sort_column_name=>'NOMBRE'
+,p_default_sort_direction=>'ASC'
+,p_version_scn=>'SH256:bG9xblfd2gP91TEOsG5Qb8lsQITygkd6w3GBxW75zrI'
+,p_created_on=>wwv_flow_imp.dz('20260616193928Z')
+,p_updated_on=>wwv_flow_imp.dz('20260616193928Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_groups
+begin
+wwv_flow_imp_page.create_page_group(
+ p_id=>wwv_flow_imp.id(129444853906278472255)
+,p_group_name=>'Administration'
+,p_static_id=>'administration'
+);
+end;
+/
+prompt --application/shared_components/navigation/breadcrumbs/breadcrumb
+begin
+wwv_flow_imp_shared.create_menu(
+ p_id=>wwv_flow_imp.id(129444848727872472239)
+,p_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113180546Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(1982830699038536099)
+,p_short_name=>'Catalogo de bebidas'
+,p_static_id=>'catalogo-de-bebidas'
+,p_link=>'f?p=&APP_ID.:8:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>8
+,p_created_on=>wwv_flow_imp.dz('20261011045956Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011045956Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(129873710425820941801)
+,p_short_name=>'Crear Bebida'
+,p_static_id=>'crear-bebida'
+,p_link=>'f?p=&APP_ID.:7:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>7
+,p_created_on=>wwv_flow_imp.dz('20260616230637Z')
+,p_updated_on=>wwv_flow_imp.dz('20260616230637Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(139878457948557567211)
+,p_short_name=>'Dashboard Cliente'
+,p_static_id=>'dashboard-cliente'
+,p_link=>'f?p=&APP_ID.:10:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>10
+,p_created_on=>wwv_flow_imp.dz('20260720234159Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720234159Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(1978826021402450276)
+,p_short_name=>'Dashboard de Negocio'
+,p_static_id=>'dashboard-de-negocio'
+,p_link=>'f?p=&APP_ID.:13:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>13
+,p_created_on=>wwv_flow_imp.dz('20261011044537Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011044537Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(129843981914004688389)
+,p_short_name=>'Detalle de Bar'
+,p_static_id=>'detalle-de-bar'
+,p_link=>'f?p=&APP_ID.:3:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>3
+,p_created_on=>wwv_flow_imp.dz('20260616193743Z')
+,p_updated_on=>wwv_flow_imp.dz('20260616193743Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(13549062008164457293)
+,p_short_name=>'Editar mi perfil'
+,p_static_id=>'editar-mi-perfil'
+,p_link=>'f?p=&APP_ID.:19:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>19
+,p_created_on=>wwv_flow_imp.dz('20261113164655Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164655Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(129841850604941277979)
+,p_short_name=>'Explorar viajes'
+,p_static_id=>'explorar-bares'
+,p_link=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.:::'
+,p_page_id=>2
+,p_created_on=>wwv_flow_imp.dz('20260616192706Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113180546Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(9422221237411660134)
+,p_short_name=>'Gestionar Solicitudes'
+,p_static_id=>'gestionar-solicitudes'
+,p_link=>'f?p=&APP_ID.:14:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>14
+,p_created_on=>wwv_flow_imp.dz('20261030042436Z')
+,p_updated_on=>wwv_flow_imp.dz('20261030042436Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(13443535587166365245)
+,p_short_name=>'Gestionar Viajes'
+,p_static_id=>'gestionar-viajes'
+,p_link=>'f?p=&APP_ID.:15:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>15
+,p_created_on=>wwv_flow_imp.dz('20261113062847Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113062847Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(13547391431330390543)
+,p_short_name=>'Historial de Viajes'
+,p_static_id=>'historial-de-viajes'
+,p_link=>'f?p=&APP_ID.:16:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>16
+,p_created_on=>wwv_flow_imp.dz('20261113163547Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163547Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(13552419664257580892)
+,p_short_name=>'Mis solicitudes'
+,p_static_id=>'mis-solicitudes'
+,p_link=>'f?p=&APP_ID.:20:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>20
+,p_created_on=>wwv_flow_imp.dz('20261113170731Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113170731Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(9094262925155937172)
+,p_short_name=>'Publicar Viaje'
+,p_static_id=>'publicar-viaje'
+,p_link=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>5
+,p_created_on=>wwv_flow_imp.dz('20261029041047Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029041047Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(9093835581108902506)
+,p_short_name=>unistr('Registrar Veh\00EDculo')
+,p_static_id=>unistr('registrar-veh\00EDculo')
+,p_link=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>1
+,p_created_on=>wwv_flow_imp.dz('20261029040500Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040500Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(139855719918089452044)
+,p_short_name=>'Registrar Visita'
+,p_static_id=>'registrar-visita'
+,p_link=>'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>11
+,p_created_on=>wwv_flow_imp.dz('20260720203607Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720203607Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(139846855658539417945)
+,p_short_name=>'Registro'
+,p_static_id=>'registro'
+,p_link=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>4
+,p_created_on=>wwv_flow_imp.dz('20260720193238Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720193238Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(1978488400813371289)
+,p_short_name=>'Reporte de Bares'
+,p_static_id=>'reporte-de-bares'
+,p_link=>'f?p=&APP_ID.:12:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>12
+,p_created_on=>wwv_flow_imp.dz('20261011043227Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011043227Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/navigation/breadcrumbentry
+begin
+null;
+end;
+/
+prompt --application/shared_components/user_interface/themes
+begin
+wwv_flow_imp_shared.create_theme(
+ p_id=>wwv_flow_imp.id(129444849593484472241)
+,p_theme_id=>42
+,p_static_id=>'universal-theme'
+,p_theme_name=>'Universal Theme'
+,p_theme_internal_name=>'UNIVERSAL_THEME'
+,p_version_identifier=>'26.1'
+,p_navigation_type=>'L'
+,p_nav_bar_type=>'LIST'
+,p_is_locked=>false
+,p_current_theme_style_id=>2243014446517417
+,p_default_page_template=>4073832297226169690
+,p_default_dialog_template=>2101883943284197310
+,p_error_template=>2102634289808461002
+,p_printer_friendly_template=>4073832297226169690
+,p_login_template=>2102634289808461002
+,p_default_button_template=>4073839297780169708
+,p_default_region_template=>4073835273271169698
+,p_default_chart_template=>4073835273271169698
+,p_default_form_template=>4073835273271169698
+,p_default_reportr_template=>4073835273271169698
+,p_default_wizard_template=>4073835273271169698
+,p_default_menur_template=>2532939663579242476
+,p_default_listr_template=>4073835273271169698
+,p_default_irr_template=>2102002977963900996
+,p_default_report_template=>2540130677583398057
+,p_default_label_template=>1610598304472262251
+,p_default_menu_template=>4073839682315169711
+,p_default_list_template=>4073837480889169704
+,p_default_top_nav_list_temp=>2528231041045349458
+,p_default_side_nav_list_temp=>2469215554099805162
+,p_default_nav_list_position=>'SIDE'
+,p_default_dialogbtnr_template=>2127905476394690047
+,p_default_dialogr_template=>4502917002193490937
+,p_default_option_label=>1610598304472262251
+,p_default_required_label=>1610598484065263269
+,p_default_navbar_list_template=>2849019392706229583
+,p_file_prefix=>nvl(wwv_flow_application_install.get_static_theme_file_prefix(42),'#APEX_FILES#themes/theme_42/26.1/')
+,p_files_version=>64
+,p_icon_library=>'FONTAPEX'
+,p_javascript_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'#APEX_FILES#libraries/apex/#MIN_DIRECTORY#widget.stickyWidget#MIN#.js?v=#APEX_VERSION#',
+'#THEME_FILES#js/theme42#MIN#.js?v=#APEX_VERSION#'))
+,p_css_file_urls=>'#THEME_FILES#css/Core#MIN#.css?v=#APEX_VERSION#'
+,p_reference_id=>wwv_imp_util.get_subscription_id(4073840274158169736,2000,'universal-theme',8842.261)
+,p_version_scn=>'SH256:uQ4JZ2SNi6_ApHjT-kqrEfO43wbND5yijbsMF-bW90c'
+,p_version_scn_master=>'SH256:WOPVC8vP1TPWUxczh2dJ4mCZcNGSTzA1cn8DjR2oQjY'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113180731Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/user_interface/theme_style
+begin
+null;
+end;
+/
+prompt --application/shared_components/user_interface/theme_files
+begin
+null;
+end;
+/
+prompt --application/shared_components/user_interface/template_opt_groups
+begin
+null;
+end;
+/
+prompt --application/shared_components/user_interface/template_options
+begin
+null;
+end;
+/
+prompt --application/shared_components/globalization/language
+begin
+null;
+end;
+/
+prompt --application/shared_components/globalization/translations
+begin
+null;
+end;
+/
+prompt --application/shared_components/logic/build_options
+begin
+wwv_flow_imp_shared.create_build_option(
+ p_id=>wwv_flow_imp.id(129444848056114472238)
+,p_build_option_name=>'Commented Out'
+,p_static_id=>'commented-out'
+,p_build_option_status=>'EXCLUDE'
+,p_version_scn=>'SH256:1lQI3DW9n-0ZEGoDXUirkaB0JWCIATVWpJZCTCkODmI'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/globalization/messages
+begin
+null;
+end;
+/
+prompt --application/shared_components/globalization/dyntranslations
+begin
+null;
+end;
+/
+prompt --application/shared_components/security/authentications/autenticación_drink_advisor
+begin
+wwv_flow_imp_shared.create_authentication(
+ p_id=>wwv_flow_imp.id(130263743995683539545)
+,p_name=>unistr('Autenticaci\00F3n Drink Advisor')
+,p_static_id=>unistr('autenticaci\00F3n-drink-advisor')
+,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
+,p_invalid_session_type=>'LOGIN'
+,p_use_secure_cookie_yn=>'N'
+,p_ras_mode=>0
+,p_version_scn=>'SH256:fFdKmaBtQgB4gJE3Jyx6MiErapKtCeXoHUDyZlxtbMA'
+,p_created_on=>wwv_flow_imp.dz('20260617225934Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720201753Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/security/authentications/autenticación_drink_advisor_2
+begin
+wwv_flow_imp_shared.create_authentication(
+ p_id=>wwv_flow_imp.id(139845843117197371423)
+,p_name=>unistr('Autenticaci\00F3n Drink Advisor 2')
+,p_static_id=>unistr('autenticaci\00F3n-drink-advisor-2')
+,p_scheme_type=>'NATIVE_CUSTOM'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'authentication_function', 'fn_login_drinkadvisor',
+  'enable_legacy_attributes', 'N')).to_clob
+,p_invalid_session_type=>'LOGIN'
+,p_use_secure_cookie_yn=>'N'
+,p_ras_mode=>0
+,p_version_scn=>'SH256:cLZQSk45o6PX0yMXdqi1rMRj3bcIQ5hvQb2wROBDLbQ'
+,p_created_on=>wwv_flow_imp.dz('20260720192453Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040123Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/shared_components/security/authentications/oracle_apex_accounts
+begin
+wwv_flow_imp_shared.create_authentication(
+ p_id=>wwv_flow_imp.id(129444848335903472239)
+,p_name=>'Oracle APEX Accounts'
+,p_static_id=>'oracle-apex-accounts'
+,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
+,p_invalid_session_type=>'LOGIN'
+,p_use_secure_cookie_yn=>'N'
+,p_ras_mode=>0
+,p_version_scn=>'SH256:MwlwV9vQNyvTGV3nRFfTrp5n7mJ1Ugme2lUrlsOYuxw'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/user_interfaces/combined_files
+begin
+null;
+end;
+/
+prompt --application/pages/page_00000
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>0
+,p_name=>'Global Page'
+,p_reload_on_submit=>null
+,p_warn_on_unsaved_changes=>null
+,p_autocomplete_on_off=>'OFF'
+,p_protection_level=>'D'
+,p_page_component_map=>'14'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00001
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>1
+,p_name=>unistr('Registrar Veh\00EDculo')
+,p_alias=>unistr('REGISTRAR-VEH\00CDCULO')
+,p_step_title=>unistr('Registrar Veh\00EDculo')
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(9092509392871834354)
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+,p_created_on=>wwv_flow_imp.dz('20261029040500Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261114033941Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(9093834905055902494)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20261029040500Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040500Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(9093836454205902684)
+,p_plug_name=>unistr('Registrar Veh\00EDculo')
+,p_static_id=>unistr('registrar-veh\00EDculo')
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'TABLE'
+,p_query_table=>'VEHICULOS'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(9093841599518902696)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_button_name=>'CANCEL'
+,p_static_id=>'cancel'
+,p_show_as_disabled=>false
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'CLOSE'
+,p_button_redirect_url=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(9093842895339902697)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_button_name=>'CREATE'
+,p_static_id=>'create'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create'
+,p_button_position=>'CREATE'
+,p_button_condition=>'P1_PLACA'
+,p_button_condition_type=>'ITEM_IS_NULL'
+,p_database_action=>'INSERT'
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114033941Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(9093842030755902696)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_button_name=>'DELETE'
+,p_static_id=>'delete'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Delete'
+,p_button_position=>'DELETE'
+,p_button_execute_validations=>'N'
+,p_confirm_message=>'&APP_TEXT$DELETE_MSG!RAW.'
+,p_confirm_style=>'danger'
+,p_button_condition_type=>'NEVER'
+,p_database_action=>'DELETE'
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114033043Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(9093842486310902697)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_button_name=>'SAVE'
+,p_static_id=>'save'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Apply Changes'
+,p_button_position=>'CHANGE'
+,p_button_condition_type=>'NEVER'
+,p_database_action=>'UPDATE'
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032843Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(9093843261940902697)
+,p_branch_action=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_sequence=>1
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9093837851500902689)
+,p_name=>'P1_ANIO'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_item_source_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_prompt=>'Anio'
+,p_source=>'ANIO'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9093838253202902690)
+,p_name=>'P1_COLOR'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_item_source_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_prompt=>'Color'
+,p_source=>'COLOR'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>15
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9093838636479902691)
+,p_name=>'P1_CUPOS_DISPONIBLES'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_item_source_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_prompt=>'Cupos Disponibles'
+,p_source=>'CUPOS_DISPONIBLES'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9093839029832902691)
+,p_name=>'P1_DOCUMENTO_CONDUCTOR'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_item_source_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_item_default=>'G_DOCUMENTO_USUARIO'
+,p_item_default_type=>'ITEM'
+,p_source=>'DOCUMENTO_CONDUCTOR'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_security_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040645Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9093837113498902686)
+,p_name=>'P1_MODELO'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_item_source_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_prompt=>'Modelo'
+,p_source=>'MODELO'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'MODELOS.MARCA'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9093836775797902685)
+,p_name=>'P1_PLACA'
+,p_source_data_type=>'VARCHAR2'
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_item_source_plug_id=>wwv_flow_imp.id(9093836454205902684)
+,p_prompt=>'Placa'
+,p_source=>'PLACA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'text_case', 'UPPER',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113040611Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(9093843600843902699)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(9093836454205902684)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>unistr('Initialize form Registrar Veh\00EDculo')
+,p_static_id=>unistr('initialize-form-registrar-veh\00EDculo')
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'current_row_total_item', '',
+  'next_primary_key_items', '',
+  'previous_primary_key_items', '')).to_clob
+,p_internal_uid=>9093843600843902699
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(9093844036991902700)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(9093836454205902684)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>unistr('Process form Registrar Veh\00EDculo')
+,p_static_id=>unistr('process-form-registrar-veh\00EDculo')
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'return_primary_keys_after_insert', 'Y',
+  'target_type', 'REGION_SOURCE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(9093842895339902697)
+,p_internal_uid=>9093844036991902700
+,p_created_on=>wwv_flow_imp.dz('20261029040502Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032843Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00002
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>2
+,p_name=>'Explorar Viajes'
+,p_alias=>'EXPLORAR-VIAJES'
+,p_step_title=>'Explorar Viajes'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_page_is_public_y_n=>'Y'
+,p_protection_level=>'C'
+,p_page_component_map=>'13'
+,p_created_on=>wwv_flow_imp.dz('20260616192706Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261114033235Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(129841850029918277977)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_title=>'Wheels Alpes'
+,p_icon_css_classes=>'fa-car'
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2675494171183407654
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20260616192706Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113180411Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(129841854763598278281)
+,p_plug_name=>'Viajes disponibles'
+,p_static_id=>'explorar-bares'
+,p_title=>'Viajes disponibles'
+,p_region_template_options=>'#DEFAULT#:t-CardsRegion--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2074200852440250129
+,p_plug_display_sequence=>40
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT',
+'    v.placa,',
+'    v.fecha,',
+'    v.hora_salida,',
+'    TO_CHAR(v.fecha, ''DD/MM/YYYY'') AS fecha_enlace,',
+'    TO_CHAR(v.hora_salida, ''DD/MM/YYYY HH24MI'') AS salida_enlace,',
+'    TO_CHAR(v.hora_salida, ''HH24:MI'') AS hora_mostrar,',
+'    v.punto_origen,',
+'    v.ruta_general,',
+'    v.tarifa,',
+'    v.cupos_disponibles,',
+'    e.nombre || '' '' || e.apellidos AS conductor,',
+'    e.numero_celular AS telefono_conductor,',
+'    m.marca || '' '' || veh.modelo || '' - '' ||',
+'    veh.color || '' - '' || veh.anio ||',
+'    '' - Placa: '' || veh.placa AS vehiculo,',
+'    (',
+'        SELECT LISTAGG(',
+'            p.punto_recogida || '' ('' || l.localidad || '')'',',
+'            '', ''',
+'        ) WITHIN GROUP (ORDER BY p.punto_recogida)',
+'        FROM Paradas p',
+'        JOIN Lugares l',
+'            ON l.punto_recogida = p.punto_recogida',
+'        WHERE p.placa = v.placa',
+'            AND p.fecha = v.fecha',
+'            AND p.hora_salida = v.hora_salida',
+'    ) AS paradas_propuestas,',
+unistr('    ''$'' || TO_CHAR(v.tarifa, ''FM999,999'') || '' \00B7 '' ||'),
+'    v.cupos_disponibles || '' cupos'' AS detalle_tarifa',
+'FROM Viajes v',
+'JOIN Vehiculos veh',
+'    ON v.placa = veh.placa',
+'JOIN Modelos m',
+'    ON m.modelo = veh.modelo',
+'JOIN Estudiantes e',
+'    ON veh.documento_conductor = e.documento_identidad',
+'WHERE v.estado = ''Programado''',
+'    AND v.cupos_disponibles > 0',
+'    AND v.hora_salida > CURRENT_DATE',
+'    AND (',
+'        :P2_FECHA IS NULL',
+'        OR TRUNC(v.fecha) = TO_DATE(:P2_FECHA, ''DD/MM/YYYY'')',
+'    )',
+'    AND (',
+'        :P2_LOCALIDAD IS NULL',
+'        OR EXISTS (',
+'            SELECT 1',
+'            FROM Paradas p',
+'            JOIN Lugares l',
+'                ON p.punto_recogida = l.punto_recogida',
+'            WHERE p.placa = v.placa',
+'                AND p.fecha = v.fecha',
+'                AND p.hora_salida = v.hora_salida',
+'                AND l.localidad = :P2_LOCALIDAD',
+'        )',
+'    )'))
+,p_lazy_loading=>false
+,p_plug_source_type=>'NATIVE_CARDS'
+,p_plug_query_num_rows_type=>'SCROLL'
+,p_show_total_row_count=>false
+,p_created_on=>wwv_flow_imp.dz('20260616192709Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114033235Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_card(
+ p_id=>wwv_flow_imp.id(129841855006318278282)
+,p_region_id=>wwv_flow_imp.id(129841854763598278281)
+,p_layout_type=>'GRID'
+,p_title_adv_formatting=>false
+,p_title_column_name=>'CONDUCTOR'
+,p_sub_title_adv_formatting=>false
+,p_sub_title_column_name=>'VEHICULO'
+,p_body_adv_formatting=>true
+,p_body_html_expr=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p><strong>Origen:</strong> &PUNTO_ORIGEN!HTML.</p>',
+'<p><strong>Ruta:</strong> &RUTA_GENERAL!HTML.</p>',
+'<p><strong>Fecha:</strong> &FECHA_ENLACE!HTML.</p>',
+'<p><strong>Hora de salida:</strong> &HORA_MOSTRAR!HTML.</p>',
+'<p><strong>Paradas:</strong> &PARADAS_PROPUESTAS!HTML.</p>'))
+,p_second_body_adv_formatting=>false
+,p_second_body_column_name=>'DETALLE_TARIFA'
+,p_media_adv_formatting=>false
+,p_updated_on=>wwv_flow_imp.dz('20261114033235Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_card_action(
+ p_id=>wwv_flow_imp.id(287109670248969664154)
+,p_card_id=>wwv_flow_imp.id(129841855006318278282)
+,p_action_type=>'FULL_CARD'
+,p_display_sequence=>10
+,p_static_id=>'action'
+,p_link_target_type=>'REDIRECT_PAGE'
+,p_link_target=>'f?p=&APP_ID.:6:&SESSION.::&DEBUG.:6:P6_PLACA,P6_FECHA,P6_HORA_SALIDA: &PLACA.,&FECHA_ENLACE.,&SALIDA_ENLACE.'
+,p_updated_on=>wwv_flow_imp.dz('20261113053354Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(1976847648931408540)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(129841854763598278281)
+,p_button_name=>'BUSCAR'
+,p_static_id=>'buscar_1'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Buscar'
+,p_grid_new_row=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20261113061051Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113061051Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1976847413095408538)
+,p_name=>'P2_FECHA'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(129841854763598278281)
+,p_prompt=>'Fecha del viaje'
+,p_format_mask=>'DD/MM/YYYY'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113060727Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113060727Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1976847554068408539)
+,p_name=>'P2_LOCALIDAD'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(129841854763598278281)
+,p_prompt=>'Localidad de recogida'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT DISTINCT localidad AS d,',
+'                localidad AS r',
+'FROM Lugares',
+'ORDER BY localidad'))
+,p_lov_display_null=>'YES'
+,p_lov_null_text=>'Todas las localidades'
+,p_cHeight=>1
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'NO'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113060914Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113061908Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00003
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>3
+,p_name=>'Bebidas del Bar'
+,p_alias=>'BEBIDAS_DEL_BAR'
+,p_step_title=>unistr('&P3_NOMBRE_BAR. \2014 &P3_CIUDAD_BAR.')
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'23'
+,p_created_on=>wwv_flow_imp.dz('20260616193743Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20260930170333Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(138333707336507790114)
+,p_plug_name=>'Bar '
+,p_static_id=>'bar-y-ciudad'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>50
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<h1 class="t-Region-title" style="font-size:1.5rem; font-weight:600; margin-bottom:8px;">',
+unistr('  &P3_NOMBRE_BAR. \2014 &P3_CIUDAD_BAR.'),
+'</h1>'))
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260714005544Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714005647Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(129843981285227688387)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20260616193743Z')
+,p_updated_on=>wwv_flow_imp.dz('20260616193743Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(129843982193320688669)
+,p_plug_name=>'Bebidas Bar'
+,p_static_id=>'detalle-de-bar'
+,p_title=>'Bebidas Bar'
+,p_region_template_options=>'#DEFAULT#:t-CardsRegion--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2074200852440250129
+,p_plug_display_sequence=>60
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT s.id_bar,',
+'       s.id_bebida,',
+'       bd.nombre        AS bebida,',
+'       tb.nombre        AS tipo,',
+'       s.precio,',
+'       bd.grado_alcohol,',
+'       bd.foto_url,',
+unistr('       ''$'' || TO_CHAR(s.precio, ''FM999,999'') || '' \00B7 '' || bd.grado_alcohol || ''\00B0 alcohol'' AS detalle'),
+'FROM   Sirven s',
+'JOIN   Bebidas bd ON bd.id = s.id_bebida',
+'JOIN   Tipos_bebida tb ON tb.id = bd.id_tipo',
+'WHERE  s.id_bar = :P3_BAR_ID',
+'ORDER BY s.precio DESC'))
+,p_lazy_loading=>false
+,p_plug_source_type=>'NATIVE_CARDS'
+,p_plug_query_num_rows_type=>'SCROLL'
+,p_show_total_row_count=>false
+,p_created_on=>wwv_flow_imp.dz('20260616193746Z')
+,p_updated_on=>wwv_flow_imp.dz('20260930170333Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_card(
+ p_id=>wwv_flow_imp.id(129872207325017521541)
+,p_region_id=>wwv_flow_imp.id(129843982193320688669)
+,p_layout_type=>'GRID'
+,p_title_adv_formatting=>false
+,p_title_column_name=>'BEBIDA'
+,p_sub_title_adv_formatting=>false
+,p_sub_title_column_name=>'TIPO'
+,p_body_adv_formatting=>false
+,p_body_column_name=>'DETALLE'
+,p_second_body_adv_formatting=>false
+,p_media_adv_formatting=>false
+,p_media_source_type=>'DYNAMIC_URL'
+,p_media_url_column_name=>'FOTO_URL'
+,p_media_display_position=>'BODY'
+,p_media_appearance=>'SQUARE'
+,p_media_sizing=>'COVER'
+,p_updated_on=>wwv_flow_imp.dz('20260930170333Z')
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_card_action(
+ p_id=>wwv_flow_imp.id(138333707415472790115)
+,p_card_id=>wwv_flow_imp.id(129872207325017521541)
+,p_action_type=>'FULL_CARD'
+,p_display_sequence=>10
+,p_static_id=>'action'
+,p_link_target_type=>'REDIRECT_PAGE'
+,p_link_target=>'f?p=&APP_ID.:7:&SESSION.::&DEBUG.::P7_BAR_ID,P7_BEBIDA_ID:&ID_BAR.,&ID_BEBIDA.'
+,p_updated_on=>wwv_flow_imp.dz('20260930170333Z')
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(129872204614178521514)
+,p_button_sequence=>70
+,p_button_name=>'CREAR_BEBIDA'
+,p_static_id=>'crear-bebida'
+,p_show_as_disabled=>false
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#:t-Button--iconLeft'
+,p_button_template_id=>2084305881903810008
+,p_button_image_alt=>'Crear Bebida'
+,p_button_redirect_url=>'f?p=&APP_ID.:7:&SESSION.::&DEBUG.::P7_BAR_ID:&P3_BAR_ID.'
+,p_warn_on_unsaved_changes=>null
+,p_grid_new_row=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20260616230131Z')
+,p_updated_on=>wwv_flow_imp.dz('20260930163746Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(139855904991343799923)
+,p_button_sequence=>80
+,p_button_name=>'Registrar_visita'
+,p_static_id=>'registrar-visita'
+,p_show_as_disabled=>false
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Registrar Visita'
+,p_button_redirect_url=>'f?p=&APP_ID.:11:&SESSION.::&DEBUG.:11:P11_BAR_ID:&P3_BAR_ID.'
+,p_warn_on_unsaved_changes=>null
+,p_grid_new_row=>'N'
+,p_grid_new_column=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20260720232924Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906230748Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(287109670326852664155)
+,p_name=>'P3_BAR_ID'
+,p_item_sequence=>20
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260616221928Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714005544Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129872209275504521561)
+,p_name=>'P3_CIUDAD_BAR'
+,p_item_sequence=>40
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260714004209Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714005544Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129872209183227521560)
+,p_name=>'P3_NOMBRE_BAR'
+,p_item_sequence=>30
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260714004209Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714005544Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(138333707097715790112)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Cargar Datos del Bar'
+,p_static_id=>'cargar-datos-del-bar'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT nombre, ciudad',
+'INTO   :P3_NOMBRE_BAR, :P3_CIUDAD_BAR',
+'FROM   Bares',
+'WHERE  id = :P3_BAR_ID;'))
+,p_process_clob_language=>'PLSQL'
+,p_internal_uid=>18149973632633522901
+,p_created_on=>wwv_flow_imp.dz('20260714004209Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906142332Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00004
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>4
+,p_name=>'Registro'
+,p_alias=>'REGISTRO'
+,p_step_title=>'Registro'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_page_is_public_y_n=>'Y'
+,p_protection_level=>'C'
+,p_page_component_map=>'16'
+,p_created_on=>wwv_flow_imp.dz('20260720193238Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261114032238Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(139846855012797417944)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20260720193238Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720193238Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(138333708814820790129)
+,p_button_sequence=>90
+,p_button_name=>'Registrarme'
+,p_static_id=>'registrarme'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Registrarme'
+,p_grid_new_row=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20260720194023Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720194023Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(138333708333866790124)
+,p_name=>'P4_APELLIDOS'
+,p_is_required=>true
+,p_item_sequence=>50
+,p_prompt=>'Apellidos'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720194023Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032146Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1929598215336764238)
+,p_name=>'P4_CELULAR'
+,p_is_required=>true
+,p_item_sequence=>140
+,p_prompt=>'Numero de Celular'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029032020Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032146Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1929598106350764237)
+,p_name=>'P4_CORREO'
+,p_is_required=>true
+,p_item_sequence=>130
+,p_prompt=>'Correo'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029032020Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032146Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1929597810031764234)
+,p_name=>'P4_DOCUMENTO'
+,p_is_required=>true
+,p_item_sequence=>100
+,p_prompt=>'Documento de Identidad'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029032020Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032146Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(138333708159441790122)
+,p_name=>'P4_NOMBRE'
+,p_is_required=>true
+,p_item_sequence=>30
+,p_prompt=>'Nombre'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720194023Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032146Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(138333708048674790121)
+,p_name=>'P4_PASSWORD'
+,p_is_required=>true
+,p_item_sequence=>20
+,p_prompt=>'Password'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720194023Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032146Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1929598005650764236)
+,p_name=>'P4_PROGRAMA'
+,p_is_required=>true
+,p_item_sequence=>120
+,p_prompt=>'Programa academico'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029032020Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032146Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1929598387827764239)
+,p_name=>'P4_ROL'
+,p_is_required=>true
+,p_item_sequence=>150
+,p_prompt=>'Tipo de cuenta'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC:Conductor;CONDUCTOR,Pasajero;PASAJERO'
+,p_lov_display_null=>'YES'
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_of_columns', '1',
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029032020Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032146Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1929597919020764235)
+,p_name=>'P4_UNIVERSIDAD'
+,p_is_required=>true
+,p_item_sequence=>110
+,p_prompt=>'Universidad'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029032020Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032146Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(138333707880788790120)
+,p_name=>'P4_USERNAME'
+,p_is_required=>true
+,p_item_sequence=>10
+,p_prompt=>'Username'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720194023Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032146Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(138333708962424790130)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Registrar Cliente'
+,p_static_id=>'registrar-cliente'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'    v_rol VARCHAR2(20) := UPPER(TRIM(:P4_ROL));',
+'BEGIN',
+'    IF v_rol IS NULL',
+'       OR v_rol NOT IN (''CONDUCTOR'', ''PASAJERO'') THEN',
+'        RAISE_APPLICATION_ERROR(',
+'            -20001,',
+'            ''Selecciona Conductor o Pasajero como tipo de cuenta.''',
+'        );',
+'    END IF;',
+'',
+'    INSERT INTO Estudiantes (',
+'        documento_identidad,',
+'        nombre,',
+'        apellidos,',
+'        universidad,',
+'        programa,',
+'        correo_institucional,',
+'        numero_celular',
+'    ) VALUES (',
+'        :P4_DOCUMENTO,',
+'        TRIM(:P4_NOMBRE),',
+'        TRIM(:P4_APELLIDOS),',
+'        TRIM(:P4_UNIVERSIDAD),',
+'        TRIM(:P4_PROGRAMA),',
+'        TRIM(:P4_CORREO),',
+'        :P4_CELULAR',
+'    );',
+'',
+'    IF v_rol = ''CONDUCTOR'' THEN',
+'        INSERT INTO Conductores (documento_identidad)',
+'        VALUES (:P4_DOCUMENTO);',
+'    ELSE',
+'        INSERT INTO Pasajeros (documento_identidad)',
+'        VALUES (:P4_DOCUMENTO);',
+'    END IF;',
+'',
+'    INSERT INTO APP_USUARIO_ROL (',
+'        apex_username,',
+'        documento_identidad,',
+'        rol,',
+'        contrasena',
+'    ) VALUES (',
+'        UPPER(TRIM(:P4_USERNAME)),',
+'        :P4_DOCUMENTO,',
+'        v_rol,',
+'        :P4_PASSWORD',
+'    );',
+'',
+'EXCEPTION',
+'    WHEN DUP_VAL_ON_INDEX THEN',
+'        RAISE_APPLICATION_ERROR(',
+'            -20002,',
+'            ''Ya existe un registro con ese documento, correo institucional o nombre de usuario.''',
+'        );',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(138333708814820790129)
+,p_internal_uid=>18149975497342522919
+,p_created_on=>wwv_flow_imp.dz('20260720194023Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032238Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00005
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>5
+,p_name=>'Publicar Viaje'
+,p_alias=>'PUBLICAR-VIAJE'
+,p_step_title=>'Publicar Viaje'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(9092509392871834354)
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+,p_created_on=>wwv_flow_imp.dz('20261029041047Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261114032657Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(9094262371166937165)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20261029041047Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029041047Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(9094263127413937342)
+,p_plug_name=>'Publicar Viaje'
+,p_static_id=>'publicar-viaje'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'TABLE'
+,p_query_table=>'VIAJES'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(9094270432454937352)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_button_name=>'CANCEL'
+,p_static_id=>'cancel'
+,p_show_as_disabled=>false
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'CLOSE'
+,p_button_redirect_url=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(9094271857894937354)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_button_name=>'CREATE'
+,p_static_id=>'create'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create'
+,p_button_position=>'CREATE'
+,p_button_condition=>':P5_PLACA is null or :P5_FECHA is null'
+,p_button_condition2=>'SQL'
+,p_button_condition_type=>'EXPRESSION'
+,p_database_action=>'INSERT'
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(9094271000209937353)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_button_name=>'DELETE'
+,p_static_id=>'delete'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Delete'
+,p_button_position=>'DELETE'
+,p_button_execute_validations=>'N'
+,p_confirm_message=>'&APP_TEXT$DELETE_MSG!RAW.'
+,p_confirm_style=>'danger'
+,p_button_condition_type=>'NEVER'
+,p_database_action=>'DELETE'
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032657Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(9094271461411937354)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_button_name=>'SAVE'
+,p_static_id=>'save'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Apply Changes'
+,p_button_position=>'CHANGE'
+,p_button_condition_type=>'NEVER'
+,p_database_action=>'UPDATE'
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032657Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(9094272263589937354)
+,p_branch_action=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_sequence=>1
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9094265481862937346)
+,p_name=>'P5_CUPOS_DISPONIBLES'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_source_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_prompt=>'Cupos Disponibles'
+,p_source=>'CUPOS_DISPONIBLES'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113044551Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9094266631997937348)
+,p_name=>'P5_DISTANCIA'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_source_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_prompt=>'Distancia'
+,p_source=>'DISTANCIA'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113044551Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9094267075371937348)
+,p_name=>'P5_DURACION'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_source_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_prompt=>'Duracion'
+,p_source=>'DURACION'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113044551Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9094266282017937347)
+,p_name=>'P5_ESTADO'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_source_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_default=>'Programado'
+,p_prompt=>'Estado'
+,p_source=>'ESTADO'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>'STATIC:Programado;Programado'
+,p_cHeight=>1
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113044551Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9094263888241937344)
+,p_name=>'P5_FECHA'
+,p_source_data_type=>'DATE'
+,p_is_required=>true
+,p_is_primary_key=>true
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_source_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_prompt=>'Fecha del viaje '
+,p_format_mask=>'DD/MM/YYYY'
+,p_source=>'FECHA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113045541Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9094264213946937345)
+,p_name=>'P5_HORA_SALIDA'
+,p_source_data_type=>'DATE'
+,p_is_required=>true
+,p_is_primary_key=>true
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_source_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_prompt=>'fecha y hora de salida '
+,p_format_mask=>'DD/MM/YYYY HH24:MI'
+,p_source=>'HORA_SALIDA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'Y',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114031508Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1976847076750408534)
+,p_name=>'P5_PARADAS'
+,p_is_required=>true
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_prompt=>'Paradas propuestas '
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_CHECKBOX'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT punto_recogida || '' - '' || localidad AS d,',
+'punto_recogida AS r',
+'FROM Lugares',
+'ORDER BY localidad, punto_recogida'))
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'NO'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_of_columns', '1')).to_clob
+,p_multi_value_type=>'SEPARATED'
+,p_multi_value_separator=>':'
+,p_created_on=>wwv_flow_imp.dz('20261113044551Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113045505Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9094263470957937343)
+,p_name=>'P5_PLACA'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_source_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_prompt=>'Placa del vehiculo'
+,p_source=>'PLACA'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT placa AS d, placa AS r',
+'FROM Vehiculos',
+'WHERE documento_conductor = :G_DOCUMENTO_USUARIO',
+'ORDER BY placa'))
+,p_lov_display_null=>'YES'
+,p_lov_null_text=>unistr('Selecciona un veh\00EDculo ')
+,p_cHeight=>1
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113045540Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9094264615925937345)
+,p_name=>'P5_PUNTO_ORIGEN'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_source_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_prompt=>'Punto Origen'
+,p_source=>'PUNTO_ORIGEN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>100
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9094265071755937346)
+,p_name=>'P5_RUTA_GENERAL'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_source_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_prompt=>'Ruta General'
+,p_source=>'RUTA_GENERAL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>200
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9094265871589937347)
+,p_name=>'P5_TARIFA'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_item_source_plug_id=>wwv_flow_imp.id(9094263127413937342)
+,p_prompt=>'Tarifa'
+,p_source=>'TARIFA'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029041048Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113044551Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(1976847268835408536)
+,p_validation_name=>'Validar fecha de salida'
+,p_static_id=>'validar-fecha-de-salida'
+,p_validation_sequence=>10
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'TRUNC(TO_DATE(:P5_HORA_SALIDA, ''DD/MM/YYYY HH24:MI'')) =',
+'TO_DATE(:P5_FECHA, ''DD/MM/YYYY'')',
+'AND TO_DATE(:P5_HORA_SALIDA, ''DD/MM/YYYY HH24:MI'') > CURRENT_DATE'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>'La salida debe coincidir con la fecha del viaje y ser posterior al momento actual'
+,p_when_button_pressed=>wwv_flow_imp.id(9094271857894937354)
+,p_associated_item=>wwv_flow_imp.id(9094264213946937345)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+,p_created_on=>wwv_flow_imp.dz('20261113045745Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113045922Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(1976847327083408537)
+,p_validation_name=>unistr('Validar veh\00EDculo y cupos')
+,p_static_id=>unistr('validar-veh\00EDculo-y-cupos')
+,p_validation_sequence=>20
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT 1',
+'FROM Vehiculos',
+'WHERE placa = :P5_PLACA',
+'AND documento_conductor = :G_DOCUMENTO_USUARIO',
+'AND :P5_CUPOS_DISPONIBLES BETWEEN 1 AND cupos_disponibles',
+'AND :P5_CUPOS_DISPONIBLES = TRUNC(:P5_CUPOS_DISPONIBLES)'))
+,p_validation_type=>'EXISTS'
+,p_error_message=>unistr('Selecciona un veh\00EDculo propio e ingresa una cantidad entera de cupos entre 1 y la capacidad del veh\00EDculo')
+,p_when_button_pressed=>wwv_flow_imp.id(9094271857894937354)
+,p_associated_item=>wwv_flow_imp.id(9094265481862937346)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+,p_created_on=>wwv_flow_imp.dz('20261113050029Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113050029Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(1976847115607408535)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Guardar paradas'
+,p_static_id=>'guardar-paradas'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'INSERT INTO Paradas (placa, fecha, hora_salida, punto_recogida)',
+'SELECT :P5_PLACA,',
+'TO_DATE(:P5_FECHA, ''DD/MM/YYYY''),',
+'TO_DATE(:P5_HORA_SALIDA, ''DD/MM/YYYY HH24:MI''),',
+'L.punto_recogida',
+'FROM Lugares L',
+'WHERE INSTR('':'' || :P5_PARADAS || '':'',',
+''':'' || L.punto_recogida || '':'') > 0;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(9094271857894937354)
+,p_process_success_message=>'Viaje y paradas registrados correctamente'
+,p_internal_uid=>1976847115607408535
+,p_created_on=>wwv_flow_imp.dz('20261113045235Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113045235Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(9094272682575937355)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(9094263127413937342)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form Publicar Viaje'
+,p_static_id=>'initialize-form-publicar-viaje'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'current_row_total_item', '',
+  'next_primary_key_items', '',
+  'previous_primary_key_items', '')).to_clob
+,p_internal_uid=>9094272682575937355
+,p_created_on=>wwv_flow_imp.dz('20261029041049Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029041049Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(9094272987019937356)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(9094263127413937342)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form Publicar Viaje'
+,p_static_id=>'process-form-publicar-viaje'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'return_primary_keys_after_insert', 'Y',
+  'target_type', 'REGION_SOURCE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(9094271857894937354)
+,p_internal_uid=>9094272987019937356
+,p_created_on=>wwv_flow_imp.dz('20261029041049Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114032615Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00006
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>6
+,p_name=>'Solicitar Cupo'
+,p_alias=>'SOLICITAR-CUPO'
+,p_page_mode=>'MODAL'
+,p_step_title=>'Solicitar Cupo'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>2101883943284197310
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(9092634554587221037)
+,p_dialog_resizable=>'Y'
+,p_protection_level=>'C'
+,p_page_component_map=>'11'
+,p_created_on=>wwv_flow_imp.dz('20261029042535Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261113174842Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(1929599018362764246)
+,p_button_sequence=>50
+,p_button_name=>'ENVIAR'
+,p_static_id=>'enviar'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Confirmar y solicitar cupo'
+,p_grid_new_row=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20261029042929Z')
+,p_updated_on=>wwv_flow_imp.dz('20261030043144Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1929598680021764242)
+,p_name=>'P6_FECHA'
+,p_item_sequence=>20
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029042929Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029042929Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1929598780294764243)
+,p_name=>'P6_HORA_SALIDA'
+,p_item_sequence=>30
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029042929Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029042929Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1929598572784764241)
+,p_name=>'P6_PLACA'
+,p_item_sequence=>10
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029042929Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029042929Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1929598890820764244)
+,p_name=>'P6_PUNTO_RECOGIDA'
+,p_item_sequence=>40
+,p_prompt=>'donde quieres que te recojan'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT punto_recogida AS d, punto_recogida AS r',
+'FROM Paradas',
+'WHERE placa = TRIM(:P6_PLACA)',
+'AND fecha = TO_DATE(:P6_FECHA, ''DD/MM/YYYY'')',
+'AND hora_salida = TO_DATE(:P6_HORA_SALIDA, ''DD/MM/YYYY HH24MI'')',
+'ORDER BY punto_recogida'))
+,p_lov_display_null=>'YES'
+,p_lov_null_text=>'Selecciona una parada'
+,p_cHeight=>1
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'NO'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261029042929Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113053937Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(1929599140111764247)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'GUARDAR SOLICITUD'
+,p_static_id=>'guardar-solicitud'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'  INSERT INTO Solicitudes (',
+'    doc_pasajero,',
+'    placa,',
+'    fecha,',
+'    hora_salida,',
+'    punto_recogida,',
+'    estado_solicitud,',
+'    fecha_solicitud',
+'  )',
+'  SELECT :G_DOCUMENTO_USUARIO,',
+'    V.placa,',
+'    V.fecha,',
+'    V.hora_salida,',
+'    P.punto_recogida,',
+'    ''Pendiente'',',
+'    CURRENT_DATE',
+'  FROM Viajes V',
+'  JOIN Paradas P',
+'    ON P.placa = V.placa',
+'    AND P.fecha = V.fecha',
+'    AND P.hora_salida = V.hora_salida',
+'  WHERE V.placa = TRIM(:P6_PLACA)',
+'    AND V.fecha = TO_DATE(:P6_FECHA, ''DD/MM/YYYY'')',
+'    AND V.hora_salida =',
+'      TO_DATE(:P6_HORA_SALIDA, ''DD/MM/YYYY HH24MI'')',
+'    AND P.punto_recogida = :P6_PUNTO_RECOGIDA',
+'    AND V.estado = ''Programado''',
+'    AND V.cupos_disponibles > 0',
+'    AND V.hora_salida > CURRENT_DATE',
+'    AND EXISTS (',
+'      SELECT 1',
+'      FROM Pasajeros',
+'      WHERE documento_identidad = :G_DOCUMENTO_USUARIO',
+'    );',
+'',
+'  IF SQL%ROWCOUNT = 0 THEN',
+'    RAISE_APPLICATION_ERROR(-20001,',
+'      ''No se pudo enviar la solicitud. Verifica la parada, la disponibilidad del viaje y tu cuenta de pasajero.'');',
+'  END IF;',
+'',
+'EXCEPTION',
+'  WHEN DUP_VAL_ON_INDEX THEN',
+'    RAISE_APPLICATION_ERROR(-20002,',
+'      ''Ya tienes una solicitud registrada para este viaje.'');',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_success_message=>'Solicitud enviada con exito'
+,p_internal_uid=>1929599140111764247
+,p_created_on=>wwv_flow_imp.dz('20261029043043Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113174842Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(1929599261338764248)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_CLOSE_WINDOW'
+,p_process_name=>'Cerrar solicitud'
+,p_static_id=>'new'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'show_success_messages', 'Y')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>1929599261338764248
+,p_created_on=>wwv_flow_imp.dz('20261029043200Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113052024Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00007
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>7
+,p_name=>'Crear Bebida'
+,p_alias=>'CREAR-BEBIDA'
+,p_step_title=>'Crear Bebida'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+,p_created_on=>wwv_flow_imp.dz('20260616230637Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20260930170627Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(129873709839067941801)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20260616230637Z')
+,p_updated_on=>wwv_flow_imp.dz('20260616230637Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(129873710644819941904)
+,p_plug_name=>'Crear o Editar Bebida'
+,p_static_id=>'crear-bebida'
+,p_title=>'Crear o Editar Bebida'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>20
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'TABLE'
+,p_query_table=>'SIRVEN'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714015636Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(129872207773362521546)
+,p_plug_name=>'Nueva Bebida'
+,p_static_id=>'nueva-bebida'
+,p_parent_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'SUB_REGIONS'
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_display_condition_type=>'NEVER'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_updated_on=>wwv_flow_imp.dz('20260713233957Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(129872207469458521543)
+,p_button_sequence=>70
+,p_button_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_button_name=>'BTN_NUEVA_BEBIDA'
+,p_static_id=>'btn-nueva-bebida'
+,p_show_as_disabled=>false
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Crear bebida nueva'
+,p_button_redirect_url=>'f?p=&APP_ID.:9:&SESSION.::&DEBUG.:::'
+,p_warn_on_unsaved_changes=>null
+,p_grid_new_row=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714011422Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(129873713053676941907)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_button_name=>'CANCEL'
+,p_static_id=>'cancel'
+,p_show_as_disabled=>false
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Cancelar'
+,p_button_position=>'CLOSE'
+,p_button_redirect_url=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.:::'
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714020718Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(129873714274482941908)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_button_name=>'CREATE'
+,p_static_id=>'create'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Crear'
+,p_button_position=>'CREATE'
+,p_button_condition=>'P7_BEBIDA_ID'
+,p_button_condition_type=>'ITEM_IS_NULL'
+,p_database_action=>'INSERT'
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714020718Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(129873713521229941907)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_button_name=>'DELETE'
+,p_static_id=>'delete'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Eliminar'
+,p_button_position=>'DELETE'
+,p_button_execute_validations=>'N'
+,p_confirm_message=>unistr('\00BFSeguro que deseas eliminar esta bebida del bar?')
+,p_confirm_style=>'danger'
+,p_button_condition=>'P7_BEBIDA_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'DELETE'
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714020718Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(129873713955274941908)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_button_name=>'SAVE'
+,p_static_id=>'save'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Aplicar Cambios'
+,p_button_position=>'CHANGE'
+,p_button_condition=>':P7_BAR_ID is not null and :P7_BEBIDA_ID is not null'
+,p_button_condition2=>'SQL'
+,p_button_condition_type=>'EXPRESSION'
+,p_database_action=>'UPDATE'
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714020718Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(129873714714752941908)
+,p_branch_action=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.::P3_BAR_ID:&P7_BAR_ID.&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_sequence=>1
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260930170627Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129873710890905941904)
+,p_name=>'P7_BAR_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_item_source_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_source=>'ID_BAR'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260925162347Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129873711318335941905)
+,p_name=>'P7_BEBIDA_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_is_primary_key=>true
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_item_source_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_prompt=>'New'
+,p_source=>'ID_BEBIDA'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT b.nombre || '' ('' || tb.nombre || '')'' AS d, ',
+'       b.id AS r',
+'FROM   Bebidas b',
+'JOIN   Tipos_bebida tb ON tb.id = b.id_tipo',
+'ORDER BY 1'))
+,p_lov_display_null=>'YES'
+,p_lov_null_text=>'- Seleccionar bebida -'
+,p_cHeight=>1
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260925162347Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129872208220185521550)
+,p_name=>'P7_NUEVA_FOTO_URL'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(129872207773362521546)
+,p_prompt=>'URL de la foto'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_updated_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129872208111295521549)
+,p_name=>'P7_NUEVA_GRADO'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(129872207773362521546)
+,p_prompt=>'Grado de alcohol'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_updated_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129872207879363521547)
+,p_name=>'P7_NUEVA_NOMBRE'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(129872207773362521546)
+,p_prompt=>'Nombre'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_updated_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129872207966737521548)
+,p_name=>'P7_NUEVA_TIPO_ID'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(129872207773362521546)
+,p_prompt=>'Tipo'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>'SELECT nombre d, id r FROM Tipos_bebida ORDER BY 1'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906142945Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129873711754367941906)
+,p_name=>'P7_PRECIO'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_item_source_plug_id=>wwv_flow_imp.id(129873710644819941904)
+,p_prompt=>'Precio'
+,p_source=>'PRECIO'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260617210536Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(129872204766260521516)
+,p_validation_name=>'precio mayor a 0'
+,p_static_id=>'precio-mayor-a-0'
+,p_validation_sequence=>10
+,p_validation=>':P7_PRECIO > 0'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>'El precio debe ser mayor a cero.'
+,p_associated_item=>wwv_flow_imp.id(129873711754367941906)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+,p_created_on=>wwv_flow_imp.dz('20260616231052Z')
+,p_updated_on=>wwv_flow_imp.dz('20260616231052Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(129872207612727521544)
+,p_name=>'Crear nueva Bebida'
+,p_static_id=>'crear-nueva-bebida'
+,p_event_sequence=>15
+,p_triggering_element_type=>'BUTTON'
+,p_triggering_button_id=>wwv_flow_imp.id(129872207469458521543)
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'click'
+,p_created_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_updated_on=>wwv_flow_imp.dz('20260713234231Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(129872207719124521545)
+,p_event_id=>wwv_flow_imp.id(129872207612727521544)
+,p_event_result=>'TRUE'
+,p_action_sequence=>15
+,p_execute_on_page_init=>'Y'
+,p_static_id=>'native-show'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(129872207773362521546)
+,p_created_on=>wwv_flow_imp.dz('20260713233956Z')
+,p_updated_on=>wwv_flow_imp.dz('20260713234231Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(129872208989333521558)
+,p_name=>'Recargar Lista '
+,p_static_id=>'recargar-lista'
+,p_event_sequence=>25
+,p_triggering_element_type=>'REGION'
+,p_triggering_region_id=>wwv_flow_imp.id(129873710644819941904)
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'apexafterclosedialog'
+,p_created_on=>wwv_flow_imp.dz('20260714001749Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714001749Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(129872209157734521559)
+,p_event_id=>wwv_flow_imp.id(129872208989333521558)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_static_id=>'native-refresh'
+,p_action=>'NATIVE_REFRESH'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P7_BEBIDA_ID'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'maintain_pagination', 'N')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260714001749Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714001749Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(138333707755571790118)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Actualizar Bebida'
+,p_static_id=>'actualizar-bebida'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'  IF :P7_BEBIDA_ID IS NOT NULL THEN',
+'    UPDATE Bebidas',
+'    SET    nombre = :P7_NUEVA_NOMBRE,',
+'           grado_alcohol = :P7_NUEVA_GRADO,',
+'           foto_url = :P7_NUEVA_FOTO_URL,',
+'           id_tipo = :P7_NUEVA_TIPO_ID',
+'    WHERE  id = :P7_BEBIDA_ID;',
+'',
+'    UPDATE Sirven',
+'    SET    precio = :P7_PRECIO',
+'    WHERE  id_bar = :P7_BAR_ID',
+'    AND    id_bebida = :P7_BEBIDA_ID;',
+'  END IF;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(129873713955274941908)
+,p_internal_uid=>18149974290489522907
+,p_created_on=>wwv_flow_imp.dz('20260714011154Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906142945Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(138333707533309790116)
+,p_process_sequence=>20
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Cargar Bebida Existente'
+,p_static_id=>'cargar-bebida-existente'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'  IF :P7_BEBIDA_ID IS NOT NULL THEN',
+'    SELECT bd.nombre, bd.grado_alcohol, bd.foto_url, bd.id_tipo, s.precio',
+'    INTO   :P7_NUEVA_NOMBRE, :P7_NUEVA_GRADO, :P7_NUEVA_FOTO_URL, ',
+'           :P7_NUEVA_TIPO_ID, :P7_PRECIO',
+'    FROM   Bebidas bd',
+'    JOIN   Sirven s ON s.id_bebida = bd.id',
+'    WHERE  bd.id = :P7_BEBIDA_ID',
+'    AND    s.id_bar = :P7_BAR_ID;',
+'  END IF;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_internal_uid=>18149974068227522905
+,p_created_on=>wwv_flow_imp.dz('20260714011154Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906142649Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(138333707817671790119)
+,p_process_sequence=>5
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Eliminar de Sirven'
+,p_static_id=>'eliminar-de-sirven'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DELETE FROM Sirven',
+'WHERE id_bar = :P7_BAR_ID',
+'AND   id_bebida = :P7_BEBIDA_ID;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(129873713521229941907)
+,p_internal_uid=>18149974352589522908
+,p_created_on=>wwv_flow_imp.dz('20260714011154Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906142945Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(129873715098918941909)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(129873710644819941904)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form Crear Bebida'
+,p_static_id=>'initialize-form-crear-bebida'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'current_row_total_item', '',
+  'next_primary_key_items', '',
+  'previous_primary_key_items', '')).to_clob
+,p_internal_uid=>9689981633836674698
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(129872205285559521521)
+,p_process_sequence=>5
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Insertar Bebida'
+,p_static_id=>'insertar-bebida'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'INSERT INTO Sirven (id_bar, id_bebida, precio)',
+'VALUES (:P7_BAR_ID, :P7_BEBIDA_ID, :P7_PRECIO);'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(129873714274482941908)
+,p_process_when=>':P7_BEBIDA_ID IS NULL'
+,p_process_when_type=>'EXPRESSION'
+,p_process_when2=>'PLSQL'
+,p_internal_uid=>9688471820477254310
+,p_created_on=>wwv_flow_imp.dz('20260617210536Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906142945Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(129873715558876941910)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(129873710644819941904)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form Crear Bebida'
+,p_static_id=>'process-form-crear-bebida'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'return_primary_keys_after_insert', 'Y',
+  'target_type', 'REGION_SOURCE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>9689982093794674699
+,p_created_on=>wwv_flow_imp.dz('20260616230638Z')
+,p_updated_on=>wwv_flow_imp.dz('20260713233957Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00008
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>8
+,p_name=>'Catalogo de bebidas'
+,p_alias=>'CATALOGO-DE-BEBIDAS'
+,p_step_title=>'Catalogo de bebidas'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(1983288079044583029)
+,p_protection_level=>'C'
+,p_page_component_map=>'18'
+,p_created_on=>wwv_flow_imp.dz('20261011045955Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261011053716Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(1976846461341408528)
+,p_plug_name=>unistr('An\00E1lisis de bebidas')
+,p_static_id=>unistr('an\00E1lisis-de-bebidas')
+,p_title=>unistr('An\00E1lisis de bebidas')
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>30
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>El reporte muestra la bebida con mayor cantidad total pedida',
+'en cada bar, sumando las cantidades registradas en las visitas.',
+unistr('Si varias bebidas empatan en el m\00E1ximo, se muestran todas.'),
+unistr('La posici\00F3n 1 y el resaltado identifican las bebidas ganadoras</p>'),
+'',
+unistr('<p>La secci\00F3n Bebidas nunca pedidas muestra las bebidas del'),
+unistr('cat\00E1logo sin registros en Bebidas_Visita. En los datos actuales,'),
+'Limonada, con identificador 32, no tiene pedidos registrados.',
+unistr('Se recomienda evaluar una promoci\00F3n para medir su aceptaci\00F3n'),
+'antes de decidir si debe mantenerse en la oferta.</p>'))
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261011053716Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011053716Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(1976845687410408520)
+,p_plug_name=>unistr('Bebidas m\00E1s pedidas por bar')
+,p_static_id=>unistr('bebidas-m\00E1s-pedidas-por-bar')
+,p_title=>unistr('Bebidas m\00E1s pedidas por bar')
+,p_region_template_options=>'#DEFAULT#:t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2102002977963900996
+,p_plug_display_sequence=>20
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT BA.nombre AS bar,',
+'       B.nombre AS bebida,',
+'       SUM(BV.cantidad) AS cantidad_pedida,',
+'       1 AS posicion',
+'FROM Bares BA',
+'INNER JOIN Visitas V',
+'    ON V.id_bar = BA.id',
+'INNER JOIN Bebidas_Visita BV',
+'    ON BV.id_visita = V.id_visita',
+'INNER JOIN Bebidas B',
+'    ON B.id = BV.id_bebida',
+'GROUP BY BA.id, BA.nombre, B.id, B.nombre',
+'HAVING SUM(BV.cantidad) >= ALL (',
+'    SELECT SUM(BV2.cantidad)',
+'    FROM Visitas V2',
+'    INNER JOIN Bebidas_Visita BV2',
+'        ON BV2.id_visita = V2.id_visita',
+'    WHERE V2.id_bar = BA.id',
+'    GROUP BY BV2.id_bebida',
+')',
+'ORDER BY BA.nombre, B.nombre'))
+,p_plug_source_type=>'NATIVE_IR'
+,p_prn_content_disposition=>'ATTACHMENT'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header=>unistr('Bebidas m\00E1s pedidas por bar')
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_ai_enabled=>false
+,p_created_on=>wwv_flow_imp.dz('20261011050242Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011050405Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'ADMIN'
+);
+wwv_flow_imp_page.create_worksheet(
+ p_id=>wwv_flow_imp.id(1976845740392408521)
+,p_pagination_type=>'ROWS_X_TO_Y'
+,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_report_list_mode=>'TABS'
+,p_lazy_loading=>false
+,p_show_detail_link=>'N'
+,p_show_notify=>'Y'
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
+,p_enable_mail_download=>'Y'
+,p_internal_uid=>1976845740392408521
+,p_created_on=>wwv_flow_imp.dz('20261011050242Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011050405Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'ADMIN'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(1976845854158408522)
+,p_db_column_name=>'BAR'
+,p_display_order=>10
+,p_column_identifier=>'A'
+,p_column_label=>'Bar'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011050242Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011050242Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(1976845928687408523)
+,p_db_column_name=>'BEBIDA'
+,p_display_order=>20
+,p_column_identifier=>'B'
+,p_column_label=>'Bebida'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011050242Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011050242Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(1976846071886408524)
+,p_db_column_name=>'CANTIDAD_PEDIDA'
+,p_display_order=>30
+,p_column_identifier=>'C'
+,p_column_label=>'Cantidad Pedida'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011050242Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011050242Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(1976846161966408525)
+,p_db_column_name=>'POSICION'
+,p_display_order=>40
+,p_column_identifier=>'D'
+,p_column_label=>'Posicion'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011050242Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011050242Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_rpt(
+ p_id=>wwv_flow_imp.id(1981551709041508665)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_alias=>'primary'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'BAR:BEBIDA:CANTIDAD_PEDIDA:POSICION'
+,p_created_on=>wwv_flow_imp.dz('20261011050245Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011050405Z')
+,p_created_by=>'ADMIN'
+,p_updated_by=>'ADMIN'
+);
+wwv_flow_imp_page.create_worksheet_condition(
+ p_id=>wwv_flow_imp.id(1983065064773561003)
+,p_report_id=>wwv_flow_imp.id(1981551709041508665)
+,p_static_id=>'ir-condition'
+,p_condition_type=>'HIGHLIGHT'
+,p_allow_delete=>'Y'
+,p_column_name=>'POSICION'
+,p_operator=>'='
+,p_expr=>'1'
+,p_condition_sql=>' (case when ("POSICION" = to_number(#APXWS_EXPR#)) then #APXWS_HL_ID# end) '
+,p_condition_display=>'#APXWS_COL_NAME# = #APXWS_EXPR_NUMBER#  '
+,p_enabled=>'Y'
+,p_highlight_sequence=>10
+,p_row_bg_color=>'#d0f1cc'
+,p_row_font_color=>'#12330f'
+,p_created_on=>wwv_flow_imp.dz('20261011050405Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011050405Z')
+,p_created_by=>'ADMIN'
+,p_updated_by=>'ADMIN'
+);
+wwv_flow_imp_page.create_report_region(
+ p_id=>wwv_flow_imp.id(1976845385108408517)
+,p_name=>'Bebidas nunca pedidas'
+,p_static_id=>'bebidas-nunca-pedidas'
+,p_title=>'Bebidas nunca pedidas'
+,p_template=>4073835273271169698
+,p_display_sequence=>10
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#:t-Report--altRowsDefault:t-Report--rowHighlight'
+,p_source_type=>'NATIVE_SQL_REPORT'
+,p_query_type=>'SQL'
+,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT B.id, B.nombre',
+'FROM Bebidas B',
+'LEFT JOIN Bebidas_Visita BV',
+'    ON B.id = BV.id_bebida',
+'WHERE BV.id_bebida IS NULL',
+'ORDER BY B.nombre'))
+,p_ajax_enabled=>'Y'
+,p_lazy_loading=>false
+,p_query_row_template=>2540130677583398057
+,p_query_num_rows=>15
+,p_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_csv_output=>'N'
+,p_prn_output=>'N'
+,p_sort_null=>'L'
+,p_plug_query_strip_html=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011050051Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011050051Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1976845492856408518)
+,p_query_column_id=>1
+,p_column_alias=>'ID'
+,p_column_display_sequence=>10
+,p_column_heading=>'Id'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261011050051Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1976845509515408519)
+,p_query_column_id=>2
+,p_column_alias=>'NOMBRE'
+,p_column_display_sequence=>20
+,p_column_heading=>'Nombre'
+,p_heading_alignment=>'LEFT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261011050051Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(1982830151073536091)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20261011045956Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011045956Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00009
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>9
+,p_name=>'Nueva Bebida'
+,p_alias=>'NUEVA-BEBIDA'
+,p_page_mode=>'MODAL'
+,p_step_title=>'Nueva Bebida'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>2101883943284197310
+,p_page_template_options=>'#DEFAULT#'
+,p_dialog_resizable=>'Y'
+,p_protection_level=>'C'
+,p_page_component_map=>'11'
+,p_created_on=>wwv_flow_imp.dz('20260714000338Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20260906143232Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(129872208833346521556)
+,p_button_sequence=>50
+,p_button_name=>'CREAR'
+,p_static_id=>'crear_1'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Crear Bebida'
+,p_grid_new_row=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20260714001333Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714001333Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129872208728869521555)
+,p_name=>'P9_FOTO_URL'
+,p_item_sequence=>40
+,p_prompt=>'Foto URL'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260714001333Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714001333Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129872208583371521554)
+,p_name=>'P9_GRADO'
+,p_item_sequence=>30
+,p_prompt=>'Grado de alcohol'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260714001333Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714001333Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129872208452349521552)
+,p_name=>'P9_NOMBRE'
+,p_item_sequence=>10
+,p_prompt=>'Nombre'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260714001333Z')
+,p_updated_on=>wwv_flow_imp.dz('20260714001333Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129872208562106521553)
+,p_name=>'P9_TIPO_ID'
+,p_item_sequence=>20
+,p_prompt=>'Tipo Id'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>'SELECT nombre d, id r FROM Tipos_bebida ORDER BY 1'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260714001333Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906143231Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(129872208892480521557)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Insertar Bebida Nueva'
+,p_static_id=>'insertar-bebida-nueva'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'INSERT INTO Bebidas (id, nombre, grado_alcohol, foto_url, id_tipo)',
+'VALUES (SEQ_BEBIDA.NEXTVAL,',
+'        :P9_NOMBRE,',
+'        :P9_GRADO,',
+'        :P9_FOTO_URL,',
+'        :P9_TIPO_ID);'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(129872208833346521556)
+,p_internal_uid=>9688475427398254346
+,p_created_on=>wwv_flow_imp.dz('20260714001333Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906143232Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00010
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>10
+,p_name=>'Dashboard Cliente'
+,p_alias=>'DASHBOARD-CLIENTE'
+,p_step_title=>'Dashboard Cliente'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'03'
+,p_created_on=>wwv_flow_imp.dz('20260720234159Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261113200732Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(139855906094623799934)
+,p_plug_name=>unistr('Zona m\00E1s solicitada')
+,p_static_id=>'bar-favorito'
+,p_title=>unistr('Zona m\00E1s solicitada')
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>90
+,p_plug_new_grid_row=>false
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_source=>'&P10_BAR_FAVORITO.'
+,p_plug_required_role=>wwv_flow_imp.id(9092634554587221037)
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113200732Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(139855905800302799931)
+,p_plug_name=>'Total Viajes Solicitados'
+,p_static_id=>'bares-visitados'
+,p_title=>'Total Viajes Solicitados'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>60
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_source=>'&P10_BARES_VISITADOS.'
+,p_plug_required_role=>wwv_flow_imp.id(9092634554587221037)
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113200456Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(139878457312046567210)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20260720234159Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720234159Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_region(
+ p_id=>wwv_flow_imp.id(9417953291701467406)
+,p_name=>'Tablero del Conductor'
+,p_static_id=>'rendimiento-del-conductor'
+,p_template=>4073835273271169698
+,p_display_sequence=>100
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#:t-Report--altRowsDefault:t-Report--rowHighlight'
+,p_source_type=>'NATIVE_SQL_REPORT'
+,p_query_type=>'SQL'
+,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT',
+'    NVL(SUM(S.total_pasajeros), 0) AS total_pasajeros,',
+'    NVL(SUM(V.tarifa * NVL(S.total_pasajeros, 0)), 0)',
+'        AS total_ingresos,',
+'    NVL(SUM(V.distancia), 0) AS distancia_total_km,',
+'    NVL(SUM(V.duracion), 0) AS tiempo_total_minutos',
+'FROM Viajes V',
+'JOIN Vehiculos VEH',
+'  ON VEH.placa = V.placa',
+'LEFT JOIN (',
+'    SELECT placa,',
+'           fecha,',
+'           hora_salida,',
+'           COUNT(*) AS total_pasajeros',
+'    FROM Solicitudes',
+'    WHERE estado_solicitud = ''Aceptada''',
+'    GROUP BY placa, fecha, hora_salida',
+') S',
+'  ON S.placa = V.placa',
+'  AND S.fecha = V.fecha',
+'  AND S.hora_salida = V.hora_salida',
+'WHERE VEH.documento_conductor = :G_DOCUMENTO_USUARIO',
+'  AND V.estado = ''Completado'''))
+,p_required_role=>wwv_flow_imp.id(9092509392871834354)
+,p_ajax_enabled=>'Y'
+,p_lazy_loading=>false
+,p_query_row_template=>2540130677583398057
+,p_query_num_rows=>15
+,p_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_csv_output=>'N'
+,p_prn_output=>'Y'
+,p_prn_format=>'PDF'
+,p_prn_output_link_text=>'Print'
+,p_prn_content_disposition=>'ATTACHMENT'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width_units=>'PERCENTAGE'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_sort_null=>'L'
+,p_plug_query_strip_html=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261030045349Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113195857Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417954864200467422)
+,p_query_column_id=>3
+,p_column_alias=>'DISTANCIA_TOTAL_KM'
+,p_column_display_sequence=>30
+,p_column_heading=>'Distancia Total Km'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030045349Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417954996445467423)
+,p_query_column_id=>4
+,p_column_alias=>'TIEMPO_TOTAL_MINUTOS'
+,p_column_display_sequence=>40
+,p_column_heading=>'Tiempo Total Minutos'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030045349Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417954795443467421)
+,p_query_column_id=>2
+,p_column_alias=>'TOTAL_INGRESOS'
+,p_column_display_sequence=>20
+,p_column_heading=>'Total Ingresos'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030045349Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417954662911467420)
+,p_query_column_id=>1
+,p_column_alias=>'TOTAL_PASAJEROS'
+,p_column_display_sequence=>10
+,p_column_heading=>'Total Pasajeros'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030045349Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_region(
+ p_id=>wwv_flow_imp.id(9417955021916467424)
+,p_name=>'Tablero del Pasajero'
+,p_static_id=>'tablero-del-pasajero'
+,p_template=>4073835273271169698
+,p_display_sequence=>110
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#:t-Report--altRowsDefault:t-Report--rowHighlight'
+,p_new_grid_row=>false
+,p_new_grid_column=>false
+,p_source_type=>'NATIVE_SQL_REPORT'
+,p_query_type=>'SQL'
+,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT',
+'    COUNT(*) AS viajes_tomados,',
+'    NVL(SUM(V.tarifa), 0) AS total_gastos,',
+'    ROUND(NVL(AVG(V.distancia), 0), 1) AS promedio_distancia_km,',
+'    ROUND(NVL(AVG(V.duracion), 0), 1) AS promedio_tiempo_minutos',
+'FROM Solicitudes S',
+'JOIN Viajes V',
+'    ON V.placa = S.placa',
+'    AND V.fecha = S.fecha',
+'    AND V.hora_salida = S.hora_salida',
+'WHERE S.doc_pasajero = :G_DOCUMENTO_USUARIO',
+'    AND S.estado_solicitud = ''Aceptada''',
+'    AND V.estado = ''Completado'''))
+,p_required_role=>wwv_flow_imp.id(9092634554587221037)
+,p_ajax_enabled=>'Y'
+,p_lazy_loading=>false
+,p_query_row_template=>2540130677583398057
+,p_query_num_rows=>15
+,p_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_csv_output=>'N'
+,p_prn_output=>'Y'
+,p_prn_format=>'PDF'
+,p_prn_output_link_text=>'Print'
+,p_prn_content_disposition=>'ATTACHMENT'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width_units=>'PERCENTAGE'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_sort_null=>'L'
+,p_plug_query_strip_html=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261030045718Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113200456Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417956606713467440)
+,p_query_column_id=>3
+,p_column_alias=>'PROMEDIO_DISTANCIA_KM'
+,p_column_display_sequence=>30
+,p_column_heading=>'Promedio Distancia Km'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030045718Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417956709101467441)
+,p_query_column_id=>4
+,p_column_alias=>'PROMEDIO_TIEMPO_MINUTOS'
+,p_column_display_sequence=>40
+,p_column_heading=>'Promedio Tiempo Minutos'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030045718Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417956519513467439)
+,p_query_column_id=>2
+,p_column_alias=>'TOTAL_GASTOS'
+,p_column_display_sequence=>20
+,p_column_heading=>'Total Gastos'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030045718Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417956459527467438)
+,p_query_column_id=>1
+,p_column_alias=>'VIAJES_TOMADOS'
+,p_column_display_sequence=>10
+,p_column_heading=>'Viajes Tomados'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030045718Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(139855906025357799933)
+,p_plug_name=>'Gasto Total'
+,p_static_id=>'total-consumo'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>80
+,p_plug_new_grid_row=>false
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_source=>'&P10_TOTAL_CONSUMOS.'
+,p_plug_required_role=>wwv_flow_imp.id(9092634554587221037)
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113200456Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(139855905075719799924)
+,p_name=>'P10_BARES_VISITADOS'
+,p_item_sequence=>10
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(139855905578360799929)
+,p_name=>'P10_BAR_FAVORITO'
+,p_item_sequence=>50
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(139855905318421799926)
+,p_name=>'P10_GASTO_TOTAL'
+,p_item_sequence=>20
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(139855905387742799927)
+,p_name=>'P10_TOTAL_CONSUMOS'
+,p_item_sequence=>30
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(139855905747757799930)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Calcular KPIs'
+,p_static_id=>'calcular-kpis'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'  SELECT COUNT(*)',
+'  INTO :P10_BARES_VISITADOS',
+'  FROM Solicitudes',
+'  WHERE doc_pasajero = :G_DOCUMENTO_USUARIO;',
+'',
+'  SELECT NVL(SUM(V.tarifa), 0)',
+'  INTO :P10_TOTAL_CONSUMOS',
+'  FROM Solicitudes S',
+'  JOIN Viajes V',
+'    ON V.placa = S.placa',
+'    AND V.fecha = S.fecha',
+'    AND V.hora_salida = S.hora_salida',
+'  WHERE S.doc_pasajero = :G_DOCUMENTO_USUARIO',
+'    AND S.estado_solicitud = ''Aceptada''',
+'    AND V.estado = ''Completado'';',
+'',
+'  BEGIN',
+'    SELECT L.localidad',
+'    INTO :P10_BAR_FAVORITO',
+'    FROM Solicitudes S',
+'    JOIN Lugares L',
+'      ON L.punto_recogida = S.punto_recogida',
+'    WHERE S.doc_pasajero = :G_DOCUMENTO_USUARIO',
+'    GROUP BY L.localidad',
+'    ORDER BY COUNT(*) DESC, L.localidad',
+'    FETCH FIRST 1 ROW ONLY;',
+'  EXCEPTION',
+'    WHEN NO_DATA_FOUND THEN',
+unistr('      :P10_BAR_FAVORITO := ''Sin solicitudes a\00FAn'';'),
+'  END;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_internal_uid=>19672172282675532719
+,p_created_on=>wwv_flow_imp.dz('20260720235818Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113200654Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00011
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>11
+,p_name=>'Registrar Visita'
+,p_alias=>'REGISTRAR-VISITA'
+,p_step_title=>'Registrar Visita'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'21'
+,p_created_on=>wwv_flow_imp.dz('20260720203607Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20260930175213Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(123900819967785926979)
+,p_plug_name=>'P11_BEBIDAS'
+,p_static_id=>'P11_BEBIDAS'
+,p_title=>'Bebidas Consumidas'
+,p_parent_plug_id=>wwv_flow_imp.id(139855903878397799912)
+,p_region_template_options=>'#DEFAULT#:t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2102002977963900996
+,p_plug_display_sequence=>40
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT id_bebida,',
+'       cantidad,',
+'       id_visita',
+'FROM Bebidas_visita',
+'WHERE id_visita = TO_NUMBER(:P11_ID_VISITA)'))
+,p_plug_source_type=>'NATIVE_IG'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header=>'Bebidas Consumidas'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_created_on=>wwv_flow_imp.dz('20260906161200Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906230856Z')
+,p_created_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(123900822230104927002)
+,p_name=>'APEX$ROW_ACTION'
+,p_session_state_data_type=>'VARCHAR2'
+,p_item_type=>'NATIVE_ROW_ACTION'
+,p_display_sequence=>20
+,p_use_as_row_header=>false
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20260906175957Z')
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(123900822333912927003)
+,p_name=>'APEX$ROW_SELECTOR'
+,p_session_state_data_type=>'VARCHAR2'
+,p_item_type=>'NATIVE_ROW_SELECTOR'
+,p_display_sequence=>10
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'enable_multi_select', 'Y',
+  'hide_control', 'N',
+  'show_select_all', 'Y')).to_clob
+,p_use_as_row_header=>false
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20260906175957Z')
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(123900820277155926982)
+,p_name=>'CANTIDAD'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'CANTIDAD'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_NUMBER_FIELD'
+,p_heading=>'Cantidad'
+,p_heading_alignment=>'RIGHT'
+,p_display_sequence=>40
+,p_value_alignment=>'RIGHT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_is_required=>true
+,p_enable_filter=>true
+,p_filter_lov_type=>'NONE'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_default_type=>'STATIC'
+,p_default_expression=>'1'
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20260906175957Z')
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(123900820169308926981)
+,p_name=>'ID_BEBIDA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'ID_BEBIDA'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_SELECT_LIST'
+,p_heading=>'Bebida'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>30
+,p_value_alignment=>'LEFT'
+,p_is_required=>false
+,p_lov_type=>'SQL_QUERY'
+,p_lov_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT bd.nombre AS display_value, ',
+'       s.id_bebida AS return_value',
+'FROM Sirven s',
+'JOIN Bebidas bd ON bd.id = s.id_bebida',
+'WHERE s.id_bar = TO_NUMBER(:P11_BAR_ID)',
+'ORDER BY 1'))
+,p_lov_display_extra=>false
+,p_lov_display_null=>true
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20260906230856Z')
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(123900821090237926991)
+,p_name=>'ID_VISITA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'ID_VISITA'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_HIDDEN'
+,p_heading=>'Id Visita'
+,p_display_sequence=>50
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_use_as_row_header=>false
+,p_is_primary_key=>true
+,p_default_type=>'ITEM'
+,p_default_expression=>'P11_ID_VISITA'
+,p_duplicate_value=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20260906211718Z')
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_interactive_grid(
+ p_id=>wwv_flow_imp.id(123900820067110926980)
+,p_internal_uid=>35497621781585277702
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_add_row_if_empty=>true
+,p_lazy_loading=>false
+,p_requires_filter=>false
+,p_select_first_row=>true
+,p_fixed_row_height=>true
+,p_pagination_type=>'SCROLL'
+,p_show_total_row_count=>true
+,p_show_toolbar=>true
+,p_enable_save_public_report=>false
+,p_enable_subscriptions=>true
+,p_enable_flashback=>true
+,p_define_chart_view=>true
+,p_enable_download=>true
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
+,p_enable_mail_download=>true
+,p_fixed_header=>'PAGE'
+,p_show_icon_view=>false
+,p_show_detail_view=>false
+,p_updated_on=>wwv_flow_imp.dz('20260906224749Z')
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_ig_report(
+ p_id=>wwv_flow_imp.id(123903449893026817820)
+,p_interactive_grid_id=>wwv_flow_imp.id(123900820067110926980)
+,p_static_id=>'primary'
+,p_type=>'PRIMARY'
+,p_default_view=>'GRID'
+,p_show_row_number=>false
+,p_settings_area_expanded=>true
+,p_updated_on=>wwv_flow_imp.dz('20260906224749Z')
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_ig_report_view(
+ p_id=>wwv_flow_imp.id(123903450082600817820)
+,p_report_id=>wwv_flow_imp.id(123903449893026817820)
+,p_view_type=>'GRID'
+,p_stretch_columns=>true
+,p_srv_exclude_null_values=>false
+,p_srv_only_display_columns=>true
+,p_edit_mode=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(123903450557254817822)
+,p_view_id=>wwv_flow_imp.id(123903450082600817820)
+,p_display_seq=>1
+,p_column_id=>wwv_flow_imp.id(123900820169308926981)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(123903451410934817824)
+,p_view_id=>wwv_flow_imp.id(123903450082600817820)
+,p_display_seq=>2
+,p_column_id=>wwv_flow_imp.id(123900820277155926982)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(123909027635314316060)
+,p_view_id=>wwv_flow_imp.id(123903450082600817820)
+,p_display_seq=>3
+,p_column_id=>wwv_flow_imp.id(123900821090237926991)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(123917952021426775960)
+,p_view_id=>wwv_flow_imp.id(123903450082600817820)
+,p_display_seq=>0
+,p_column_id=>wwv_flow_imp.id(123900822230104927002)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(139855719321780452043)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20260720203607Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720203607Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(139855903878397799912)
+,p_plug_name=>'Registrar Visita'
+,p_static_id=>'registrar-visita'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720204351Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720204351Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(139855904452329799917)
+,p_button_sequence=>60
+,p_button_plug_id=>wwv_flow_imp.id(139855903878397799912)
+,p_button_name=>'Registrar_Visita'
+,p_static_id=>'registrar-visita_1'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Registrar Visita'
+,p_grid_new_row=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20260720204351Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906211323Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(139855904762136799920)
+,p_branch_name=>'Devolver a Detalle Bar'
+,p_branch_action=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.::P3_BAR_ID:&P11_BAR_ID.&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_when_button_id=>wwv_flow_imp.id(139855904452329799917)
+,p_branch_sequence=>20
+,p_created_on=>wwv_flow_imp.dz('20260720204851Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906223415Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(139855903968214799913)
+,p_name=>'P11_BAR_ID'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(139855903878397799912)
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720204351Z')
+,p_updated_on=>wwv_flow_imp.dz('20260720204351Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(139855904278811799916)
+,p_name=>'P11_CONSUMO_TOTAL'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(139855903878397799912)
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720204351Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906174621Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(139855904129442799914)
+,p_name=>'P11_FECHA_VISITA'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(139855903878397799912)
+,p_prompt=>'Fecha Visita'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260720204351Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906211323Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(123900822618083927006)
+,p_name=>'P11_ID_VISITA'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(139855903878397799912)
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260906211323Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906211323Z')
+,p_created_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(123900822528272927005)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Cargar_id'
+,p_static_id=>'new'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'  IF :P11_ID_VISITA IS NULL THEN',
+'    SELECT NVL(MAX(id_visita), 0) + 1 INTO :P11_ID_VISITA',
+'    FROM VISITAS;',
+'  END IF;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_internal_uid=>35497624242747277727
+,p_created_on=>wwv_flow_imp.dz('20260906210039Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906211155Z')
+,p_created_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(123900822480065927004)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(123900819967785926979)
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'P11_BEBIDAS - Save Interactive Grid Data'
+,p_static_id=>'p11-bebidas-save-interactive-grid-data'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+unistr('  -- Insertamos la bebida usando la variable :P11_ID_VISITA que gener\00F3 el Proceso 1'),
+'  IF :ID_BEBIDA IS NOT NULL AND NVL(:CANTIDAD, 0) > 0 THEN',
+'    INSERT INTO Bebidas_visita (',
+'      id_visita, ',
+'      id_bebida, ',
+'      cantidad',
+'    ) ',
+'    VALUES (',
+'      TO_NUMBER(:P11_ID_VISITA), ',
+'      TO_NUMBER(:ID_BEBIDA), ',
+'      TO_NUMBER(:CANTIDAD)',
+'    );',
+'  END IF;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(139855904452329799917)
+,p_internal_uid=>35497624194540277726
+,p_created_on=>wwv_flow_imp.dz('20260906175957Z')
+,p_updated_on=>wwv_flow_imp.dz('20260906225948Z')
+,p_created_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(123900821902271926999)
+,p_process_sequence=>30
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'P11_CALCULAR_TOTAL_FINAL'
+,p_static_id=>'p11-calcular-total'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'  v_bar_id NUMBER;',
+'BEGIN',
+'  v_bar_id := TO_NUMBER(:P11_BAR_ID);',
+'',
+'  UPDATE Visitas',
+'  SET total_consumos = (',
+'      SELECT NVL(SUM(bv.cantidad * s.precio), 0)',
+'      FROM Bebidas_visita bv',
+'      JOIN Sirven s ON s.id_bebida = bv.id_bebida AND s.id_bar = v_bar_id',
+'      WHERE bv.id_visita = TO_NUMBER(:P11_ID_VISITA)',
+'  )',
+'  WHERE id_visita = TO_NUMBER(:P11_ID_VISITA);',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(139855904452329799917)
+,p_internal_uid=>35497623616746277721
+,p_created_on=>wwv_flow_imp.dz('20260906170113Z')
+,p_updated_on=>wwv_flow_imp.dz('20260930165815Z')
+,p_created_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(123900820843387926988)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'P11_INSERTAR_VISITA'
+,p_static_id=>'p11-insertar-visita'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'  v_bar_id       NUMBER;',
+'  v_new_id       NUMBER;',
+'  v_fecha_visita DATE;',
+'BEGIN',
+'  v_bar_id := TO_NUMBER(COALESCE(:P11_BAR_ID, ''1''));',
+'',
+unistr('  -- Convertir usando el formato est\00E1ndar DD/MM/YYYY'),
+'  IF :P11_FECHA_VISITA IS NOT NULL THEN',
+'    v_fecha_visita := TO_DATE(:P11_FECHA_VISITA, ''DD/MM/YYYY'');',
+'  ELSE',
+'    v_fecha_visita := SYSDATE;',
+'  END IF;',
+'',
+'  SELECT NVL(MAX(id_visita), 0) + 1 ',
+'  INTO v_new_id ',
+'  FROM Visitas;',
+'',
+'  INSERT INTO Visitas (',
+'    id_bebedor,',
+'    id_bar, ',
+'    fecha_visita, ',
+'    total_consumos, ',
+'    id_visita',
+'  )',
+'  VALUES (',
+'    NVL(TO_NUMBER(:G_BEBEDOR_ID), 1), ',
+'    v_bar_id, ',
+'    v_fecha_visita, ',
+'    0,',
+'    v_new_id',
+'  );',
+'',
+'  :P11_ID_VISITA := v_new_id;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(139855904452329799917)
+,p_internal_uid=>35497622557862277710
+,p_created_on=>wwv_flow_imp.dz('20260906161200Z')
+,p_updated_on=>wwv_flow_imp.dz('20260930175213Z')
+,p_created_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+,p_updated_by=>'LI.RAMIREZ@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00012
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>12
+,p_name=>'Reporte de Bares'
+,p_alias=>'REPORTE-DE-BARES'
+,p_step_title=>'Reporte de Bares'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(1983288079044583029)
+,p_protection_level=>'C'
+,p_page_component_map=>'18'
+,p_created_on=>wwv_flow_imp.dz('20261011043227Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261011053459Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(1978487837620371280)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20261011043227Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011043227Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(1976846388732408527)
+,p_plug_name=>'Criterios del reporte'
+,p_static_id=>'criterios-del-reporte'
+,p_title=>'Criterios del reporte'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>20
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>El filtro predeterminado muestra las visitas cuyo total de',
+'consumos no es nulo, para analizar registros con un valor',
+'de consumo registrado</p>',
+'',
+'<p>El resaltado identifica consumos inferiores a $50.000 como',
+'casos para revision comercial. Este valor es un umbral propuesto',
+unistr('para el an\00E1lisis, no corresponde al promedio de cada bar</p>'),
+'',
+'<p>La agrupacion por bar suma el total de consumos de las visitas',
+'incluidas en el reporte y permite comparar el consumo acumulado',
+'entre bares.</p>'))
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261011053459Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011053459Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(1978488601146371402)
+,p_plug_name=>'Reporte de Bares'
+,p_static_id=>'reporte-de-bares'
+,p_region_template_options=>'#DEFAULT#:t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2102002977963900996
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT Ba.nombre AS bar,',
+'       Ba.ciudad AS ciudad_bar,',
+'       B.nombre AS bebedor,',
+'       Vi.fecha_visita AS fecha,',
+'       Vi.total_consumos',
+'FROM Visitas Vi',
+'INNER JOIN Bares Ba ON Vi.id_bar = Ba.id',
+'INNER JOIN Bebedores B ON Vi.id_bebedor = B.id'))
+,p_plug_source_type=>'NATIVE_IR'
+,p_prn_content_disposition=>'ATTACHMENT'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_ai_enabled=>false
+,p_created_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011044355Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'ADMIN'
+);
+wwv_flow_imp_page.create_worksheet(
+ p_id=>wwv_flow_imp.id(1978488766285371402)
+,p_max_row_count_message=>'The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.'
+,p_no_data_found_message=>'No data found.'
+,p_pagination_type=>'ROWS_X_TO_Y'
+,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_report_list_mode=>'TABS'
+,p_lazy_loading=>false
+,p_show_detail_link=>'N'
+,p_show_notify=>'Y'
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
+,p_enable_mail_download=>'Y'
+,p_internal_uid=>1978488766285371402
+,p_created_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011044355Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'ADMIN'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(1978489926763371406)
+,p_db_column_name=>'BAR'
+,p_display_order=>1
+,p_column_identifier=>'A'
+,p_column_label=>'Bar'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(1978490749188371410)
+,p_db_column_name=>'BEBEDOR'
+,p_display_order=>3
+,p_column_identifier=>'C'
+,p_column_label=>'Bebedor'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(1978490388286371408)
+,p_db_column_name=>'CIUDAD_BAR'
+,p_display_order=>2
+,p_column_identifier=>'B'
+,p_column_label=>'Ciudad Bar'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(1978491184420371411)
+,p_db_column_name=>'FECHA'
+,p_display_order=>4
+,p_column_identifier=>'D'
+,p_column_label=>'Fecha'
+,p_column_type=>'DATE'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(1978491541713371412)
+,p_db_column_name=>'TOTAL_CONSUMOS'
+,p_display_order=>5
+,p_column_identifier=>'E'
+,p_column_label=>'Total Consumos'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011043229Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_rpt(
+ p_id=>wwv_flow_imp.id(1978516405142380027)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_type=>'GROUP_BY'
+,p_report_alias=>'primary'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'BAR:CIUDAD_BAR:BEBEDOR:FECHA:TOTAL_CONSUMOS'
+,p_created_on=>wwv_flow_imp.dz('20261011043355Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011044355Z')
+,p_created_by=>'ADMIN'
+,p_updated_by=>'ADMIN'
+);
+wwv_flow_imp_page.create_worksheet_condition(
+ p_id=>wwv_flow_imp.id(1976814752053395743)
+,p_report_id=>wwv_flow_imp.id(1978516405142380027)
+,p_static_id=>'ir-condition'
+,p_condition_type=>'FILTER'
+,p_allow_delete=>'Y'
+,p_column_name=>'TOTAL_CONSUMOS'
+,p_operator=>'is not null'
+,p_condition_sql=>'"TOTAL_CONSUMOS" is not null'
+,p_condition_display=>'#APXWS_COL_NAME# #APXWS_OP_NAME#'
+,p_enabled=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20261011044355Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011044355Z')
+,p_created_by=>'ADMIN'
+,p_updated_by=>'ADMIN'
+);
+wwv_flow_imp_page.create_worksheet_condition(
+ p_id=>wwv_flow_imp.id(1976815135824395743)
+,p_report_id=>wwv_flow_imp.id(1978516405142380027)
+,p_static_id=>'ir-condition-2'
+,p_name=>'Consumo bajo: revisar'
+,p_condition_type=>'HIGHLIGHT'
+,p_allow_delete=>'Y'
+,p_column_name=>'TOTAL_CONSUMOS'
+,p_operator=>'<'
+,p_expr=>'50000'
+,p_condition_sql=>' (case when ("TOTAL_CONSUMOS" < to_number(#APXWS_EXPR#)) then #APXWS_HL_ID# end) '
+,p_condition_display=>'#APXWS_COL_NAME# < #APXWS_EXPR_NUMBER#  '
+,p_enabled=>'Y'
+,p_highlight_sequence=>10
+,p_row_bg_color=>'#fff5ce'
+,p_row_font_color=>'#111111'
+,p_created_on=>wwv_flow_imp.dz('20261011044355Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011044355Z')
+,p_created_by=>'ADMIN'
+,p_updated_by=>'ADMIN'
+);
+wwv_flow_imp_page.create_worksheet_group_by(
+ p_id=>wwv_flow_imp.id(1976815504832395744)
+,p_report_id=>wwv_flow_imp.id(1978516405142380027)
+,p_group_by_columns=>'BAR'
+,p_function_01=>'SUM'
+,p_function_column_01=>'TOTAL_CONSUMOS'
+,p_function_db_column_name_01=>'APXWS_GBFC_01'
+,p_function_label_01=>'consumo total por bar'
+,p_function_format_mask_01=>'999G999G999G999G990'
+,p_function_sum_01=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011044355Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011044355Z')
+,p_created_by=>'ADMIN'
+,p_updated_by=>'ADMIN'
+);
+end;
+/
+prompt --application/pages/page_00013
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>13
+,p_name=>'Demanda por Localidad'
+,p_alias=>'DEMANDA-POR-LOCALIDAD'
+,p_step_title=>'Demanda por Localidad'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(1983288079044583029)
+,p_protection_level=>'C'
+,p_page_component_map=>'03'
+,p_created_on=>wwv_flow_imp.dz('20261011044537Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261113183205Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(1976843920289408503)
+,p_plug_name=>'Demanda por Localidad'
+,p_static_id=>'bares-distintos-visitados-por-ciudad'
+,p_title=>'Demanda por Localidad'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_escape_on_http_output=>'Y'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>20
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_source_type=>'NATIVE_JET_CHART'
+,p_created_on=>wwv_flow_imp.dz('20261011045302Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113182522Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_jet_chart(
+ p_id=>wwv_flow_imp.id(1976844038715408504)
+,p_region_id=>wwv_flow_imp.id(1976843920289408503)
+,p_chart_type=>'bar'
+,p_height=>'400'
+,p_lazy_loading=>false
+,p_animation_on_display=>'auto'
+,p_animation_on_data_change=>'auto'
+,p_orientation=>'vertical'
+,p_data_cursor=>'auto'
+,p_data_cursor_behavior=>'auto'
+,p_hide_and_show_behavior=>'withRescale'
+,p_hover_behavior=>'dim'
+,p_stack=>'off'
+,p_connect_nulls=>'Y'
+,p_sorting=>'label-asc'
+,p_fill_multi_series_gaps=>true
+,p_zoom_and_scroll=>'off'
+,p_tooltip_rendered=>'Y'
+,p_show_series_name=>true
+,p_show_group_name=>true
+,p_show_value=>true
+,p_legend_rendered=>'on'
+,p_legend_position=>'auto'
+,p_created_on=>wwv_flow_imp.dz('20261011045302Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113182522Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_jet_chart_series(
+ p_id=>wwv_flow_imp.id(1976844183195408505)
+,p_chart_id=>wwv_flow_imp.id(1976844038715408504)
+,p_static_id=>'bares-visitados'
+,p_seq=>10
+,p_name=>'Solicitudes'
+,p_data_source_type=>'SQL'
+,p_data_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT L.localidad AS label,',
+'       COUNT(*) AS valor',
+'FROM Solicitudes S',
+'JOIN Lugares L',
+'  ON L.punto_recogida = S.punto_recogida',
+'WHERE (:P13_FECHA_INICIO IS NULL',
+'       OR S.fecha_solicitud >=',
+'          TO_DATE(:P13_FECHA_INICIO, ''DD/MM/YYYY''))',
+'  AND (:P13_FECHA_FIN IS NULL',
+'       OR S.fecha_solicitud <',
+'          TO_DATE(:P13_FECHA_FIN, ''DD/MM/YYYY'') + 1)',
+'GROUP BY L.localidad',
+'ORDER BY valor DESC'))
+,p_items_value_column_name=>'VALOR'
+,p_items_label_column_name=>'LABEL'
+,p_assigned_to_y2=>'off'
+,p_items_label_rendered=>false
+,p_created_on=>wwv_flow_imp.dz('20261011045302Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113182522Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(1976844254274408506)
+,p_chart_id=>wwv_flow_imp.id(1976844038715408504)
+,p_static_id=>'x'
+,p_axis=>'x'
+,p_is_rendered=>'on'
+,p_format_scaling=>'auto'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_major_tick_rendered=>'on'
+,p_minor_tick_rendered=>'auto'
+,p_tick_label_rendered=>'on'
+,p_tick_label_rotation=>'auto'
+,p_tick_label_position=>'outside'
+,p_created_on=>wwv_flow_imp.dz('20261011045302Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011045302Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(1976844316755408507)
+,p_chart_id=>wwv_flow_imp.id(1976844038715408504)
+,p_static_id=>'y'
+,p_axis=>'y'
+,p_is_rendered=>'on'
+,p_format_type=>'decimal'
+,p_decimal_places=>0
+,p_format_scaling=>'none'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_position=>'auto'
+,p_major_tick_rendered=>'on'
+,p_minor_tick_rendered=>'auto'
+,p_tick_label_rendered=>'on'
+,p_created_on=>wwv_flow_imp.dz('20261011045302Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011045302Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(1978825436953450268)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20261011044537Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011044537Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_region(
+ p_id=>wwv_flow_imp.id(1976846568208408529)
+,p_name=>'Viajes por Conductor'
+,p_static_id=>unistr('comparaci\00F3n-de-bares-por-bebedor-y-ciudad')
+,p_title=>'Viajes por Conductor'
+,p_template=>4073835273271169698
+,p_display_sequence=>50
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#:t-Report--altRowsDefault:t-Report--rowHighlight'
+,p_source_type=>'NATIVE_SQL_REPORT'
+,p_query_type=>'SQL'
+,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT e.nombre || '' '' || e.apellidos AS conductor,',
+'       veh.modelo AS vehiculo,',
+'       COUNT(v.placa) AS viajes_publicados',
+'FROM VIAJES v',
+'JOIN VEHICULOS veh ON v.placa = veh.placa',
+'JOIN ESTUDIANTES e ON veh.documento_conductor = e.documento_identidad',
+'GROUP BY e.nombre, e.apellidos, veh.modelo',
+'ORDER BY viajes_publicados DESC'))
+,p_display_condition_type=>'NEVER'
+,p_ajax_enabled=>'Y'
+,p_lazy_loading=>false
+,p_query_row_template=>2540130677583398057
+,p_query_num_rows=>15
+,p_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_csv_output=>'N'
+,p_prn_output=>'N'
+,p_sort_null=>'L'
+,p_plug_query_strip_html=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011054539Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113183205Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417952777485467401)
+,p_query_column_id=>1
+,p_column_alias=>'CONDUCTOR'
+,p_column_display_sequence=>10
+,p_column_heading=>'Conductor'
+,p_heading_alignment=>'LEFT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030041137Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417952830493467402)
+,p_query_column_id=>2
+,p_column_alias=>'VEHICULO'
+,p_column_display_sequence=>20
+,p_column_heading=>'Vehiculo'
+,p_heading_alignment=>'LEFT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030041137Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417952901080467403)
+,p_query_column_id=>3
+,p_column_alias=>'VIAJES_PUBLICADOS'
+,p_column_display_sequence=>30
+,p_column_heading=>'Viajes Publicados'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261030041137Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_region(
+ p_id=>wwv_flow_imp.id(1976844973001408513)
+,p_name=>' Viajes por Conductor '
+,p_static_id=>unistr('distribuci\00F3n-de-presupuestos-por-ciudad')
+,p_title=>' Viajes por Conductor '
+,p_template=>4073835273271169698
+,p_display_sequence=>30
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#:t-Report--altRowsDefault:t-Report--rowHighlight'
+,p_source_type=>'NATIVE_SQL_REPORT'
+,p_query_type=>'SQL'
+,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT E.documento_identidad,',
+'       E.nombre || '' '' || E.apellidos AS nombre,',
+'       TRUNC(V.fecha, ''MM'') AS mes,',
+'       COUNT(*) AS total_viajes',
+'FROM Viajes V',
+'JOIN Vehiculos VEH',
+'  ON VEH.placa = V.placa',
+'JOIN Estudiantes E',
+'  ON E.documento_identidad = VEH.documento_conductor',
+'WHERE V.estado = ''Completado''',
+'  AND (:P13_FECHA_INICIO IS NULL',
+'       OR V.fecha >=',
+'          TO_DATE(:P13_FECHA_INICIO, ''DD/MM/YYYY''))',
+'  AND (:P13_FECHA_FIN IS NULL',
+'       OR V.fecha <',
+'          TO_DATE(:P13_FECHA_FIN, ''DD/MM/YYYY'') + 1)',
+'  AND (:P13_CONDUCTOR IS NULL',
+'       OR VEH.documento_conductor = :P13_CONDUCTOR)',
+'  AND (:P13_LOCALIDAD IS NULL',
+'       OR EXISTS (',
+'         SELECT 1',
+'         FROM Paradas P',
+'         JOIN Lugares L',
+'           ON L.punto_recogida = P.punto_recogida',
+'         WHERE P.placa = V.placa',
+'           AND P.fecha = V.fecha',
+'           AND P.hora_salida = V.hora_salida',
+'           AND L.localidad = :P13_LOCALIDAD',
+'       ))',
+'GROUP BY E.documento_identidad,',
+'         E.nombre,',
+'         E.apellidos,',
+'         TRUNC(V.fecha, ''MM'')',
+'ORDER BY mes, nombre'))
+,p_ajax_enabled=>'Y'
+,p_lazy_loading=>false
+,p_query_row_template=>2540130677583398057
+,p_query_num_rows=>15
+,p_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_csv_output=>'N'
+,p_prn_output=>'N'
+,p_sort_null=>'L'
+,p_plug_query_strip_html=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261011045612Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113183058Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1976848383164408547)
+,p_query_column_id=>1
+,p_column_alias=>'DOCUMENTO_IDENTIDAD'
+,p_column_display_sequence=>30
+,p_column_heading=>'Documento Identidad'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261113183058Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1976848436252408548)
+,p_query_column_id=>3
+,p_column_alias=>'MES'
+,p_column_display_sequence=>40
+,p_column_heading=>'Mes'
+,p_heading_alignment=>'LEFT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261113183058Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417953035418467404)
+,p_query_column_id=>2
+,p_column_alias=>'NOMBRE'
+,p_column_display_sequence=>10
+,p_column_heading=>'Nombre'
+,p_heading_alignment=>'LEFT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261113183058Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(9417953148398467405)
+,p_query_column_id=>4
+,p_column_alias=>'TOTAL_VIAJES'
+,p_column_display_sequence=>20
+,p_column_heading=>'Total Viajes'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_updated_on=>wwv_flow_imp.dz('20261113183058Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(1976844434036408508)
+,p_plug_name=>'Ingresos Estimados por Localidad'
+,p_static_id=>unistr('visitas-seg\00FAn-presupuesto')
+,p_title=>'Ingresos Estimados por Localidad'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_escape_on_http_output=>'Y'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>20
+,p_plug_item_display_point=>'ABOVE'
+,p_location=>null
+,p_plug_source_type=>'NATIVE_JET_CHART'
+,p_created_on=>wwv_flow_imp.dz('20261011045445Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113182615Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_jet_chart(
+ p_id=>wwv_flow_imp.id(1976844505189408509)
+,p_region_id=>wwv_flow_imp.id(1976844434036408508)
+,p_chart_type=>'bar'
+,p_height=>'400'
+,p_lazy_loading=>false
+,p_animation_on_display=>'auto'
+,p_animation_on_data_change=>'auto'
+,p_orientation=>'vertical'
+,p_data_cursor=>'auto'
+,p_data_cursor_behavior=>'auto'
+,p_hide_and_show_behavior=>'withRescale'
+,p_hover_behavior=>'dim'
+,p_stack=>'off'
+,p_connect_nulls=>'Y'
+,p_sorting=>'label-asc'
+,p_fill_multi_series_gaps=>true
+,p_zoom_and_scroll=>'off'
+,p_tooltip_rendered=>'Y'
+,p_show_series_name=>true
+,p_show_group_name=>true
+,p_show_value=>true
+,p_legend_rendered=>'on'
+,p_legend_position=>'auto'
+,p_created_on=>wwv_flow_imp.dz('20261011045445Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113182615Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_jet_chart_series(
+ p_id=>wwv_flow_imp.id(1976844643707408510)
+,p_chart_id=>wwv_flow_imp.id(1976844505189408509)
+,p_static_id=>'new'
+,p_seq=>10
+,p_name=>'Ingresos'
+,p_data_source_type=>'SQL'
+,p_data_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT L.localidad,',
+'       SUM(V.tarifa) AS total_dinero',
+'FROM Solicitudes S',
+'JOIN Viajes V',
+'  ON V.placa = S.placa',
+'  AND V.fecha = S.fecha',
+'  AND V.hora_salida = S.hora_salida',
+'JOIN Lugares L',
+'  ON L.punto_recogida = S.punto_recogida',
+'WHERE S.estado_solicitud = ''Aceptada''',
+'  AND V.estado IN (''Programado'', ''En curso'', ''Completado'')',
+'  AND (:P13_FECHA_INICIO IS NULL',
+'       OR V.fecha >=',
+'          TO_DATE(:P13_FECHA_INICIO, ''DD/MM/YYYY''))',
+'  AND (:P13_FECHA_FIN IS NULL',
+'       OR V.fecha <',
+'          TO_DATE(:P13_FECHA_FIN, ''DD/MM/YYYY'') + 1)',
+'GROUP BY L.localidad',
+'ORDER BY total_dinero DESC'))
+,p_items_value_column_name=>'TOTAL_DINERO'
+,p_items_label_column_name=>'LOCALIDAD'
+,p_assigned_to_y2=>'off'
+,p_items_label_rendered=>false
+,p_created_on=>wwv_flow_imp.dz('20261011045445Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113182615Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(1976844704638408511)
+,p_chart_id=>wwv_flow_imp.id(1976844505189408509)
+,p_static_id=>'x'
+,p_axis=>'x'
+,p_is_rendered=>'on'
+,p_format_scaling=>'auto'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_major_tick_rendered=>'on'
+,p_minor_tick_rendered=>'auto'
+,p_tick_label_rendered=>'on'
+,p_tick_label_rotation=>'auto'
+,p_tick_label_position=>'outside'
+,p_created_on=>wwv_flow_imp.dz('20261011045445Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011045445Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(1976844813307408512)
+,p_chart_id=>wwv_flow_imp.id(1976844505189408509)
+,p_static_id=>'y'
+,p_axis=>'y'
+,p_is_rendered=>'on'
+,p_format_type=>'decimal'
+,p_decimal_places=>0
+,p_format_scaling=>'none'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_position=>'auto'
+,p_major_tick_rendered=>'on'
+,p_minor_tick_rendered=>'auto'
+,p_tick_label_rendered=>'on'
+,p_created_on=>wwv_flow_imp.dz('20261011045445Z')
+,p_updated_on=>wwv_flow_imp.dz('20261011045445Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(1976848089425408544)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(1976843920289408503)
+,p_button_name=>'FILTRAR'
+,p_static_id=>'filtrar'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Filtrar'
+,p_grid_new_row=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20261113182522Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113182522Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1976848101656408545)
+,p_name=>'P13_CONDUCTOR'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(1976843920289408503)
+,p_prompt=>'Conductor'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT E.nombre || '' '' || E.apellidos',
+'       || '' ('' || E.documento_identidad || '')'' AS display_value,',
+'       E.documento_identidad AS return_value',
+'FROM Estudiantes E',
+'JOIN Conductores C',
+'  ON C.documento_identidad = E.documento_identidad',
+'ORDER BY E.nombre, E.apellidos'))
+,p_lov_display_null=>'YES'
+,p_lov_null_text=>'Todos los conductores'
+,p_cHeight=>1
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113182858Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113182858Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1976847922250408543)
+,p_name=>'P13_FECHA_FIN'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(1976843920289408503)
+,p_prompt=>'Fecha final'
+,p_format_mask=>'DD/MM/YYYY'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113182410Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113182410Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1976847849637408542)
+,p_name=>'P13_FECHA_INICIO'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(1976843920289408503)
+,p_prompt=>'Fecha Inicial'
+,p_format_mask=>'DD/MM/YYYY'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'display_as', 'POPUP',
+  'max_date', 'NONE',
+  'min_date', 'NONE',
+  'multiple_months', 'N',
+  'show_time', 'N',
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113182312Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113182312Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1976848222482408546)
+,p_name=>'P13_LOCALIDAD'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(1976843920289408503)
+,p_prompt=>'Localidad'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT DISTINCT localidad AS display_value,',
+'                localidad AS return_value',
+'FROM Lugares',
+'ORDER BY localidad'))
+,p_lov_display_null=>'YES'
+,p_lov_null_text=>'Todas las localidades'
+,p_cHeight=>1
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113183003Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113183003Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00014
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>14
+,p_name=>'Gestionar Solicitudes'
+,p_alias=>'GESTIONAR-SOLICITUDES'
+,p_step_title=>'Gestionar Solicitudes'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(9092509392871834354)
+,p_protection_level=>'C'
+,p_page_component_map=>'21'
+,p_created_on=>wwv_flow_imp.dz('20261030042436Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261113174643Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(9422220608798660126)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20261030042436Z')
+,p_updated_on=>wwv_flow_imp.dz('20261030042436Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(9422221752124660247)
+,p_plug_name=>'Gestionar Solicitudes'
+,p_static_id=>'gestionar-solicitudes'
+,p_region_template_options=>'#DEFAULT#:t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2102002977963900996
+,p_plug_display_sequence=>20
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'TABLE'
+,p_query_table=>'SOLICITUDES'
+,p_query_where=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'placa IN (',
+'    SELECT V.placa',
+'    FROM Vehiculos V',
+'    WHERE V.documento_conductor = :G_DOCUMENTO_USUARIO',
+')'))
+,p_include_rowid_column=>false
+,p_plug_source_type=>'NATIVE_IG'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_created_on=>wwv_flow_imp.dz('20261030042437Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113174643Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(9422223557980660254)
+,p_name=>'APEX$ROW_ACTION'
+,p_session_state_data_type=>'VARCHAR2'
+,p_item_type=>'NATIVE_ROW_ACTION'
+,p_display_sequence=>20
+,p_updated_on=>wwv_flow_imp.dz('20261030042438Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(9422223050509660252)
+,p_name=>'APEX$ROW_SELECTOR'
+,p_session_state_data_type=>'VARCHAR2'
+,p_item_type=>'NATIVE_ROW_SELECTOR'
+,p_display_sequence=>10
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'enable_multi_select', 'Y',
+  'hide_control', 'N',
+  'show_select_all', 'Y')).to_clob
+,p_updated_on=>wwv_flow_imp.dz('20261030042437Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(9422224472825660256)
+,p_name=>'DOC_PASAJERO'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'DOC_PASAJERO'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Documento del pasajero'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>30
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113174423Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(9422229759376660266)
+,p_name=>'ESTADO_SOLICITUD'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'ESTADO_SOLICITUD'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_SELECT_LIST'
+,p_heading=>'Estado Solicitud'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>80
+,p_value_alignment=>'LEFT'
+,p_is_required=>true
+,p_lov_type=>'STATIC'
+,p_lov_source=>'STATIC:Pendiente;Pendiente,Aceptada;Aceptada,Rechazada;Rechazada'
+,p_lov_display_extra=>true
+,p_lov_display_null=>false
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'LOV'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113055142Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(9422226499637660260)
+,p_name=>'FECHA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'FECHA'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Fecha del viaje'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>50
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_format_mask=>'DD/MM/YYYY'
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113174423Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(9422230705989660269)
+,p_name=>'FECHA_SOLICITUD'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'FECHA_SOLICITUD'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Fecha de solicitud'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>90
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_format_mask=>'DD/MM/YYYY HH24:MI'
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113174643Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(9422227432161660261)
+,p_name=>'HORA_SALIDA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'HORA_SALIDA'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Salida'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>60
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_format_mask=>'DD/MM/YYYY HH24:MI'
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113174423Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(9422225470478660258)
+,p_name=>'PLACA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'PLACA'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Placa'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>40
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113174423Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(9422228745140660264)
+,p_name=>'PUNTO_RECOGIDA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'PUNTO_RECOGIDA'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Punto Recogida'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>70
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_lov_type=>'SHARED'
+,p_lov_id=>wwv_flow_imp.id(9422228422478660263)
+,p_lov_display_extra=>true
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113055303Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_interactive_grid(
+ p_id=>wwv_flow_imp.id(9422221857152660248)
+,p_internal_uid=>9422221857152660248
+,p_is_editable=>true
+,p_edit_operations=>'u'
+,p_update_authorization_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_lost_update_check_type=>'VALUES'
+,p_lazy_loading=>false
+,p_requires_filter=>false
+,p_select_first_row=>true
+,p_fixed_row_height=>true
+,p_pagination_type=>'SCROLL'
+,p_show_total_row_count=>true
+,p_show_toolbar=>true
+,p_enable_save_public_report=>false
+,p_enable_subscriptions=>true
+,p_enable_flashback=>true
+,p_define_chart_view=>true
+,p_enable_download=>true
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
+,p_enable_mail_download=>true
+,p_fixed_header=>'PAGE'
+,p_show_icon_view=>false
+,p_show_detail_view=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113055049Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_ig_report(
+ p_id=>wwv_flow_imp.id(9422222508154660251)
+,p_interactive_grid_id=>wwv_flow_imp.id(9422221857152660248)
+,p_static_id=>'primary'
+,p_type=>'PRIMARY'
+,p_default_view=>'GRID'
+,p_show_row_number=>false
+,p_settings_area_expanded=>true
+,p_updated_on=>wwv_flow_imp.dz('20261030042438Z')
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_ig_report_view(
+ p_id=>wwv_flow_imp.id(9422222649649660251)
+,p_report_id=>wwv_flow_imp.id(9422222508154660251)
+,p_view_type=>'GRID'
+,p_stretch_columns=>true
+,p_srv_exclude_null_values=>false
+,p_srv_only_display_columns=>true
+,p_edit_mode=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(9422223945067660255)
+,p_view_id=>wwv_flow_imp.id(9422222649649660251)
+,p_display_seq=>0
+,p_column_id=>wwv_flow_imp.id(9422223557980660254)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(9422224951659660257)
+,p_view_id=>wwv_flow_imp.id(9422222649649660251)
+,p_display_seq=>1
+,p_column_id=>wwv_flow_imp.id(9422224472825660256)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(9422225937122660259)
+,p_view_id=>wwv_flow_imp.id(9422222649649660251)
+,p_display_seq=>2
+,p_column_id=>wwv_flow_imp.id(9422225470478660258)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(9422226962035660261)
+,p_view_id=>wwv_flow_imp.id(9422222649649660251)
+,p_display_seq=>3
+,p_column_id=>wwv_flow_imp.id(9422226499637660260)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(9422227993841660263)
+,p_view_id=>wwv_flow_imp.id(9422222649649660251)
+,p_display_seq=>4
+,p_column_id=>wwv_flow_imp.id(9422227432161660261)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(9422229236102660266)
+,p_view_id=>wwv_flow_imp.id(9422222649649660251)
+,p_display_seq=>5
+,p_column_id=>wwv_flow_imp.id(9422228745140660264)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(9422230210586660268)
+,p_view_id=>wwv_flow_imp.id(9422222649649660251)
+,p_display_seq=>6
+,p_column_id=>wwv_flow_imp.id(9422229759376660266)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(9422231231388660270)
+,p_view_id=>wwv_flow_imp.id(9422222649649660251)
+,p_display_seq=>7
+,p_column_id=>wwv_flow_imp.id(9422230705989660269)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(9422231775187660271)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(9422221752124660247)
+,p_process_type=>'NATIVE_IG_DML'
+,p_process_name=>'Gestionar Solicitudes - Save Interactive Grid Data'
+,p_static_id=>'gestionar-solicitudes-save-interactive-grid-data'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'dml_plsql_code', wwv_flow_string.join(wwv_flow_t_varchar2(
+    'DECLARE',
+    '    v_estado Solicitudes.estado_solicitud%TYPE;',
+    '    v_fecha DATE;',
+    '    v_salida DATE;',
+    'BEGIN',
+    '    IF :APEX$ROW_STATUS <> ''U'' THEN',
+    '        RAISE_APPLICATION_ERROR(',
+    '            -20001,',
+    '            ''Solo se permite actualizar solicitudes existentes.''',
+    '        );',
+    '    END IF;',
+    '',
+    '    v_fecha := TO_DATE(:FECHA, ''DD/MM/YYYY'');',
+    '    v_salida := TO_DATE(:HORA_SALIDA, ''DD/MM/YYYY HH24:MI'');',
+    '',
+    '    SELECT S.estado_solicitud',
+    '    INTO v_estado',
+    '    FROM Solicitudes S',
+    '    WHERE S.doc_pasajero = :DOC_PASAJERO',
+    '      AND S.placa = :PLACA',
+    '      AND S.fecha = v_fecha',
+    '      AND S.hora_salida = v_salida',
+    '      AND EXISTS (',
+    '          SELECT 1',
+    '          FROM Vehiculos V',
+    '          WHERE V.placa = S.placa',
+    '            AND V.documento_conductor = :G_DOCUMENTO_USUARIO',
+    '      )',
+    '    FOR UPDATE;',
+    '',
+    '    IF :ESTADO_SOLICITUD IS NULL THEN',
+    '        RAISE_APPLICATION_ERROR(',
+    '            -20002,',
+    '            ''Selecciona un estado.''',
+    '        );',
+    '    END IF;',
+    '',
+    '    IF :ESTADO_SOLICITUD <> v_estado THEN',
+    '        IF v_estado <> ''Pendiente''',
+    '           OR :ESTADO_SOLICITUD NOT IN (''Aceptada'', ''Rechazada'') THEN',
+    '            RAISE_APPLICATION_ERROR(',
+    '                -20003,',
+    '                ''Solo puedes aceptar o rechazar solicitudes pendientes.''',
+    '            );',
+    '        END IF;',
+    '',
+    '        IF :ESTADO_SOLICITUD = ''Aceptada'' THEN',
+    '            UPDATE Viajes',
+    '            SET cupos_disponibles = cupos_disponibles - 1',
+    '            WHERE placa = :PLACA',
+    '              AND fecha = v_fecha',
+    '              AND hora_salida = v_salida',
+    '              AND estado = ''Programado''',
+    '              AND hora_salida > CURRENT_DATE',
+    '              AND cupos_disponibles > 0;',
+    '',
+    '            IF SQL%ROWCOUNT = 0 THEN',
+    '                RAISE_APPLICATION_ERROR(',
+    '                    -20004,',
+    unistr('                    ''El viaje no tiene cupos o ya no est\00E1 disponible.'''),
+    '                );',
+    '            END IF;',
+    '        END IF;',
+    '',
+    '        UPDATE Solicitudes',
+    '        SET estado_solicitud = :ESTADO_SOLICITUD',
+    '        WHERE doc_pasajero = :DOC_PASAJERO',
+    '          AND placa = :PLACA',
+    '          AND fecha = v_fecha',
+    '          AND hora_salida = v_salida;',
+    '    END IF;',
+    'EXCEPTION',
+    '    WHEN NO_DATA_FOUND THEN',
+    '        RAISE_APPLICATION_ERROR(',
+    '            -20005,',
+    unistr('            ''No se encontr\00F3 la solicitud o no pertenece a tus veh\00EDculos.'''),
+    '        );',
+    'END;')),
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'target_type', 'PLSQL_CODE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_security_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_internal_uid=>9422231775187660271
+,p_created_on=>wwv_flow_imp.dz('20261030042438Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113055454Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00015
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>15
+,p_name=>'Gestionar Viajes'
+,p_alias=>'GESTIONAR-VIAJES'
+,p_step_title=>'Gestionar Viajes'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(9092509392871834354)
+,p_protection_level=>'C'
+,p_page_component_map=>'21'
+,p_created_on=>wwv_flow_imp.dz('20261113062847Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261113222713Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(13443534811634365233)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20261113062847Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113062847Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(13443536265894365388)
+,p_plug_name=>'Gestionar Viajes'
+,p_static_id=>'gestionar-viajes'
+,p_region_template_options=>'#DEFAULT#:t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2102002977963900996
+,p_plug_display_sequence=>20
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'TABLE'
+,p_query_table=>'VIAJES'
+,p_query_where=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'placa IN (',
+'    SELECT V.placa',
+'    FROM Vehiculos V',
+'    WHERE V.documento_conductor = :G_DOCUMENTO_USUARIO',
+')'))
+,p_include_rowid_column=>false
+,p_plug_source_type=>'NATIVE_IG'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_created_on=>wwv_flow_imp.dz('20261113062849Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443538082110365397)
+,p_name=>'APEX$ROW_ACTION'
+,p_session_state_data_type=>'VARCHAR2'
+,p_item_type=>'NATIVE_ROW_ACTION'
+,p_display_sequence=>20
+,p_updated_on=>wwv_flow_imp.dz('20261113062849Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443537524498365394)
+,p_name=>'APEX$ROW_SELECTOR'
+,p_session_state_data_type=>'VARCHAR2'
+,p_item_type=>'NATIVE_ROW_SELECTOR'
+,p_display_sequence=>10
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'enable_multi_select', 'Y',
+  'hide_control', 'N',
+  'show_select_all', 'Y')).to_clob
+,p_updated_on=>wwv_flow_imp.dz('20261113062849Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443544046210365419)
+,p_name=>'CUPOS_DISPONIBLES'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'CUPOS_DISPONIBLES'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Cupos Disponibles'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>80
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_lov_type=>'NONE'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443547041090365431)
+,p_name=>'DISTANCIA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'DISTANCIA'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Distancia'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>110
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_lov_type=>'NONE'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443548030746365434)
+,p_name=>'DURACION'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'DURACION'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Duracion'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>120
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_lov_type=>'NONE'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443546040181365427)
+,p_name=>'ESTADO'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'ESTADO'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_SELECT_LIST'
+,p_heading=>'Estado'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>100
+,p_value_alignment=>'LEFT'
+,p_is_required=>true
+,p_lov_type=>'STATIC'
+,p_lov_source=>'STATIC:Programado;Programado,En curso;En curso,Completado;Completado,Cancelado;Cancelado'
+,p_lov_display_extra=>false
+,p_lov_display_null=>false
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'LOV'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443540029607365404)
+,p_name=>'FECHA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'FECHA'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>40
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_format_mask=>'DD/MM/YYYY'
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443541014667365408)
+,p_name=>'HORA_SALIDA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'HORA_SALIDA'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>50
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_format_mask=>'DD/MM/YYYY HH24:MI'
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443539058578365401)
+,p_name=>'PLACA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'PLACA'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>30
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443542072770365411)
+,p_name=>'PUNTO_ORIGEN'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'PUNTO_ORIGEN'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Punto Origen'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>60
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443543003943365415)
+,p_name=>'RUTA_GENERAL'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'RUTA_GENERAL'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Ruta General'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>70
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13443545027505365423)
+,p_name=>'TARIFA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'TARIFA'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Tarifa'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>90
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_lov_type=>'NONE'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113063819Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_interactive_grid(
+ p_id=>wwv_flow_imp.id(13443536398615365390)
+,p_internal_uid=>13443536398615365390
+,p_is_editable=>true
+,p_edit_operations=>'u'
+,p_update_authorization_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_lost_update_check_type=>'VALUES'
+,p_lazy_loading=>false
+,p_requires_filter=>false
+,p_select_first_row=>true
+,p_fixed_row_height=>true
+,p_pagination_type=>'SCROLL'
+,p_show_total_row_count=>true
+,p_show_toolbar=>true
+,p_enable_save_public_report=>false
+,p_enable_subscriptions=>true
+,p_enable_flashback=>true
+,p_define_chart_view=>true
+,p_enable_download=>true
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
+,p_enable_mail_download=>true
+,p_fixed_header=>'PAGE'
+,p_show_icon_view=>false
+,p_show_detail_view=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113063256Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_ig_report(
+ p_id=>wwv_flow_imp.id(13443537069873365393)
+,p_interactive_grid_id=>wwv_flow_imp.id(13443536398615365390)
+,p_static_id=>'primary'
+,p_type=>'PRIMARY'
+,p_default_view=>'GRID'
+,p_show_row_number=>false
+,p_settings_area_expanded=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113062849Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_ig_report_view(
+ p_id=>wwv_flow_imp.id(13443537194966365393)
+,p_report_id=>wwv_flow_imp.id(13443537069873365393)
+,p_view_type=>'GRID'
+,p_stretch_columns=>true
+,p_srv_exclude_null_values=>false
+,p_srv_only_display_columns=>true
+,p_edit_mode=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443538522548365400)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>0
+,p_column_id=>wwv_flow_imp.id(13443538082110365397)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443539596446365404)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>1
+,p_column_id=>wwv_flow_imp.id(13443539058578365401)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443540528847365407)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>2
+,p_column_id=>wwv_flow_imp.id(13443540029607365404)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443541554064365411)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>3
+,p_column_id=>wwv_flow_imp.id(13443541014667365408)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443542539259365415)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>4
+,p_column_id=>wwv_flow_imp.id(13443542072770365411)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443543501921365418)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>5
+,p_column_id=>wwv_flow_imp.id(13443543003943365415)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443544513402365422)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>6
+,p_column_id=>wwv_flow_imp.id(13443544046210365419)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443545583085365426)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>7
+,p_column_id=>wwv_flow_imp.id(13443545027505365423)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443546561268365430)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>8
+,p_column_id=>wwv_flow_imp.id(13443546040181365427)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443547532483365434)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>9
+,p_column_id=>wwv_flow_imp.id(13443547041090365431)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13443548549780365436)
+,p_view_id=>wwv_flow_imp.id(13443537194966365393)
+,p_display_seq=>10
+,p_column_id=>wwv_flow_imp.id(13443548030746365434)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(13443549053767365438)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(13443536265894365388)
+,p_process_type=>'NATIVE_IG_DML'
+,p_process_name=>'Gestionar Viajes - Save Interactive Grid Data'
+,p_static_id=>'gestionar-viajes-save-interactive-grid-data'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'dml_plsql_code', wwv_flow_string.join(wwv_flow_t_varchar2(
+    'DECLARE',
+    '    v_estado Viajes.estado%TYPE;',
+    '    v_salida Viajes.hora_salida%TYPE;',
+    '    v_fecha DATE;',
+    '    v_hora DATE;',
+    'BEGIN',
+    '    IF :APEX$ROW_STATUS IS NULL',
+    '       OR :APEX$ROW_STATUS <> ''U'' THEN',
+    '        RAISE_APPLICATION_ERROR(',
+    '            -20001,',
+    '            ''Solo se permite actualizar viajes existentes.''',
+    '        );',
+    '    END IF;',
+    '',
+    '    v_fecha := TO_DATE(:FECHA, ''DD/MM/YYYY'');',
+    '    v_hora := TO_DATE(:HORA_SALIDA, ''DD/MM/YYYY HH24:MI'');',
+    '',
+    '    SELECT V.estado, V.hora_salida',
+    '    INTO v_estado, v_salida',
+    '    FROM Viajes V',
+    '    WHERE V.placa = :PLACA',
+    '      AND V.fecha = v_fecha',
+    '      AND V.hora_salida = v_hora',
+    '      AND EXISTS (',
+    '          SELECT 1',
+    '          FROM Vehiculos VEH',
+    '          WHERE VEH.placa = V.placa',
+    '            AND VEH.documento_conductor = :G_DOCUMENTO_USUARIO',
+    '      )',
+    '    FOR UPDATE;',
+    '',
+    '    IF :ESTADO IS NULL THEN',
+    '        RAISE_APPLICATION_ERROR(',
+    '            -20002,',
+    '            ''Selecciona un estado para el viaje.''',
+    '        );',
+    '    END IF;',
+    '',
+    '    IF :ESTADO <> v_estado THEN',
+    '        IF v_estado IN (''Completado'', ''Cancelado'') THEN',
+    '            RAISE_APPLICATION_ERROR(',
+    '                -20003,',
+    '                ''No puedes modificar un viaje completado o cancelado.''',
+    '            );',
+    '        END IF;',
+    '',
+    '        IF :ESTADO = ''Cancelado'' THEN',
+    '            IF v_estado NOT IN (''Programado'', ''En curso'') THEN',
+    '                RAISE_APPLICATION_ERROR(',
+    '                    -20004,',
+    '                    ''El estado actual no permite cancelar el viaje.''',
+    '                );',
+    '            END IF;',
+    '',
+    '            IF v_salida < CURRENT_DATE + 2 / 24 THEN',
+    '                RAISE_APPLICATION_ERROR(',
+    '                    -20005,',
+    unistr('                    ''Debes cancelar el viaje con al menos dos horas de anticipaci\00F3n.'''),
+    '                );',
+    '            END IF;',
+    '',
+    '        ELSIF v_estado = ''Programado''',
+    '              AND :ESTADO = ''En curso'' THEN',
+    '            NULL;',
+    '',
+    '        ELSIF v_estado = ''En curso''',
+    '              AND :ESTADO = ''Completado'' THEN',
+    '            NULL;',
+    '',
+    '        ELSE',
+    '            RAISE_APPLICATION_ERROR(',
+    '                -20006,',
+    '                ''El cambio permitido es de Programado a En curso y de En curso a Completado.''',
+    '            );',
+    '        END IF;',
+    '',
+    '        UPDATE Viajes',
+    '        SET estado = :ESTADO',
+    '        WHERE placa = :PLACA',
+    '          AND fecha = v_fecha',
+    '          AND hora_salida = v_hora;',
+    '',
+    '        IF :ESTADO = ''Cancelado'' THEN',
+    '            UPDATE Solicitudes',
+    '            SET estado_solicitud = ''Cancelada''',
+    '            WHERE placa = :PLACA',
+    '              AND fecha = v_fecha',
+    '              AND hora_salida = v_hora',
+    '              AND estado_solicitud IN (''Pendiente'', ''Aceptada'');',
+    '        END IF;',
+    '    END IF;',
+    '',
+    'EXCEPTION',
+    '    WHEN NO_DATA_FOUND THEN',
+    '        RAISE_APPLICATION_ERROR(',
+    '            -20007,',
+    unistr('            ''No se encontr\00F3 el viaje o no pertenece a tus veh\00EDculos.'''),
+    '        );',
+    'END;')),
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'target_type', 'PLSQL_CODE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_security_scheme=>wwv_flow_imp.id(9092509392871834354)
+,p_internal_uid=>13443549053767365438
+,p_created_on=>wwv_flow_imp.dz('20261113062849Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113222713Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00016
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>16
+,p_name=>'Historial de Viajes'
+,p_alias=>'HISTORIAL-DE-VIAJES'
+,p_step_title=>'Historial de Viajes'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(9092509392871834354)
+,p_protection_level=>'C'
+,p_page_component_map=>'18'
+,p_created_on=>wwv_flow_imp.dz('20261113163547Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261113164109Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(13547390866531390508)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20261113163547Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163547Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(13547400174670390837)
+,p_plug_name=>'Historial de Viajes'
+,p_static_id=>'historial-de-viajes'
+,p_region_template_options=>'#DEFAULT#:t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2102002977963900996
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT',
+'    V.placa,',
+'    V.fecha,',
+'    V.hora_salida,',
+'    V.punto_origen,',
+'    V.ruta_general,',
+'    V.estado,',
+'    V.tarifa,',
+'    V.cupos_disponibles,',
+'    V.distancia,',
+'    V.duracion,',
+'    E.documento_identidad AS documento_pasajero,',
+'    E.nombre || '' '' || E.apellidos AS pasajero,',
+'    E.numero_celular AS telefono_pasajero,',
+'    S.punto_recogida',
+'FROM Viajes V',
+'JOIN Vehiculos VEH',
+'    ON VEH.placa = V.placa',
+'LEFT JOIN Solicitudes S',
+'    ON S.placa = V.placa',
+'    AND S.fecha = V.fecha',
+'    AND S.hora_salida = V.hora_salida',
+'    AND S.estado_solicitud = ''Aceptada''',
+'LEFT JOIN Estudiantes E',
+'    ON E.documento_identidad = S.doc_pasajero',
+'WHERE VEH.documento_conductor = :G_DOCUMENTO_USUARIO'))
+,p_plug_source_type=>'NATIVE_IR'
+,p_prn_content_disposition=>'ATTACHMENT'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_ai_enabled=>false
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164109Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet(
+ p_id=>wwv_flow_imp.id(13547400269176390837)
+,p_max_row_count_message=>'The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.'
+,p_no_data_found_message=>'No data found.'
+,p_pagination_type=>'ROWS_X_TO_Y'
+,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_report_list_mode=>'TABS'
+,p_lazy_loading=>false
+,p_show_detail_link=>'N'
+,p_show_notify=>'Y'
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
+,p_enable_mail_download=>'Y'
+,p_internal_uid=>13547400269176390837
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164109Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547404262042390853)
+,p_db_column_name=>'CUPOS_DISPONIBLES'
+,p_display_order=>8
+,p_column_identifier=>'H'
+,p_column_label=>'Cupos Disponibles'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547404694399390854)
+,p_db_column_name=>'DISTANCIA'
+,p_display_order=>9
+,p_column_identifier=>'I'
+,p_column_label=>'Distancia'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547405480781390857)
+,p_db_column_name=>'DOCUMENTO_PASAJERO'
+,p_display_order=>11
+,p_column_identifier=>'K'
+,p_column_label=>'Documento Pasajero'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547405098468390856)
+,p_db_column_name=>'DURACION'
+,p_display_order=>10
+,p_column_identifier=>'J'
+,p_column_label=>'Duracion'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547403496823390850)
+,p_db_column_name=>'ESTADO'
+,p_display_order=>6
+,p_column_identifier=>'F'
+,p_column_label=>'Estado'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547401867569390845)
+,p_db_column_name=>'FECHA'
+,p_display_order=>2
+,p_column_identifier=>'B'
+,p_column_label=>'Fecha'
+,p_column_type=>'DATE'
+,p_heading_alignment=>'LEFT'
+,p_format_mask=>'DD/MM/YYYY'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164109Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547402207163390846)
+,p_db_column_name=>'HORA_SALIDA'
+,p_display_order=>3
+,p_column_identifier=>'C'
+,p_column_label=>'Hora Salida'
+,p_column_type=>'DATE'
+,p_heading_alignment=>'LEFT'
+,p_format_mask=>'DD/MM/YYYY HH24:MI'
+,p_tz_dependent=>'N'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164109Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547405834639390858)
+,p_db_column_name=>'PASAJERO'
+,p_display_order=>12
+,p_column_identifier=>'L'
+,p_column_label=>'Pasajero'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547401478557390843)
+,p_db_column_name=>'PLACA'
+,p_display_order=>1
+,p_column_identifier=>'A'
+,p_column_label=>'Placa'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547402605552390848)
+,p_db_column_name=>'PUNTO_ORIGEN'
+,p_display_order=>4
+,p_column_identifier=>'D'
+,p_column_label=>'Punto Origen'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547406653285390861)
+,p_db_column_name=>'PUNTO_RECOGIDA'
+,p_display_order=>14
+,p_column_identifier=>'N'
+,p_column_label=>'Punto Recogida'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547403045147390849)
+,p_db_column_name=>'RUTA_GENERAL'
+,p_display_order=>5
+,p_column_identifier=>'E'
+,p_column_label=>'Ruta General'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547403833205390852)
+,p_db_column_name=>'TARIFA'
+,p_display_order=>7
+,p_column_identifier=>'G'
+,p_column_label=>'Tarifa'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(13547406224623390860)
+,p_db_column_name=>'TELEFONO_PASAJERO'
+,p_display_order=>13
+,p_column_identifier=>'M'
+,p_column_label=>'Telefono Pasajero'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+,p_available_clientside=>'N'
+,p_created_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163550Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_worksheet_rpt(
+ p_id=>wwv_flow_imp.id(13547773723133031139)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_alias=>'primary'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'PLACA:FECHA:HORA_SALIDA:PUNTO_ORIGEN:RUTA_GENERAL:ESTADO:TARIFA:CUPOS_DISPONIBLES:DISTANCIA:DURACION:DOCUMENTO_PASAJERO:PASAJERO:TELEFONO_PASAJERO:PUNTO_RECOGIDA'
+,p_created_on=>wwv_flow_imp.dz('20261113163946Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113163946Z')
+,p_created_by=>'CONDUCTOR_PRUEBA01'
+,p_updated_by=>'CONDUCTOR_PRUEBA01'
+);
+end;
+/
+prompt --application/pages/page_00019
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>19
+,p_name=>'Editar mi perfil'
+,p_alias=>'EDITAR-MI-PERFIL'
+,p_step_title=>'Editar mi perfil'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(9092634554587221037)
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+,p_created_on=>wwv_flow_imp.dz('20261113164654Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261114030024Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(13549061531920457261)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20261113164655Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164655Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(13549062399539457410)
+,p_plug_name=>'Editar mi perfil'
+,p_static_id=>'editar-mi-perfil'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4073835273271169698
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'TABLE'
+,p_query_table=>'ESTUDIANTES'
+,p_query_where=>'documento_identidad = :G_DOCUMENTO_USUARIO'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164811Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(13549067580954457416)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_button_name=>'CANCEL'
+,p_static_id=>'cancel'
+,p_show_as_disabled=>false
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'CLOSE'
+,p_button_redirect_url=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(13549068806635457418)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_button_name=>'CREATE'
+,p_static_id=>'create'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create'
+,p_button_position=>'CREATE'
+,p_button_condition_type=>'NEVER'
+,p_database_action=>'INSERT'
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113165043Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(13549068083402457417)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_button_name=>'DELETE'
+,p_static_id=>'delete'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Delete'
+,p_button_position=>'DELETE'
+,p_button_execute_validations=>'N'
+,p_confirm_message=>'&APP_TEXT$DELETE_MSG!RAW.'
+,p_confirm_style=>'danger'
+,p_button_condition_type=>'NEVER'
+,p_database_action=>'DELETE'
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113165043Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(13549068496589457417)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_button_name=>'SAVE'
+,p_static_id=>'save'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Apply Changes'
+,p_button_position=>'CHANGE'
+,p_button_condition=>'P19_DOCUMENTO_IDENTIDAD'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'UPDATE'
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(13549069204112457418)
+,p_branch_action=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_sequence=>1
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(13549063403782457412)
+,p_name=>'P19_APELLIDOS'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_item_source_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_prompt=>'Apellidos'
+,p_source=>'APELLIDOS'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>100
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(13549064601527457414)
+,p_name=>'P19_CORREO_INSTITUCIONAL'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_item_source_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_prompt=>'Correo Institucional'
+,p_source=>'CORREO_INSTITUCIONAL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>100
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(13549062642673457411)
+,p_name=>'P19_DOCUMENTO_IDENTIDAD'
+,p_source_data_type=>'NUMBER'
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_item_source_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_source=>'DOCUMENTO_IDENTIDAD'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(13549063078388457412)
+,p_name=>'P19_NOMBRE'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_item_source_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_prompt=>'Nombre'
+,p_source=>'NOMBRE'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>100
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(1976848584246408549)
+,p_name=>'P19_NUEVO_DOCUMENTO'
+,p_is_required=>true
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_item_default=>'G_DOCUMENTO_USUARIO'
+,p_item_default_type=>'ITEM'
+,p_prompt=>'Documento de identidad'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>1610598304472262251
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113224921Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113224921Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(13549065013509457414)
+,p_name=>'P19_NUMERO_CELULAR'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_item_source_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_prompt=>'Numero Celular'
+,p_source=>'NUMERO_CELULAR'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'number_alignment', 'left',
+  'virtual_keyboard', 'decimal')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(13549064298759457413)
+,p_name=>'P19_PROGRAMA'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_item_source_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_prompt=>'Programa'
+,p_source=>'PROGRAMA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>100
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(13549063893779457413)
+,p_name=>'P19_UNIVERSIDAD'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_item_source_plug_id=>wwv_flow_imp.id(13549062399539457410)
+,p_prompt=>'Universidad'
+,p_source=>'UNIVERSIDAD'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>100
+,p_label_alignment=>'RIGHT'
+,p_field_template=>1610598484065263269
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(1976848617015408550)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Cambiar documento'
+,p_static_id=>'cambiar-documento'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'    v_anterior Estudiantes.documento_identidad%TYPE;',
+'    v_nuevo NUMBER;',
+'    v_existe NUMBER;',
+'    v_documento Estudiantes.documento_identidad%TYPE;',
+'BEGIN',
+'    v_anterior := :G_DOCUMENTO_USUARIO;',
+'    v_nuevo := :P19_NUEVO_DOCUMENTO;',
+'',
+'    IF v_anterior IS NULL THEN',
+'        RAISE_APPLICATION_ERROR(',
+'            -20001,',
+unistr('            ''Debes iniciar sesi\00F3n para editar tu perfil.'''),
+'        );',
+'    END IF;',
+'',
+'    IF v_nuevo IS NULL',
+'       OR v_nuevo <= 0',
+'       OR v_nuevo <> TRUNC(v_nuevo)',
+'       OR v_nuevo >= 1000000000000000 THEN',
+'        RAISE_APPLICATION_ERROR(',
+'            -20002,',
+unistr('            ''Ingresa un documento v\00E1lido de m\00E1ximo 15 d\00EDgitos.'''),
+'        );',
+'    END IF;',
+'',
+'    IF v_nuevo <> v_anterior THEN',
+'        SELECT documento_identidad',
+'        INTO v_documento',
+'        FROM Estudiantes',
+'        WHERE documento_identidad = v_anterior',
+'        FOR UPDATE;',
+'',
+'        SELECT COUNT(*)',
+'        INTO v_existe',
+'        FROM Estudiantes',
+'        WHERE documento_identidad = v_nuevo;',
+'',
+'        IF v_existe > 0 THEN',
+'            RAISE_APPLICATION_ERROR(',
+'                -20003,',
+unistr('                ''Ese documento ya est\00E1 registrado.'''),
+'            );',
+'        END IF;',
+'',
+'        SAVEPOINT cambio_documento;',
+'',
+'        BEGIN',
+'            EXECUTE IMMEDIATE',
+'                ''SET CONSTRAINTS',
+'                    FK_CONDUCTORES_ESTUDIANTE,',
+'                    FK_PASAJEROS_ESTUDIANTE,',
+'                    FK_SOLICITUDES_PASAJERO,',
+'                    FK_VEHICULOS_CONDUCTOR',
+'                 DEFERRED'';',
+'',
+'            UPDATE Estudiantes',
+'            SET documento_identidad = v_nuevo',
+'            WHERE documento_identidad = v_anterior;',
+'',
+'            UPDATE Pasajeros',
+'            SET documento_identidad = v_nuevo',
+'            WHERE documento_identidad = v_anterior;',
+'',
+'            UPDATE Conductores',
+'            SET documento_identidad = v_nuevo',
+'            WHERE documento_identidad = v_anterior;',
+'',
+'            UPDATE Solicitudes',
+'            SET doc_pasajero = v_nuevo',
+'            WHERE doc_pasajero = v_anterior;',
+'',
+'            UPDATE Vehiculos',
+'            SET documento_conductor = v_nuevo',
+'            WHERE documento_conductor = v_anterior;',
+'',
+'            UPDATE APP_USUARIO_ROL',
+'            SET documento_identidad = v_nuevo',
+'            WHERE documento_identidad = v_anterior;',
+'',
+'            EXECUTE IMMEDIATE',
+'                ''SET CONSTRAINTS',
+'                    FK_CONDUCTORES_ESTUDIANTE,',
+'                    FK_PASAJEROS_ESTUDIANTE,',
+'                    FK_SOLICITUDES_PASAJERO,',
+'                    FK_VEHICULOS_CONDUCTOR',
+'                 IMMEDIATE'';',
+'',
+'        EXCEPTION',
+'            WHEN OTHERS THEN',
+'                ROLLBACK TO cambio_documento;',
+'                RAISE;',
+'        END;',
+'',
+'        :P19_DOCUMENTO_IDENTIDAD := v_nuevo;',
+'        :G_DOCUMENTO_USUARIO := v_nuevo;',
+'    END IF;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(13549068496589457417)
+,p_security_scheme=>wwv_flow_imp.id(9092634554587221037)
+,p_internal_uid=>1976848617015408550
+,p_created_on=>wwv_flow_imp.dz('20261114030024Z')
+,p_updated_on=>wwv_flow_imp.dz('20261114030024Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(1976847727494408541)
+,p_process_sequence=>1
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Identificar pasajero actual'
+,p_static_id=>'identificar-pasajero-actual'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'    :P19_DOCUMENTO_IDENTIDAD := :G_DOCUMENTO_USUARIO;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_internal_uid=>1976847727494408541
+,p_created_on=>wwv_flow_imp.dz('20261113165304Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113165304Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(13549069674896457420)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(13549062399539457410)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form Editar mi perfil'
+,p_static_id=>'initialize-form-editar-mi-perfil'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'current_row_total_item', '',
+  'next_primary_key_items', '',
+  'previous_primary_key_items', '')).to_clob
+,p_internal_uid=>13549069674896457420
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(13549070027884457420)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(13549062399539457410)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form Editar mi perfil'
+,p_static_id=>'process-form-editar-mi-perfil'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'return_primary_keys_after_insert', 'Y',
+  'target_type', 'REGION_SOURCE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(13549068496589457417)
+,p_process_success_message=>'Perfil actualizado correctamente'
+,p_security_scheme=>wwv_flow_imp.id(9092634554587221037)
+,p_internal_uid=>13549070027884457420
+,p_created_on=>wwv_flow_imp.dz('20261113164656Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113165750Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_00020
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>20
+,p_name=>'Mis solicitudes'
+,p_alias=>'MIS-SOLICITUDES'
+,p_step_title=>'Mis solicitudes'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>4073832297226169690
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(9092634554587221037)
+,p_protection_level=>'C'
+,p_page_component_map=>'21'
+,p_created_on=>wwv_flow_imp.dz('20261113170730Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261113171908Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_last_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(13552419170263580855)
+,p_plug_name=>'Breadcrumb'
+,p_static_id=>'breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2532939663579242476
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_item_display_point=>'ABOVE'
+,p_menu_id=>wwv_flow_imp.id(129444848727872472239)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4073839682315169711
+,p_created_on=>wwv_flow_imp.dz('20261113170731Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113170731Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(13552420393175581204)
+,p_plug_name=>'Mis solicitudes'
+,p_static_id=>'mis-solicitudes'
+,p_region_template_options=>'#DEFAULT#:t-IRR-region--hideHeader js-addHiddenHeadingRoleDesc'
+,p_plug_template=>2102002977963900996
+,p_plug_display_sequence=>20
+,p_plug_item_display_point=>'ABOVE'
+,p_query_type=>'TABLE'
+,p_query_table=>'SOLICITUDES'
+,p_query_where=>'doc_pasajero = :G_DOCUMENTO_USUARIO'
+,p_include_rowid_column=>false
+,p_plug_source_type=>'NATIVE_IG'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width=>11
+,p_prn_height=>8.5
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#EEEEEE'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'bold'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#FFFFFF'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+,p_prn_border_color=>'#666666'
+,p_created_on=>wwv_flow_imp.dz('20261113170734Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113171712Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13552422113825581211)
+,p_name=>'APEX$ROW_ACTION'
+,p_session_state_data_type=>'VARCHAR2'
+,p_item_type=>'NATIVE_ROW_ACTION'
+,p_display_sequence=>20
+,p_updated_on=>wwv_flow_imp.dz('20261113170734Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13552421626736581209)
+,p_name=>'APEX$ROW_SELECTOR'
+,p_session_state_data_type=>'VARCHAR2'
+,p_item_type=>'NATIVE_ROW_SELECTOR'
+,p_display_sequence=>10
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'enable_multi_select', 'Y',
+  'hide_control', 'N',
+  'show_select_all', 'Y')).to_clob
+,p_updated_on=>wwv_flow_imp.dz('20261113170734Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13552423177310581213)
+,p_name=>'DOC_PASAJERO'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'DOC_PASAJERO'
+,p_data_type=>'NUMBER'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_HIDDEN'
+,p_display_sequence=>30
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'value_protected', 'Y')).to_clob
+,p_use_as_row_header=>false
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113170734Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13552428115259581223)
+,p_name=>'ESTADO_SOLICITUD'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'ESTADO_SOLICITUD'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_SELECT_LIST'
+,p_heading=>'Estado Solicitud'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>80
+,p_value_alignment=>'LEFT'
+,p_is_required=>true
+,p_lov_type=>'STATIC'
+,p_lov_source=>'STATIC:Pendiente;Pendiente,Aceptada;Aceptada,Rechazada;Rechazada,Cancelada;Cancelada'
+,p_lov_display_extra=>false
+,p_lov_display_null=>false
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'LOV'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113171712Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13552425127600581217)
+,p_name=>'FECHA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'FECHA'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Fecha del viaje'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>50
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_format_mask=>'DD/MM/YYYY'
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113171438Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13552429119866581226)
+,p_name=>'FECHA_SOLICITUD'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'FECHA_SOLICITUD'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Fecha Solicitud'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>90
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_format_mask=>'DD/MM/YYYY HH24:MI'
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113171438Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13552426149371581219)
+,p_name=>'HORA_SALIDA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'HORA_SALIDA'
+,p_data_type=>'DATE'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Salida'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>60
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_format_mask=>'DD/MM/YYYY HH24:MI'
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_date_ranges=>'ALL'
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113171438Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13552424145491581215)
+,p_name=>'PLACA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'PLACA'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Placa'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>40
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>true
+,p_include_in_export=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113171438Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_region_column(
+ p_id=>wwv_flow_imp.id(13552427149560581221)
+,p_name=>'PUNTO_RECOGIDA'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'PUNTO_RECOGIDA'
+,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_DISPLAY_ONLY'
+,p_heading=>'Punto Recogida'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>70
+,p_value_alignment=>'LEFT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'based_on', 'VALUE',
+  'format', 'PLAIN')).to_clob
+,p_lov_type=>'SHARED'
+,p_lov_id=>wwv_flow_imp.id(9422228422478660263)
+,p_lov_display_extra=>true
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'DISTINCT'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113171438Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_interactive_grid(
+ p_id=>wwv_flow_imp.id(13552420485942581205)
+,p_internal_uid=>13552420485942581205
+,p_is_editable=>true
+,p_edit_operations=>'u'
+,p_update_authorization_scheme=>wwv_flow_imp.id(9092634554587221037)
+,p_lost_update_check_type=>'VALUES'
+,p_lazy_loading=>false
+,p_requires_filter=>false
+,p_select_first_row=>true
+,p_fixed_row_height=>true
+,p_pagination_type=>'SCROLL'
+,p_show_total_row_count=>true
+,p_show_toolbar=>true
+,p_enable_save_public_report=>false
+,p_enable_subscriptions=>true
+,p_enable_flashback=>true
+,p_define_chart_view=>true
+,p_enable_download=>true
+,p_download_formats=>'CSV:HTML:XLSX:PDF'
+,p_enable_mail_download=>true
+,p_fixed_header=>'PAGE'
+,p_show_icon_view=>false
+,p_show_detail_view=>false
+,p_updated_on=>wwv_flow_imp.dz('20261113171541Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_ig_report(
+ p_id=>wwv_flow_imp.id(13552421102601581208)
+,p_interactive_grid_id=>wwv_flow_imp.id(13552420485942581205)
+,p_static_id=>'primary'
+,p_type=>'PRIMARY'
+,p_default_view=>'GRID'
+,p_show_row_number=>false
+,p_settings_area_expanded=>true
+,p_updated_on=>wwv_flow_imp.dz('20261113170734Z')
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_ig_report_view(
+ p_id=>wwv_flow_imp.id(13552421295312581208)
+,p_report_id=>wwv_flow_imp.id(13552421102601581208)
+,p_view_type=>'GRID'
+,p_stretch_columns=>true
+,p_srv_exclude_null_values=>false
+,p_srv_only_display_columns=>true
+,p_edit_mode=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13552422604866581212)
+,p_view_id=>wwv_flow_imp.id(13552421295312581208)
+,p_display_seq=>0
+,p_column_id=>wwv_flow_imp.id(13552422113825581211)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13552423639548581215)
+,p_view_id=>wwv_flow_imp.id(13552421295312581208)
+,p_display_seq=>1
+,p_column_id=>wwv_flow_imp.id(13552423177310581213)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13552424602145581217)
+,p_view_id=>wwv_flow_imp.id(13552421295312581208)
+,p_display_seq=>2
+,p_column_id=>wwv_flow_imp.id(13552424145491581215)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13552425647153581219)
+,p_view_id=>wwv_flow_imp.id(13552421295312581208)
+,p_display_seq=>3
+,p_column_id=>wwv_flow_imp.id(13552425127600581217)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13552426678290581221)
+,p_view_id=>wwv_flow_imp.id(13552421295312581208)
+,p_display_seq=>4
+,p_column_id=>wwv_flow_imp.id(13552426149371581219)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13552427642632581223)
+,p_view_id=>wwv_flow_imp.id(13552421295312581208)
+,p_display_seq=>5
+,p_column_id=>wwv_flow_imp.id(13552427149560581221)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13552428675723581225)
+,p_view_id=>wwv_flow_imp.id(13552421295312581208)
+,p_display_seq=>6
+,p_column_id=>wwv_flow_imp.id(13552428115259581223)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_ig_report_column(
+ p_id=>wwv_flow_imp.id(13552429658846581228)
+,p_view_id=>wwv_flow_imp.id(13552421295312581208)
+,p_display_seq=>7
+,p_column_id=>wwv_flow_imp.id(13552429119866581226)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(13552430117492581229)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(13552420393175581204)
+,p_process_type=>'NATIVE_IG_DML'
+,p_process_name=>'Mis solicitudes - Save Interactive Grid Data'
+,p_static_id=>'mis-solicitudes-save-interactive-grid-data'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'dml_plsql_code', wwv_flow_string.join(wwv_flow_t_varchar2(
+    'DECLARE',
+    '    v_estado Solicitudes.estado_solicitud%TYPE;',
+    '    v_fecha DATE;',
+    '    v_salida DATE;',
+    'BEGIN',
+    '    IF :APEX$ROW_STATUS IS NULL',
+    '       OR :APEX$ROW_STATUS <> ''U'' THEN',
+    '        RAISE_APPLICATION_ERROR(-20001,',
+    '            ''Solo puedes actualizar solicitudes existentes.'');',
+    '    END IF;',
+    '',
+    '    v_fecha := TO_DATE(:FECHA, ''DD/MM/YYYY'');',
+    '    v_salida := TO_DATE(:HORA_SALIDA, ''DD/MM/YYYY HH24:MI'');',
+    '',
+    '    SELECT estado_solicitud',
+    '    INTO v_estado',
+    '    FROM Solicitudes',
+    '    WHERE doc_pasajero = :G_DOCUMENTO_USUARIO',
+    '      AND doc_pasajero = :DOC_PASAJERO',
+    '      AND placa = :PLACA',
+    '      AND fecha = v_fecha',
+    '      AND hora_salida = v_salida',
+    '    FOR UPDATE;',
+    '',
+    '    IF :ESTADO_SOLICITUD IS NULL THEN',
+    '        RAISE_APPLICATION_ERROR(-20002,',
+    '            ''Selecciona un estado.'');',
+    '    END IF;',
+    '',
+    '    IF :ESTADO_SOLICITUD <> v_estado THEN',
+    '        IF v_estado <> ''Aceptada''',
+    '           OR :ESTADO_SOLICITUD <> ''Cancelada'' THEN',
+    '            RAISE_APPLICATION_ERROR(-20003,',
+    '                ''Solo puedes cambiar una solicitud aceptada a Cancelada.'');',
+    '        END IF;',
+    '',
+    '        UPDATE Viajes',
+    '        SET cupos_disponibles = cupos_disponibles + 1',
+    '        WHERE placa = :PLACA',
+    '          AND fecha = v_fecha',
+    '          AND hora_salida = v_salida',
+    '          AND estado = ''Programado''',
+    '          AND hora_salida >= CURRENT_DATE + 2 / 24;',
+    '',
+    '        IF SQL%ROWCOUNT = 0 THEN',
+    '            RAISE_APPLICATION_ERROR(-20004,',
+    unistr('                ''Solo puedes cancelar un cupo de un viaje programado con al menos dos horas de anticipaci\00F3n.'');'),
+    '        END IF;',
+    '',
+    '        UPDATE Solicitudes',
+    '        SET estado_solicitud = ''Cancelada''',
+    '        WHERE doc_pasajero = :G_DOCUMENTO_USUARIO',
+    '          AND placa = :PLACA',
+    '          AND fecha = v_fecha',
+    '          AND hora_salida = v_salida;',
+    '    END IF;',
+    '',
+    'EXCEPTION',
+    '    WHEN NO_DATA_FOUND THEN',
+    '        RAISE_APPLICATION_ERROR(-20005,',
+    '            ''La solicitud no existe o no pertenece a tu usuario.'');',
+    'END;')),
+  'lock_row', 'Y',
+  'prevent_lost_updates', 'Y',
+  'target_type', 'PLSQL_CODE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_security_scheme=>wwv_flow_imp.id(9092634554587221037)
+,p_internal_uid=>13552430117492581229
+,p_created_on=>wwv_flow_imp.dz('20261113170734Z')
+,p_updated_on=>wwv_flow_imp.dz('20261113171908Z')
+,p_created_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+,p_updated_by=>'S.VARGASL23@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/pages/page_09999
+begin
+wwv_flow_imp_page.create_page(
+ p_id=>9999
+,p_name=>'Login Page'
+,p_alias=>'LOGIN'
+,p_step_title=>'Parranderos New - Log In'
+,p_warn_on_unsaved_changes=>'N'
+,p_first_item=>'AUTO_FIRST_ITEM'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>2102634289808461002
+,p_page_template_options=>'#DEFAULT#'
+,p_page_is_public_y_n=>'Y'
+,p_protection_level=>'C'
+,p_page_component_map=>'12'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_last_updated_on=>wwv_flow_imp.dz('20261029032646Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_last_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(129444854491199472257)
+,p_plug_name=>'Parranderos New'
+,p_static_id=>'parranderos-new'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>2675634334296186762
+,p_plug_display_sequence=>10
+,p_plug_item_display_point=>'ABOVE'
+,p_region_image=>'#APP_FILES#icons/app-icon-512.png'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(129444856106838472259)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(129444854491199472257)
+,p_button_name=>'LOGIN'
+,p_static_id=>'login'
+,p_show_as_disabled=>false
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Sign In'
+,p_button_position=>'NEXT'
+,p_grid_new_row=>'Y'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(1929598400882764240)
+,p_button_sequence=>50
+,p_button_plug_id=>wwv_flow_imp.id(129444854491199472257)
+,p_button_name=>'REGISTRO'
+,p_static_id=>'registro'
+,p_show_as_disabled=>false
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>4073839297780169708
+,p_button_image_alt=>'Registrate'
+,p_button_position=>'NEXT'
+,p_button_redirect_url=>'f?p=&APP_ID.:4:&SESSION.::&DEBUG.:::'
+,p_warn_on_unsaved_changes=>null
+,p_created_on=>wwv_flow_imp.dz('20261029032646Z')
+,p_updated_on=>wwv_flow_imp.dz('20261029032646Z')
+,p_created_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+,p_updated_by=>'CA.ESPINOSAM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129444855454351472258)
+,p_name=>'P9999_PASSWORD'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(129444854491199472257)
+,p_prompt=>'Password'
+,p_placeholder=>'Password'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_PASSWORD'
+,p_cSize=>40
+,p_cMaxlength=>100
+,p_tag_attributes=>'autocomplete="current-password"'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>2042262243893469891
+,p_item_icon_css_classes=>'fa-key'
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'submit_when_enter_pressed', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129444855847371472259)
+,p_name=>'P9999_REMEMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(129444854491199472257)
+,p_prompt=>'Remember username'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_label_alignment=>'RIGHT'
+,p_display_when=>'apex_authentication.persistent_cookies_enabled'
+,p_display_when2=>'PLSQL'
+,p_display_when_type=>'EXPRESSION'
+,p_field_template=>2042262243893469891
+,p_item_template_options=>'#DEFAULT#'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'use_defaults', 'Y')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(129444855013945472258)
+,p_name=>'P9999_USERNAME'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(129444854491199472257)
+,p_prompt=>'Username'
+,p_placeholder=>'Username'
+,p_source_type=>'ALWAYS_NULL'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>40
+,p_cMaxlength=>100
+,p_tag_attributes=>'autocomplete="username"'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>2042262243893469891
+,p_item_icon_css_classes=>'fa-user'
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'disabled', 'N',
+  'submit_when_enter_pressed', 'N',
+  'subtype', 'TEXT',
+  'trim_spaces', 'BOTH')).to_clob
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(129444860239238472262)
+,p_process_sequence=>30
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_SESSION_STATE'
+,p_process_name=>'Clear Page(s) Cache'
+,p_static_id=>'clear-page-s-cache'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'type', 'CLEAR_CACHE_CURRENT_PAGE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>9261126774156205051
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(129444859800397472262)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Get Username Cookie'
+,p_static_id=>'get-username-cookie'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+':P9999_USERNAME := apex_authentication.get_login_username_cookie;',
+':P9999_REMEMBER := case when :P9999_USERNAME is not null then ''Y'' end;'))
+,p_process_clob_language=>'PLSQL'
+,p_internal_uid=>9261126335315205051
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(129444856539723472259)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_INVOKE_API'
+,p_process_name=>'Login'
+,p_static_id=>'login'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'package', 'APEX_AUTHENTICATION',
+  'package_method', 'LOGIN',
+  'type', 'PLSQL_PACKAGE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>9261123074641205048
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_invokeapi_comp_param(
+ p_id=>wwv_flow_imp.id(129444857511455472260)
+,p_page_process_id=>wwv_flow_imp.id(129444856539723472259)
+,p_page_id=>9999
+,p_name=>'p_password'
+,p_direction=>'IN'
+,p_data_type=>'VARCHAR2'
+,p_has_default=>false
+,p_display_sequence=>2
+,p_value_type=>'ITEM'
+,p_value=>'P9999_PASSWORD'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_invokeapi_comp_param(
+ p_id=>wwv_flow_imp.id(129444858035443472261)
+,p_page_process_id=>wwv_flow_imp.id(129444856539723472259)
+,p_page_id=>9999
+,p_name=>'p_set_persistent_auth'
+,p_direction=>'IN'
+,p_data_type=>'BOOLEAN'
+,p_has_default=>true
+,p_display_sequence=>3
+,p_value_type=>'API_DEFAULT'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_invokeapi_comp_param(
+ p_id=>wwv_flow_imp.id(129444857015446472260)
+,p_page_process_id=>wwv_flow_imp.id(129444856539723472259)
+,p_page_id=>9999
+,p_name=>'p_username'
+,p_direction=>'IN'
+,p_data_type=>'VARCHAR2'
+,p_has_default=>false
+,p_display_sequence=>1
+,p_value_type=>'ITEM'
+,p_value=>'P9999_USERNAME'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(129444858415598472261)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_INVOKE_API'
+,p_process_name=>'Set Username Cookie'
+,p_static_id=>'set-username-cookie'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'package', 'APEX_AUTHENTICATION',
+  'package_method', 'SEND_LOGIN_USERNAME_COOKIE',
+  'type', 'PLSQL_PACKAGE')).to_clob
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>9261124950516205050
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_invokeapi_comp_param(
+ p_id=>wwv_flow_imp.id(129444859373860472262)
+,p_page_process_id=>wwv_flow_imp.id(129444858415598472261)
+,p_page_id=>9999
+,p_name=>'p_consent'
+,p_direction=>'IN'
+,p_data_type=>'BOOLEAN'
+,p_has_default=>false
+,p_display_sequence=>2
+,p_value_type=>'ITEM'
+,p_value=>'P9999_REMEMBER'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+wwv_flow_imp_shared.create_invokeapi_comp_param(
+ p_id=>wwv_flow_imp.id(129444858909999472261)
+,p_page_process_id=>wwv_flow_imp.id(129444858415598472261)
+,p_page_id=>9999
+,p_name=>'p_username'
+,p_direction=>'IN'
+,p_data_type=>'VARCHAR2'
+,p_has_default=>false
+,p_display_sequence=>1
+,p_value_type=>'EXPRESSION'
+,p_value_language=>'PLSQL'
+,p_value=>'lower( :P9999_USERNAME )'
+,p_created_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_updated_on=>wwv_flow_imp.dz('20260615185929Z')
+,p_created_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+,p_updated_by=>'MA.ANGULOM1@UNIANDES.EDU.CO'
+);
+end;
+/
+prompt --application/deployment/definition
+begin
+null;
+end;
+/
+prompt --application/deployment/checks
+begin
+null;
+end;
+/
+prompt --application/deployment/buildoptions
+begin
+null;
+end;
+/
+prompt --application/end_environment
+begin
+wwv_flow_imp.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false)
+);
+commit;
+end;
+/
+set verify on feedback on define on
+prompt  ...done
